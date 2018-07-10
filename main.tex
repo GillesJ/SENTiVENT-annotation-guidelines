@@ -1,0 +1,52 @@
+\documentclass[a4paper]{report}
+\usepackage{titling}
+\usepackage{sentivent}
+
+\addbibresource{mendeley}
+\usetag{full} %use \tagged{full}{text} to have extra text for full publication with academic details, not relevant for students.
+
+\pretitle{%
+  \centering
+  \LARGE
+  \includegraphics[width=5cm]{img/semalyticslogonotext.png}\\[\bigskipamount]
+}
+\posttitle{\centering}
+
+\title{\scheme v0.1}
+\author{Gilles~Jacobs}
+\date{June 2018}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\chapter{Introduction}
+\input{tex/introduction.tex}
+
+\chapter{Economics and Financials Primer}
+\input{tex/primer.tex}
+
+\chapter{Annotating events}
+\label{chapter/events}
+\input{tex/events.tex}
+
+\chapter{Annotating entities}
+\label{chapter/entities}
+\input{tex/entities.tex}
+
+\chapter{Event and entity coreference}
+\label{chapter/coref}
+\input{tex/coref.tex}
+
+\chapter{Event Type overview}
+\label{chapter/eventtype}
+\input{tex/eventtype.tex}
+
+\printbibliography
+
+% \appendix
+% \input{tex/appendices.tex}
+
+\end{document}

@@ -1,0 +1,28 @@
+\section{Event coreference: event hoppers}
+
+To perform event coreference, we inherit Rich ERE's concept of event hoppers. \cite{LDC2016.rich_ere} A hopper is a group of annotated events that refer to the same event occurence. \textbf{Technically, all events must be put into a hopper: this means many hoppers are singletons. You do not need to annotate these explicitly.} Quoting \cite{LDC2016.rich_ere}:
+
+\begin{quote}
+    Tagged event mentions that refer to the same event occurrence will be grouped into Event Hoppers. Event Hopper is a more inclusive, less strict notion of event coreference as compared to strict event coreference in ACE and Light ERE. Event hoppers contain mentions of events that “feel” coreferential to the annotator even if they do not meet the earlier strict event identity requirement. More specifically, event mentions that have the following features go into the same hopper:
+
+    \begin{el}
+        § They have the same event type and subtype (exceptions to this are Contact.Contact and Transaction.Transaction mentions, which can be added to any Contact or Transaction hopper, respectively)
+        § They have the same temporal and location scope, though not necessarily the same temporal expression or specifically the same date (Attack in Baghdad on Thursday vs. Bombing in the Green Zone last week)
+        § Trigger granularity can be different (assaulting 32 people vs. wielded a knife)
+        § Event arguments may be non-coreferential or conflicting (18 killed vs. dozens killed)
+        § Realis status may be different (will travel [OTHER] to Europe next week vs. is on a 5-day trip [ACTUAL])
+    \end{el}
+\end{quote}
+
+\section{Entity coreference}
+
+After all entities in the article's text have been established, we establish entity coreference links. In example \ref{ex/ent_coref}, we annotated three mentions of Mark Zuckerberg in a text of four sentences. We link the three mentions referring to Mark Zuckerberg. All mentions have the same referent, though each is different: once a last name, then a full name, then a nominal phrase. 
+
+\begin{exe}
+    \ex\label{ex/ent_coref} \begin{xlist}
+        \ex \annxpl{Hoorzitting \emph{Zuckerberg}: ‘Sta open voor regels rond privacy’}
+        \ex \annxpl{\emph{Mark Zuckerberg} getuigde dinsdagavond tijdens een marathonzitting van meer dan vijf uur voor 44 Amerikaanse senatoren.}
+        \ex \annxpl{Na het misbruik van gegevens door Cambridge Analytica, neemt de kans toe dat er wetgeving komt die Facebook reguleert.}
+        \ex \annxpl{\emph{De Facebook-ceo} liet zich heel even verrassen door een vraag over zijn persoonlijke gegevens.}
+    \end{xlist}
+\end{exe}

@@ -1,0 +1,83 @@
+\ProvidesPackage{sentivent}
+
+% \usepackage{kpfonts}
+
+\usepackage{graphicx}
+\usepackage{tagging}
+\usepackage{markdown}
+
+\usepackage[
+backend=biber,
+style=numeric,
+citestyle=numeric,
+hyperref=true,
+natbib=true,
+sorting=none
+]{biblatex}
+
+\usepackage{multicol}
+\usepackage[usenames, dvipsnames]{color}
+
+\newcommand{\onpage}[1]{p. #1}
+\newcommand{\betweenpages}[2]{p. #1--#2}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\wip}{\textbf{WIP~}}
+
+% Doesn't work as intended.
+
+% allows you to include pdf pages from a separate file
+% https://stackoverflow.com/questions/2739159/inserting-a-pdf-file-in-latex
+% \includepdf[pages={1}]{myfile.pdf}
+\usepackage{pdfpages}
+\usepackage{tabularx}
+% \usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{ctable}
+
+\linespread{1.3} % 1.3 is one and a half spacing (and is nice), 1.6 is double spacing
+
+% custom fonts
+% \usepackage{fontspec}
+% \setmainfont[Ligatures=TeX]{NotoSans}[
+% Extension = .ttf ,
+% UprightFont = *-Regular ,
+% BoldFont = *-Bold ,
+% ItalicFont = *-Italic,
+% BoldItalicFont = *-BoldItalic
+% ]
+% \setmonofont{NotoMono.ttf}
+
+\usepackage[
+colorlinks=true,
+allcolors=blue
+]{hyperref}
+
+\usepackage{easylist}
+\usepackage[normalem]{ulem}
+
+\newcommand{\annxpl}[1]{\emph{#1}}
+\newcommand{\type}[1]{\texttt{#1}}
+\newcommand{\annhead}[1]{\emph{#1}}
+\newcommand{\anntrg}[1]{\dashuline{#1}}
+\newcommand{\expl}{\par \hspace{0.5em} $\rightarrow$ \hspace{0.5em}}
+
+\newenvironment{el}
+    {\bigskip \begin{easylist}[itemize]}
+    {\end{easylist} \bigskip}
+
+\usepackage{gb4e}
+\noautomath % This command cancels some behaviour in gb4e that causes trouble
+
+\newcommand{\project}{\textsc{Sent}i\textsc{vent}~}
+\newcommand{\scheme}{\textsc{Sent}i\textsc{vent} Event Annotation Guidelines~}
+
+\newenvironment{hint}
+    {
+        \begin{quote}
+        \color{Emerald}
+    }{
+        \end{quote}
+    }
+
+\newcommand{\cntnt}{\narrower \color{blue}}

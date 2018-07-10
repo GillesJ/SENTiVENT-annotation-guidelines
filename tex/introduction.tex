@@ -1,0 +1,38 @@
+The \scheme aims to label economic events that appear in news text as well as the entities that participate in those events.
+Every news article contains mentions of news events, like a CEO change, a strike, the merger of two companies, etc.
+We defined a set of labels to mark these events and a set of procedures to guide annotators in their work.
+
+The goal of the \project research project is to enable supervised learning for event extraction and sentiment analysis for economic news. This requires a manually created gold standard dataset.
+
+The \scheme are based on the Rich ERE annotation guidelines.
+Most elements are inherited from Rich ERE annotation, with some adaptations to fit the particularities of our research task.
+
+We mean to annotate all events in the economic event typology described in Chapter \ref{chapter/eventtype}.
+
+Rich ERE annotation is documented in \cite{LDC2016.rich_ere} and \cite{Song2015}. \cite{Consortium2008a} details event annotation in ACE, the predecessor of ERE.
+The examples used in this document are original or sourced from research data.
+
+\tagged{full}{One of the main difference with Rich ERE is that we only use Argument Fillers, i.e. any text span that. Rich ERE in contrast requires the more strict Argument Entities which are entity classes within the scope of the current event. Our approach is more similar to a frame semantic parsing task. Rich ERE uses the entity information because it has it at hand for other entity-related task.}
+
+Below, we present a summary of the annotation workflow. Chapter \ref{chapter/events} details the annotation procedure for events and chapter \ref{chapter/entities} for entities. Chapter \ref{chapter/coref} shows how to perform entity and event coreference. Appendix \ref{app/annotated_example} provides an example of a fully annotated article with explanations.
+
+\section{\project Goals}
+Explain what the goal is in simple terms. Why are these people annotating?
+
+\section{Workflow overview}
+
+The annotation procedure for events in a set of news text sentences can be summarized as follows:
+
+\bigskip
+\begin{easylist}[enumerate]
+    § In each sentence:
+        §§ Detect event triggers
+        §§ For each trigger:
+            §§§ Determine event type and realis
+            §§§ Look in the sentence for arguments the event type asks for
+            §§§ Annotate the entities that serve as arguments (if any are found)
+    § Perform entity coreference: establish identity links between the entities detected across all sentences (not always applicable)
+    § Form event hoppers: group events that intuitively refer to the same occurence across all sentences (not always applicable)
+\end{easylist}
+\bigskip
+
