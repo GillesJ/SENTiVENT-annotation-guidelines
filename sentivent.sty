@@ -1,11 +1,12 @@
 \ProvidesPackage{sentivent}
-
-% \usepackage{kpfonts}
-
+\usepackage{array}
+\usepackage{csquotes}
 \usepackage{graphicx}
+\usepackage[table]{xcolor}
 \usepackage{tagging}
 \usepackage{markdown}
-
+\usepackage[normalem]{ulem} % [normalem] prevents the package from changing the default behavior of `\emph` to underline.
+\usepackage[a4paper,left=2.42cm,right=2.42cm,top=2.42cm,bottom=3.61cm]{geometry}
 \usepackage[
 backend=biber,
 style=numeric,
@@ -14,28 +15,22 @@ hyperref=true,
 natbib=true,
 sorting=none
 ]{biblatex}
-
 \usepackage{multicol}
-\usepackage[usenames, dvipsnames]{color}
-
-\newcommand{\onpage}[1]{p. #1}
-\newcommand{\betweenpages}[2]{p. #1--#2}
-\newcommand{\code}[1]{\texttt{#1}}
-\newcommand{\wip}{\textbf{WIP~}}
-
-% Doesn't work as intended.
-
-% allows you to include pdf pages from a separate file
-% https://stackoverflow.com/questions/2739159/inserting-a-pdf-file-in-latex
-% \includepdf[pages={1}]{myfile.pdf}
 \usepackage{pdfpages}
 \usepackage{tabularx}
 % \usepackage{booktabs}
 \usepackage{multirow}
+\usepackage[english]{babel}
 \usepackage{longtable}
 \usepackage{ctable}
-
-\linespread{1.3} % 1.3 is one and a half spacing (and is nice), 1.6 is double spacing
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage[
+colorlinks=true,
+allcolors=blue
+]{hyperref}
+\usepackage{easylist}
+\usepackage[normalem]{ulem}
 
 % custom fonts
 % \usepackage{fontspec}
@@ -48,19 +43,36 @@ sorting=none
 % ]
 % \setmonofont{NotoMono.ttf}
 
-\usepackage[
-colorlinks=true,
-allcolors=blue
-]{hyperref}
+\linespread{1.3} % 1.3 is one and a half spacing (and is nice), 1.6 is double spacing
 
-\usepackage{easylist}
-\usepackage[normalem]{ulem}
+% ensure autoreference of chapter starts with capital Chapter:
+\addto\extrasenglish{%
+  \renewcommand{\chapterautorefname}{Chapter}%
+}
+\addto\extrasenglish{%
+  \renewcommand{\sectionautorefname}{Section}%
+}
 
-\newcommand{\annxpl}[1]{\emph{#1}}
+\newcommand{\onpage}[1]{p. #1}
+\newcommand{\betweenpages}[2]{p. #1--#2}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\wip}{\textbf{WIP~}}
+
+% inline markup
+\newcommand{\annexe}[1]{\textit{#1}}
 \newcommand{\type}[1]{\texttt{#1}}
 \newcommand{\annhead}[1]{\emph{#1}}
-\newcommand{\anntrg}[1]{\dashuline{#1}}
+\newcommand{\anntrg}[1]{\textbf{#1}}
+\newcommand{\exargpart}[1]{\underline{#1}}
+\newcommand{\exargfill}[1]{\dashuline{#1}}
 \newcommand{\expl}{\par \hspace{0.5em} $\rightarrow$ \hspace{0.5em}}
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1}.~\nameref*{#1}}}
+
+% % inline with types
+% \newcommand{\anntrg}[2]{%
+%     \textbf{#1}
+%     \ifthenelse{\equal{#2}{}}{}{\textsubscript{#2}}%
+% }
 
 \newenvironment{el}
     {\bigskip \begin{easylist}[itemize]}
@@ -69,8 +81,11 @@ allcolors=blue
 \usepackage{gb4e}
 \noautomath % This command cancels some behaviour in gb4e that causes trouble
 
+%  placeholder variables
 \newcommand{\project}{\textsc{Sent}i\textsc{vent}~}
 \newcommand{\scheme}{\textsc{Sent}i\textsc{vent} Event Annotation Guidelines~}
+\newcommand{\typecount}{14~}
+\newcommand{\subtypecount}{38~}
 
 \newenvironment{hint}
     {
@@ -81,3 +96,9 @@ allcolors=blue
     }
 
 \newcommand{\cntnt}{\narrower \color{blue}}
+
+\definecolor{lightergray}{RGB}{220,220,220}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}

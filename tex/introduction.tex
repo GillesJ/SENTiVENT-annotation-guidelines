@@ -12,12 +12,22 @@ We mean to annotate all events in the economic event typology described in Chapt
 Rich ERE annotation is documented in \cite{LDC2016.rich_ere} and \cite{Song2015}. \cite{Consortium2008a} details event annotation in ACE, the predecessor of ERE.
 The examples used in this document are original or sourced from research data.
 
-\tagged{full}{One of the main difference with Rich ERE is that we only use Argument Fillers, i.e. any text span that. Rich ERE in contrast requires the more strict Argument Entities which are entity classes within the scope of the current event. Our approach is more similar to a frame semantic parsing task. Rich ERE uses the entity information because it has it at hand for other entity-related task.}
+\tagged{full}{One of the main difference with Rich ERE is that we only do not tag entities separately, i.e. any text span that describes an event argument within the extent is tagged.
+Rich ERE in contrast requires the more strict Argument Entities which are entity classes within the scope/extent of the current event.
+(We do however make the Rich ERE discrimination in extent for pre-determined set of Argument Fillers which are bound to specific event types)
+Our approach is more similar to a frame semantic parsing task. Rich ERE uses the entity information because it has it at hand for other entity-related task.}
 
 Below, we present a summary of the annotation workflow. Chapter \ref{chapter/events} details the annotation procedure for events and chapter \ref{chapter/entities} for entities. Chapter \ref{chapter/coref} shows how to perform entity and event coreference. Appendix \ref{app/annotated_example} provides an example of a fully annotated article with explanations.
 
-\section{\project Goals}
-Explain what the goal is in simple terms. Why are these people annotating?
+\section{\project Goals and task}
+The goal of this annotation scheme is to produce a gold-standard labeled dataset for enabling supervised event extraction in the company-specific news text domain. Automated event processing is of interest in information extraction for many applications as one of the most important functions of language is communicating changes in the world.
+
+\tagged{full}{The task is highly similar to Righ ERE annotation scheme with the major difference that event arguments are not restricted by entity type. Entity types are not annotated. This make the task more similar to frame semantic parsing:
+The ACE/ERE-like task that we wish to enable in the economic domain with this dataset are:
+- Event nugget detection (): extract tuples of (event trigger token-span, event type, event subtype, realis). This is the shared task in the TAC-KBP 2014 event track \cite{Mitamura2015}. In comparison with other event conceptualizations such as \cite{sprugnoli2017} names this the Event Nugget conceptualization in DEFT Rich ERE: unlike ACE or Light ERE, Rich ERE allows for discontinuous and multi-token spans but are discouraged.
+- Event argument detection:  extract for events the roles filled 
+- Event nugget linking: Co-reference resolution based on events that semantically but not structurally (i.e. in arguments) refer the same event instance. This conception of event co-reference corresponds to ERE event hoppers.
+}
 
 \section{Workflow overview}
 
