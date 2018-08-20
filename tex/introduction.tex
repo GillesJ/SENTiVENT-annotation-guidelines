@@ -2,47 +2,150 @@ The \scheme aims to label economic events that appear in news text as well as th
 Every news article contains mentions of news events, like a CEO change, a strike, the merger of two companies, etc.
 We defined a set of labels to mark these events and a set of procedures to guide annotators in their work.
 
-The goal of the \project research project is to enable supervised learning for event extraction and sentiment analysis for economic news. This requires a manually created gold standard dataset.
+The goal of the \project research project is to enable supervised learning for event extraction and sentiment analysis for economic news.
+This requires a manually created gold standard dataset.
+For the purposes of \project, an event in the business news-wire text domain are real-world occurrences that affect and involve companies.
+The primary goal of company-specific news is reporting changes in the current state-of-affairs regarding businesses and the economy.
+This is why automated event processing is a natural task for information extraction in this domain.
+Deals, employee changes, product launches, company mergers or lawsuits are some intuitive examples of what constitutes an event in economic news. 
 
-The \scheme are based on the Rich ERE annotation guidelines.
+We annotate all events in the economic event typology described in \fullref{chapter/eventtype}.
+We do not annotate event outside of the typology.
+
+\tagged{full}{
+The \scheme are based on the Rich ERE annotation guidelines of the DEFT project as featured in the TAC-KBP Event and Entity tracks.
 Most elements are inherited from Rich ERE annotation, with some adaptations to fit the particularities of our research task.
-
-We mean to annotate all events in the economic event typology described in Chapter \ref{chapter/eventtype}.
-
+There are however significant differences in the purposes of the DEFT project and ours.
 Rich ERE annotation is documented in \cite{LDC2016.rich_ere} and \cite{Song2015}. \cite{Consortium2008a} details event annotation in ACE, the predecessor of ERE.
 The examples used in this document are original or sourced from research data.
 
-\tagged{full}{One of the main difference with Rich ERE is that we only do not tag entities separately, i.e. any text span that describes an event argument within the extent is tagged.
+One of the main difference with Rich ERE is that we only do not tag entities separately, i.e. any text span that describes an event argument within the extent is tagged.
 Rich ERE in contrast requires the more strict Argument Entities which are entity classes within the scope/extent of the current event.
-(We do however make the Rich ERE discrimination in extent for pre-determined set of Argument Fillers which are bound to specific event types)
+(We do however make the Rich ERE discrimination in extent for pre-determined set of Argument FILLERs which are bound to specific event types)
 Our approach is more similar to a frame semantic parsing task. Rich ERE uses the entity information because it has it at hand for other entity-related task.}
 
-Below, we present a summary of the annotation workflow. Chapter \ref{chapter/events} details the annotation procedure for events and chapter \ref{chapter/entities} for entities. Chapter \ref{chapter/coref} shows how to perform entity and event coreference. Appendix \ref{app/annotated_example} provides an example of a fully annotated article with explanations.
+Below, we present a summary of the annotation workflow. 
+\fullref{chapter/events} details the annotation procedure for events and \fullref{chapter/arguments} for event arguments.
+\fullref{chapter/coref} shows how to perform entity and event coreference.
+% Appendix \ref{app/annotated_example} provides an example of a fully annotated article with explanations.
 
-\section{\project Goals and task}
+\section{\project Goals and Task}
 The goal of this annotation scheme is to produce a gold-standard labeled dataset for enabling supervised event extraction in the company-specific news text domain. Automated event processing is of interest in information extraction for many applications as one of the most important functions of language is communicating changes in the world.
 
-\tagged{full}{The task is highly similar to Righ ERE annotation scheme with the major difference that event arguments are not restricted by entity type. Entity types are not annotated. This make the task more similar to frame semantic parsing:
+\tagged{full}{The task is highly similar to the Rich ERE annotation scheme with the major difference that event arguments are not restricted by entity type. Entity types are not annotated. This make the task more similar to frame semantic parsing:
 The ACE/ERE-like task that we wish to enable in the economic domain with this dataset are:
 - Event nugget detection (): extract tuples of (event trigger token-span, event type, event subtype, realis). This is the shared task in the TAC-KBP 2014 event track \cite{Mitamura2015}. In comparison with other event conceptualizations such as \cite{sprugnoli2017} names this the Event Nugget conceptualization in DEFT Rich ERE: unlike ACE or Light ERE, Rich ERE allows for discontinuous and multi-token spans but are discouraged.
 - Event argument detection:  extract for events the roles filled 
-- Event nugget linking: Co-reference resolution based on events that semantically but not structurally (i.e. in arguments) refer the same event instance. This conception of event co-reference corresponds to ERE event hoppers.
+- Event nugget linking: Co-reference resolution based on events that semantically but not structurally (i.e. in arguments) refer to the same event instance. This conception of event co-reference corresponds to ERE event hoppers.
 }
 
-\section{Workflow overview}
+\newpage
+
+\section{Workflow Overview}
 
 The annotation procedure for events in a set of news text sentences can be summarized as follows:
 
 \bigskip
-\begin{easylist}[enumerate]
-    § In each sentence:
-        §§ Detect event triggers
-        §§ For each trigger:
-            §§§ Determine event type and realis
-            §§§ Look in the sentence for arguments the event type asks for
-            §§§ Annotate the entities that serve as arguments (if any are found)
-    § Perform entity coreference: establish identity links between the entities detected across all sentences (not always applicable)
-    § Form event hoppers: group events that intuitively refer to the same occurence across all sentences (not always applicable)
-\end{easylist}
-\bigskip
+\begin{enumerate}[leftmargin=*]
+    \item Read the full article once.
+    \item If there are any problems with the quality of the article text:
+        \begin{enumerate}
+            \item Make an Annotation Issue Ticket on the team communications system (Slack). Copy and past the document identifier at the top of the WebAnno annotation window\\(e.g., \texttt{celg03\_waltham-based-dragonfly-inks-collaboration-with-celgene-bags.txt}).
+            \item Skip this article and move on to the next one.
+        \end{enumerate}
 
+    \item In each sentence:
+        \begin{enumerate}
+            \item Detect and annotate event triggers.
+            \item Examine the annotated trigger extent (the token span) for correctness: annotators will have to delete the full event structure if annotators want to edit this later, so it is of utmost importance this is correct before continuing.
+        \end{enumerate}
+        \item For each trigger:
+            \begin{enumerate}
+                \item Determine event type, subtype, and factuality.
+                \item Look in the sentence for Participant and FILLER arguments as required by the Event Typology.
+                \item Annotate the entities that serve as arguments (if any are present). Remember Event Mention Scope for Participant arguments.
+                \item If a Participant argument is pronominal, add a canonical mention coreference link to that Participant argument.
+            \end{enumerate}
+    \item Perform event coreference: chain together events that intuitively refer to the same occurrence across the document.
+    \item Re-read article and examine annotatorsr annotations on correctness.
+    Make adjustments where needed.
+\end{enumerate}
+
+\section{Practical Guidelines on Annotation and Article Content}
+
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item We encourage annotators to use search engines when they need to know more about a specific topic, company, ticker symbol, term, or other topics being discussed. \fullref{section:primer} contains suggestions for economics and finance resources for information look-up.
+    \item Annotators should at all times highlight any doubts regarding the annotation scheme and ask the supervisor for clarification. There are no stupid questions!
+    \item Keep the guidelines and typology handy during annotation and familiarize annotatorsrself thoroughly with the guidelines and typology properly before beginning.
+    \item The first line of the article is always the title. We annotate the title as we would the body.
+    \item Annotators should advice the supervisor any issues and problems with the annotation tool and/or text on the team communications channel (Slack).
+    \item Sentences that have no final punctuation but are followed by a full sentences are highly likely section titles of the article. These need to  be annotated too.
+\end{itemize}
+
+\subsection{Webtools Used in Annotation}
+
+\begin{itemize}[leftmargin=*]
+    \item Google Form for collecting annotator info:\\
+        This form is to be filled by all annotators for the purpose of academic reporting on annotation quality. All data collected remains confidential, anonymous, and is not to be published.\\
+        \texttt{url: \url{https://goo.gl/forms/0ZZvA6nG4pWQJlle2}}
+    
+    \item Annotation tool WebAnno v4.3.5:\\
+        WebAnno is the annotation web tool in which all annotation work will be done.
+        Use Chrome Browser to run WebAnno.\\
+        \texttt{url: \url{http://webanno.lt3.ugent.be/welcome.html}}\\
+        \texttt{username: anno\_XX} where \texttt{XX} is annotatorsr designated number.\\
+        \texttt{password: lt34nn0}
+        
+        Known bug: switching between annotation layers from the top drop-down menu sometimes does not work. Annotators should try to never leave the primary \texttt{a\_Event} layer unless for annotating canonical referents of pronominal Participant arguments in the \texttt{b\_Participant} layer. Annotators can fix this issue by re-selecting the previously selected layer annotators moved away from.
+        
+    \item Collaboration channel Slack:\\
+        Slack is an online chat-based collaboration environment for announcing issues in the annotation process and resolving annotation uncertainties. Annotators are to make an account before beginning annotation using their institutional email address.\\
+        \texttt{url: \url{https://lt3anno.slack.com/}}\\
+        
+        Report any problems with the quality of the article text and annotation tool bugs, such as:
+        \begin{itemize}[noitemsep]
+            \item Garbage strings and tag remainders from article website metadata.
+            \item Missing sentences or other content making the article incoherent.
+            \item The article contains a lot of figures and is automatically generated.
+            \item Any other issue that makes annotators feel the article is not human-written, complete or readable article.
+        \end{itemize}
+        \begin{enumerate}
+            \item Make an Issue Ticket on the team communications system (Slack) by typing \texttt{\\zendesk create\_ticket}.
+            Copy and past the document identifier at the top of the WebAnno annotation window\\(e.g., \texttt{celg03\_waltham-based-dragonfly-inks-collaboration-with-celgene-bags.txt}) in the ticket field and explain your problem.
+            \item Skip this article and move on to the next one.
+        \end{enumerate}
+\end{itemize}
+
+\subsection{Economics and Finance Primer} \label{section:primer}
+This section serves as an introduction to the economic topics discussed in the news articles.
+It is unlikely our annotators are professional economists or securities investors hence training is needed.
+This primer clarifies some of the concepts and terminology you will encounter.
+We cannot provide an exhaustive list, so we provide pointers to resources for information on economic topics.
+We urge annotators to look-up companies, their subsidiaries, core-business, using these resources and general-purpose search engines. 
+
+\subsubsection{Resources}
+For an overview of a company or corporation, all of its subsidiaries (daughter companies) can be found at:
+
+For general terminology, we advise to use a general purpose search engine.
+Prioritize Wikipedia and Investopedia results.\\
+
+\noindent
+Glossaries explaining economic, financial, and investing terminology:
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Brief, recommended reading:\\ \url{https://am.jpmorgan.com/us/en/asset-management/gim/adv/glossary-of-investment-terms}
+    \item \url{https://www.theguardian.com/business/glossary-business-terms-a-z-jargon}
+    \item Investopedia dictionary (extensive): \url{https://www.investopedia.com/dictionary/}
+    \item Financial Times Lexicon: \url{http://lexicon.ft.com/}
+\end{itemize}
+
+\noindent
+Wikis for economics and finance:
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Investopedia contains a vast curated resource of financial knowledge. Use it:\\
+    \url{https://www.investopedia.com/search/}
+\end{itemize}
+
+\subsection{Annotator Peer Review}
+Once annotators are sufficiently trained, peer resolution of issues will be enabled.
+In this process, annotators examine and verify problematic annotations of other annotators.
+Corrections are made when needed possible.

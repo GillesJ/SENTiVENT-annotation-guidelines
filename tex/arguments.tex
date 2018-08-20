@@ -1,60 +1,8 @@
-TODO: \\
-- CLOSEDOWN: think about Embedded Modifier Referent rule
-- CLOSEDOWN: finish discussing entity types
-- Find an example of p29. NOTE: one argument mention can only fill one slot: participant and filler type clash "attack on Europe" Target participant and PLACE filler. Does this happen for our types?\\
-- Insert an example of scope (but use color per event type) as on p. 31.\\
+\setcounter{section}{-1}
 
 This chapter describes the annotation of arguments of events.
 
-\section*{Basic concepts and terminology}
-\begin{description}[noitemsep]
-    \item[Event mention] An instance of an event in full-text annotation.
-    \item[Argument mention] An instance of an argument in full-text annotation.
-    \item[Event mention scope] The textual scope from which arguments and attributes are tagged for a specific event mention.
-    The event mention scope definition specifies the start and end of a specific event mention in the document 
-    \item[Filler argument] \tagged{full}{This is the Rich ERE equivalent of "Argument Filler".}
-    \item[Participant argument] \tagged{full}{This is the Rich ERE equivalent of "Event Participan Argument".}
-    \item[Extent] The textual boundaries (start and end) of a linguistic expression associated with an Participant or Filler argument.
-    The string of text we annotate to indicate a concept.
-    The extent rules described in these guidelines define restrictions on linguistic constructions (e.g. Noun Phrase, Prepositional Phrase, Pronoun, Proper Noun, Noun, etc.) that are allowed for that category.
-    Extent is different for Participant and Filler argument.
-    \item[Event Role]
-    \item[Taggability] The rules and circumstances in which a running full-text mention is tagged.
-\end{description}
-
-\section*{Typographical conventions}
-We lay out some typographical signifiers for consistency and ease of reading:
-\\[10pt]
-In \textbf{text examples}: \underline{Underline} shows the event arguments or potential event argument candidates.
-\textbf{Bold} indicates the event trigger.
-\\[10pt]
-\textbf{Event tables} take the following form:\\[10pt]
-\begin{tabular}{|l|l|} \hline
-\type{Type.Subtype} of event & "event trigger token span" \\\hline
-\type{EventParticipantArgument} in CamelCase & "Participant argument token span" \\
-\type{FILLERARGUMENT} in ALLCAPS & "Filler argument token span" \\\hline \end{tabular}
-\\\\
-A one sentence example containing two events:
-\begin{exe}
-\ex \annexe{The \underline{FDA} \anntrg{approved} \underline{the medicine} submitted by \underline{Johnson\&Johnson} in \underline{2013} and \underline{it} was \anntrg{launched} in \underline{February 2016}.}
-    \expl \begin{tabular}{|L{6cm}|L{7cm}|} \hline
-        \type{ProductService.Approval} & "approved" \\\hline
-        \type{Approver} & "FDA" \\
-        \type{Owner} & "Johnson\&Johnson" \\
-        \type{ProductService} & "the medicine" \\
-        \type{TIME} & "2013" \\
-        \hline \end{tabular}
-        \\\\ "approved" triggers \type{ProductService.Approval} event with \type{Owner} Participant argument "company", \type{ProductService} Participant argument "product line", \type{Approver} Participant argument "FDA".
-    \expl \begin{tabular}{|L{6cm}|L{7cm}|} \hline
-        % \rowcolor{lightergray}
-        \type{ProductService.Launch} & "launched" \\\hline
-        \type{Owner} & "Johnson\&Johnson" \\
-        \type{ProductService} & "it" \\
-        \type{TIME} & "February 2016" \\\hline \end{tabular}
-        \\\\ "launched" triggers event \type{ProductService.Launch} with \type{Owner} Participant argument "company", \type{ProductService} Participant argument "it", \type{TIME} Filler argument "2016".
-\end{exe}
-
-\section{Conceptually: arguments in events.}
+\section{Conceptually: Arguments in Events.}
 Events describe changing state in the world and encapsulate actions, relations, occurrences, etc.
 These involve multiple participating entities who are involved in one way or other:
 as agents (causers/initiators), patients (targets/undergoers, themes), qualifiers, quantifiers, specifiers and other descriptive modifiers.
@@ -70,39 +18,36 @@ INSERT EXAMPLE\\
 
 We distinguish between two types of arguments:
 \begin{enumerate}
-    \item \textbf{Participant} arguments: these are the text spans describing a participant that is involved in the event. 
-    For each type/subtype of event there will be a specific set of participant roles to be filled. \fullref{chapter/eventtype} describes what these slots are in detail.
-    \item \textbf{Filler} arguments:
-    Filler arguments are not central participants in the event but provide descriptive and discriminative information.
+    \item \textbf{Participant} arguments: these are the text spans describing a Participant that is involved in the event. 
+    For each type/subtype of event there is a specific set of Participant roles to be filled. \fullref{chapter/eventtype} describes what these slots are in detail.
+    \item \textbf{FILLER} arguments:
+    FILLER arguments are non-central arguments in the event but provide descriptive and discriminative information.
     They denote the the time, place, title, age, crime, commodity attached to an event.
     They serve as extra but vital information in characterizing the event.
-    Filler arguments differ from Participant in two ways:
+    FILLER arguments differ from Participant in two ways:
     i) they are not bound by event scope mention and can be tagged anywhere in the document.
     ii) They have to be full Noun Phrases (NP), unlike Participants that can be anaphoric pronouns.
-    For Filler arguments, the closest full NP mention will be tagged instead.
+    For FILLER arguments, the closest full NP mention will be tagged instead.
 \end{enumerate}
 
-\section{Technically: taggability of arguments.}
-Here we explain the general technical rules for tagging event arguments that \textbf{apply to both Participant and Filler arguments}.
+\section{Technically: Taggability of Arguments.}
+Here we explain the general technical rules for tagging event arguments that \textbf{apply to both Participant and FILLER arguments}.
 Most important are trigger proximity and the possible absence of arguments.\\
 
 \noindent\textbf{Argument slots can be left empty} if the relevant argument is not mentioned in the sentence.
 It is possible that some events have no explicit arguments in the sentence: their entire argument list is empty.
-We expect event triggers with empty arguments to be a rare, but occur in two contexts: 
-\begin{enumerate}
-    \item As a violation of Event mention scope:
-        \begin{exe}
-        \ex \annexe{\exargpart{Disney} \anntrg{premiered} its new movie Frozen. The \anntrg{release} received universal praise.}
-            \expl \begin{tabular}{|L{6cm}|L{7cm}|} \hline
-                \type{ProductService.Launch} & "release" \\\hline
-                \type{Owner} & \\
-                \type{ProductService} & \\
-                \hline \end{tabular}
-            \expl "release" triggers an \type{ProductService.Launch}, conceptually the \type{Owner}
-        \end{exe}
-\end{enumerate}
+We expect event triggers with empty arguments to be a rare, but they can occur when Event Mention Scope is violated: 
+\begin{exe}
+\ex \annexe{\exargpart{Disney} \anntrg{premiered} its new movie Frozen. The \anntrg{release} received universal praise.}
+    \expl \begin{tabular}{|L{6cm}|L{7cm}|} \hline
+        \type{ProductService.Launch} & "release" \\\hline
+        \type{Owner} & \\
+        \type{ProductService} & \\
+        \hline \end{tabular}
+    \expl "release" triggers an \type{ProductService.Launch}, conceptually the \type{Owner}
+\end{exe}
 
-\noindent\textbf{Shared argument rule}:
+\noindent\textbf{Shared Argument Rule}:
 When a candidate argument mention is also an argument in a different, non-coreferent event it is annotated.
 Events can be co-related and similar, but not coreferent:
 Non-coreferent events do not have the same \type{Type.Subtype} or do not refer to same exact event instance.
@@ -128,9 +73,9 @@ In these examples, the over- and underlined $\overline{\underline{argument}}$ sh
             \type{TIME} & "February 2016" \\\hline \end{tabular}
         \expl This is an instance of shared Participant arguments.
     \ex  \annexe{Amazon opened a new \anntrg{distribution center} in \underline{Glendale} where they secured a \anntrg{tax abatement deal} with local government.}
-        \expl "distribution center" \type{Facility.Open} event with \type{Owner} Participant argument "Amazon", \type{Facility} Participant argument "distribution center", \type{Place} Filler argument "Glendale".
-        \expl "tax abatement deal" \type{Deal} with \type{Partner} Participant argument "they", \type{Partner} Participant argument "local government", shared \type{Place} Filler argument "Glendale".
-        \expl This is an instance of shared Filler arguments.
+        \expl "distribution center" \type{Facility.Open} event with \type{Owner} Participant argument "Amazon", \type{Facility} Participant argument "distribution center", \type{Place} FILLER argument "Glendale".
+        \expl "tax abatement deal" \type{Deal} with \type{Partner} Participant argument "they", \type{Partner} Participant argument "local government", shared \type{Place} FILLER argument "Glendale".
+        \expl This is an instance of shared FILLER arguments.
 \end{exe}
 \end{samepage}
 
@@ -173,13 +118,13 @@ We allow overlapping annotations in cases where a modifier of an argument itself
     \expl these are two distinct events in which [Takata] serves as the \type{Defendant} Participant argument of the second event while being a modifier of the first event argument filler. 
 \end{exe}
 
-\textbf{Coordinated arguments rule}:
+\textbf{Coordinated Arguments Rule}:
 Multiple events can be started by one trigger when arguments are coordinated and they are clearly distinct events.
 However, argument coordination can also indicate one event with multiple arguments filling the same role.
 These rules help you decide whether to tag one event with multiple arguments in the same role or two events:
 \begin{enumerate}
-    \item If the TIME and PLACE Filler arguments are different or there are separate times and places indicated for coordinated arguments, tag two separate events.
-    \item If any other Participant or Filler argument is coordinated, tag a single event.
+    \item If the TIME and PLACE FILLER arguments are different or there are separate times and places indicated for coordinated arguments, tag two separate events.
+    \item If any other Participant or FILLER argument is coordinated, tag a single event.
     In this case there will be multiple arguments filling the same event argument role.
     \item If distinguishing between one or multiple events is too complicated, default to annotating a single event with multiple arguments.
 \end{enumerate}
@@ -193,7 +138,7 @@ These rules help you decide whether to tag one event with multiple arguments in 
             \type{ProductService} & "a sedan" \\
             \type{ProductService} & "a hatchback" \\
             \type{PLACE} & "Korea" \\\hline \end{tabular}
-    \expl One event triggered by "launch" of type \type{Product.Launch} with two ProductService participant arguments, one for "a sedan" and one for "a hatchback".
+    \expl One event triggered by "launch" of type \type{Product.Launch} with two ProductService Participant arguments, one for "a sedan" and one for "a hatchback".
     \ex The motor manufacturer plans to launch a sedan in China and a hatchback in Korea.
         \expl \begin{tabular}{|L{6cm}|L{7cm}|} \hline
             \type{ProductService.Launch} & "launch" \\\hline
@@ -210,7 +155,7 @@ These rules help you decide whether to tag one event with multiple arguments in 
         \expl Two separate events for trigger "fell" of type \type{SecurityPrice}.
 \end{exe}
 
-\textbf{General note on argument Extent}:
+\textbf{General Note on Argument Extent}:
 Your task is to find each taggable argument mention in the document, and label its extent – that is, the string of text that refers to the argument as a potentially discontinuous span of tokens.
 Mention extents generally begin and end at word (token) boundaries.
 
@@ -220,18 +165,18 @@ As a rule, you should also exclude punctuation characters like commas, periods, 
 
 \section{Participant Taggability}
 
-We distinguish two types of arguments: Participant and Filler arguments.
+We distinguish two types of arguments: Participant and FILLER arguments.
 This section discusses the annotation rules for Participant arguments.
-Their taggability is mainly different from Fillers by the Event Mention Scope and their extent.
+Their taggability is mainly different from FILLERs by the Event Mention Scope and their extent.
 
 A Participant argument is any entity that participates in a \tagged{full}{taggable} event mention.
 An entity is a unique object or set of objects in the world.
 For instance, a specific company, person, place, product or organization that is involved in the action of the event. 
-A Participant argument mention is a single occurrence of a \textbf{name}, \textbf{noun phrase}, or \textbf{pronominal phrase} that refers to, or describes, a single participant role.
-These specific participant roles are listed in \fullref{chapter/eventtype}.
+A Participant argument mention is a single occurrence of a \textbf{name}, \textbf{noun phrase}, or \textbf{pronominal phrase} that refers to, or describes, a single Participant role.
+These specific Participant roles are listed in \fullref{chapter/eventtype}.\\
 % The mention extent is a string of text that we annotate to indicate the occurrence of an argument mention. We link together multiple mentions of the same argument during entity coreference annotation.
 
-\textbf{Event mention scope rule}:
+\textbf{Event Mention Scope Rule}:
 We \textbf{only tag Participant argument mentions that occur within the event mention scope} for an event trigger.
 The event mention scope is defined as the span of a document from the first trigger of an event to the next trigger you see for the same, coreferent event.
 Event mention scopes do not begin and end at the trigger words themselves, but at sentence boundaries:
@@ -244,12 +189,12 @@ Always tag arguments closest to the event trigger.
 
 INSERT EXAMPLE FIGURE AS IN PAGE 31 of Rich ERE Event Guidelines.
 
-This rule does not apply to Argument Fillers.
-Unlike Participant arguments, Filler arguments are not bound by event mention scope and can be tagged anywhere in the document.
-Always tag the closest Filler argument mention to the event trigger as per Proximity Rule.
+This rule does not apply to Argument FILLERs.
+Unlike Participant arguments, FILLER arguments are not bound by event mention scope and can be tagged anywhere in the document.
+Always tag the closest FILLER argument mention to the event trigger as per Proximity Rule.
 
 \noindent\textbf{We only annotate arguments to a taggable event.}
-We annotate events first, then look for the participant role (or Filler argument) that the event requires. 
+We annotate events first, then look for the Participant role (or FILLER argument) that the event requires. 
 If an entity does not have a role as an event argument, we do not annotate it.\\
 
 \subsection{Participant extent rules}
@@ -261,23 +206,23 @@ Nominal Participant argument mentions are realized by a noun or full noun phrase
 This means we tag the full NP with children for nominally realized Participants.
 Appositive and relative clauses are included as long as they are children/dependent of the argument NP.
 This has the potential for long token span arguments, but we expect overly complex NPs to be rare.
-Proper names, acronyms, nicknames, aliases, abbreviations, ticker symbols, or another alternate names are nominal participant arguments.
+Proper names, acronyms, nicknames, aliases, abbreviations, ticker symbols, or another alternate names are nominal Participant arguments.
 Names will be tagged since they constitute NPs on their own or are part of NPs and are not given special treatment.
 
-In the following examples, the correct participant extent is [\exargpart{underlined and bracketed}].
+In the following examples, the correct Participant extent is [ \exargpart{underlined and bracketed} ].
 \begin{itemize}[noitemsep]
-    \item {\exargpart{[XYZ , another large company whose investors revolted]} underwent similar troubles.}
-    \item {\exargpart{Bill Robertson , the youngest XYZ Corp. executive}}, will
-    \item {[\exargpart{Apple 's former CEO Steve Jobs}]} ' replacement was announced today.
-    \item {[The \exargpart{Denver Broncos} sports team] entered into a sponsorship deal with [\exargpart{XYZ Corp}].}
-    \item {[\exargpart{The company 's baseline}] will likely benefit from [\exargfill{president Trump 's tax reform}]}
-    \item {[\exargpart{Microsoft}]} aka [\exargpart{MS}] aka [\exargpart{MSFT}] (ticker)
-    \item {[\exargpart{Pharma giant Johnson \& Johnson}]} announced breakthrough results [...]
-    \item {[\exargpart{Bill}]} and [\exargpart{Melinda Gates}]: see coordinated arguments.
-    \item {[\exargpart{The company which earlier proclaimed the merits of this feature}]} now admits to the scandal.
+    \item {[ \exargpart{XYZ , another large company whose investors revolted} ] underwent similar troubles.}
+    \item {[ \exargpart{Bill Robertson , the youngest XYZ Corp. executive} ], will step down...}
+    \item {[ \exargpart{Apple 's former CEO Steve Jobs} ] ' replacement was announced today.}
+    \item {[ \exargpart{The Denver Broncos sports team} ] entered into a sponsorship deal with [ \exargpart{XYZ Corp} ].}
+    \item {[ \exargpart{The company 's baseline} ] will likely benefit from [ \exargfill{president Trump 's tax reform} ] .}
+    \item {[ \exargpart{Microsoft} ] aka [ \exargpart{MS} ] aka [ \exargpart{MSFT} ] (ticker)}
+    \item {[ \exargpart{Pharma giant Johnson \& Johnson} ] announced breakthrough results.}
+    \item {[ \exargpart{Bill} ] and [ \exargpart{Melinda Gates} ]: see coordinated arguments.}
+    \item {[ \exargpart{The company which earlier proclaimed the merits of this feature} ] now admits to the scandal.}
 \end{itemize}
 
-\noindent\textbf{Pronominal participant arguments}:
+\noindent\textbf{Pronominal Participant arguments}:
 A pronominal argument mention is a referring expression that corresponds to a nominal or named entity.
 \textbf{The extent of a pronominal mention is just the single referring unit, typically a pronoun.}
 
@@ -322,8 +267,8 @@ This happens when the event trigger is part of a relative clause.
 \end{exe}
 
 
-\section{Canonical coreferent for pronominal mentions}
-When a pronominal participant argument is tagged, we annotate a coreference link to the most canonical mention of that entity in the document.
+\section{Canonical Coreferent for Pronominal Mentions}
+When a pronominal Participant argument is tagged, we annotate a coreference link to the most canonical mention of that entity in the document.
 This does not necessarily mean that we annotate a coreferent link to the nearest nominal coreferent mention.
 We link to the mention that best identifies and uniquely characterizes the referent of the pronominal mention.
 The goal is to obtain a highly referential mention for that entity that uniquely identifies the pronominal argument mention in question.
@@ -353,30 +298,29 @@ Unlike Rich ERE, we also do not tag the head of the NP as a simplification. When
 For relative clauses a distinction between specifying and non-specifying clauses would be useful, but we do not provide such annotations.
 }
  
-\section{Filler Argument Taggability}
-The Filler argument extent is the string of text we annotate to indicate a Filler argument.
-The rules for identifying the extent of a Filler argument will vary from type to type.
-This information is given for each specific Filler type in \fullref{chapter/events}.
+\section{FILLER Argument Taggability} \label{sec:FILLERargtagg}
+The FILLER argument extent is the string of text we annotate to indicate a FILLER argument.
+The rules for identifying the extent of a FILLER argument will vary from type to type.
+This information is given for each specific FILLER type in \fullref{chapter/events}.
 
-Many Filler arguments are mentioned by a noun phrase (NP).
-The extent of a Filler argument is the entire NP unless otherwise specified for its type.
-When it is difficult to decide if modifiers should be included or not, the Filler argument extent should be maximally inclusive.
+Many FILLER arguments are mentioned by a noun phrase (NP).
+The extent of a FILLER argument is the entire NP unless otherwise specified for its type.
+When it is difficult to decide if modifiers should be included or not, the FILLER argument extent should be maximally inclusive.
 In the case of a discontinuous extent, the extent goes to the end of the constituent, even if that means including tokens that are not part of the constituent.
 For example:
 \begin{exe}
     \ex The law-firm litigates \anntrg{a class action lawsuit} against \exargfill{Ford} for \exargfill{the bodged recall in 2018 of the} \exargfill{defective Takata airbags}.
-    \expl The extent of the ALLEGATION Filler argument [the bodged recall in 2018 of the defective Takata airbags]\textsubscript{ALLEGATION} contains pre-modifiers "the bodged" and prepositional phrase "in 2018" and runs until "airbags". The mention of "the recall" being due to "defective Takata airbags" is essential to the description of the event.
+    \expl The extent of the ALLEGATION FILLER argument [the bodged recall in 2018 of the defective Takata airbags]\textsubscript{ALLEGATION} contains pre-modifiers "the bodged" and prepositional phrase "in 2018" and runs until "airbags". The mention of "the recall" being due to "defective Takata airbags" is essential to the description of the event.
 \end{exe}
 
 The extent includes all the modifiers of an NP, including determiners, prepositional phrases, appositive phrases and relative clauses.
 
-Unlike Participant arguments, we do not annotate pronominal mentions for Fillers (e.g. "where" for PLACE and "when" for TIME) and tag the nominal mention closest to the event trigger.
+Unlike Participant arguments, we do not annotate pronominal mentions for FILLERs (e.g. "where" for PLACE and "when" for TIME) and tag the nominal mention closest to the event trigger.
+The specific FILLER argument types and their taggability are discussed in \fullref{sec:FILLERtypes}.\\[10pt]
 
-
-\section{Realis of arguments}
-The link between each event argument and its event trigger will be labeled with a realis attribute.
-Realis of arguments is independent from the event trigger and its other arguments.
-The realis attribute of an argument will only apply to the relationship of that particular argument to the event.
-
-The default value is ACTUAL, which is not marked. Only IRREALIS is marked when the argument is not asserted as a participant or filler in the event mention.
-
+\textbf{Difference Participant and FILLER}:
+FILLER arguments' taggability differs from Participant arguments in two ways:
+\begin{enumerate}[noitemsep, leftmargin=*]
+    \item Participant arguments must be tagged within Event Mention Scope, FILLER arguments can be tagged anywhere in the document. Always annotate the closest mention as per the Trigger Proximity Rule.
+    \item Participant arguments can be pronominal, filler arguments most be nominal (unless otherwise specified in the typology).
+\end{enumerate}

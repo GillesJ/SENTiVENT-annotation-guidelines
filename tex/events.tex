@@ -1,28 +1,39 @@
-This chapter describes the annotation of events, argument fillers and event co-reference (in the form of Event Hoppers).
+This chapter describes the annotation of events, argument FILLERs and event co-reference.
 
-\section{What is an event?}
+\section{What is an Event?}
 
 \subsubsection{Conceptually: events in economic news}
 
-An event is a textual description of a real-world occurrence that involves multiple participants.
+An event is a textual description of a real-world occurrence that involves multiple Participants.
 Generally, it describes a change of state in the world.
+Events have inherent temporality: they occupy a specific duration or point in time.
 An event describes what has happened, who was involved, at what time, in which place.
-Deals, employee changes, product launches, elections, company mergers or lawsuits are the some intuitive examples of what constitutes an event in economic news. 
 
-\subsubsection{Technically: features of an event}
+For the purposes of \project, an event in the business news-wire text domain are real-world occurrences that affect and involve companies.
+The primary goal of company-specific news is reporting changes in the current state-of-affairs regarding businesses and the economy.
+This is why automated event processing is a natural task for information extraction in this domain.
+Deals, employee changes, product launches, company mergers or lawsuits are some intuitive examples of what constitutes an event in economic news. 
+
+\subsubsection{Technically: Features of an Event}
 
 Technically, an event is always described explicitly in the text:
 First, the presence of an event is indicated by a lexical \textbf{trigger.}
-Second, each event belongs to a certain \textbf{type and subtype}.
+Second, each event belongs to a certain \type{Type} and optional \type{Subtype}.
 Events outside the typology are not tagged.
+Annotators first tag the main type of an event and subsequently tag the subtype.
+If a subtype cannot be assigned because its description is a bad fit, the subtype will not be tagged.
+
 We count \typecount types and \subtypecount subtypes (see appendix \fullref{chapter/eventtype}. 
 Third, we want to find the arguments (people, companies, products, etc.) that participate in the event.
 Fourth, we give the event a \textbf{realis} value that indicates if the event has actually happened or not.
 We also perform event co-reference to link event mentions to each other if they refer to the same event.
 
-In the following sections, we explain these elements in detail.
+In the following sections, we explain these elements in detail.\\
 
-\section{Event triggers}
+\noindent
+\textbf{We do not annotate events outside of the event typology.}
+
+\section{Event Triggers}
 
 The trigger of an event is the \textbf{minimal span of text} (a single word or a small phrase) that most succinctly expresses the occurrence of an event.
 It is often the main verb describing an action or a state.
@@ -32,14 +43,14 @@ We also indicate the \type{type and subtype} of most events in the example sente
 
 \begin{exe}
     \ex\label{ex/verb1} \annexe{On Monday, shares of biopharmaceutical company Celgene \anntrg{tumbled}}.
-        \expl the \textbf{verb} \anntrg{tumbled} is the trigger of a \type{SecurityValue} event.
+        \expl the verb \anntrg{tumbled} is the trigger of a \type{SecurityValue} event.
     \ex\label{ex/noun1} Noun: \annexe{[..] AA's exclusive airline \anntrg{sponsorship deal} with the World Series champion Cubs.}
         \expl the noun \anntrg{sponsorship deal} is the trigger of a \type{CSR/Brand} event.
     \ex\label{ex/noun2} \annexe{Viscen is revealed to be the \anntrg{buyer} of the ACX directories.}
-        \expl the \textbf{noun} \anntrg{buyer} is the trigger of a \type {MergerAcquisition} event.
+        \expl the noun \anntrg{buyer} is the trigger of a \type {MergerAcquisition} event.
 \end{exe}
 
-\subsection{Event trigger extent: What forms do event triggers take?}
+\subsection{Event Trigger Extent: What Forms Do Event Triggers Take?}
 As examples \ref{ex/verb1} and \ref{ex/noun1} show, the trigger can be a \textbf{verb}, but also a \textbf{noun}, \textbf{pronoun} or a past or present \textbf{participle} or \textbf{adjective} in modifier position.
 
 \begin{exe}
@@ -84,14 +95,14 @@ Anaphors of events such as \textbf{pronouns and definite descriptions} of previo
         \expl pronoun \anntrg{It} and definite noun \anntrg{affair} refers to a previous event \type{Product.Launch}.
 \end{exe}
 
-Anaphoric triggers, i.e. \anntrg{it} and \anntrg{affair} do not require argument fillers.
+Anaphoric triggers, i.e. \anntrg{it} and \anntrg{affair} do not require arguments.
 They are the same type and subtype as the event they refer.
 
 % Comes from official rERE gl's p 11.
 
-\subsection{Complex triggers: Finding the right words}
+\subsection{Complex Triggers: Finding the Right Words}
 
-Identifying the trigger of events is often straightforward, as in example \ref{ex/mainverb} above.
+Identifying the trigger of events is often straightforward, as in example \ref{ex/verb1} above.
 Just as often, we find a number of words that could be marked as a trigger, or an event is described in such a way that picking a single word as a trigger does not feel right.
 \textbf{As a rule of thumb, we keep triggers as small as possible} without it losing its event type or subtype meaning.
 In this section, we describe procedures to find the right trigger when it is not obvious.
@@ -100,24 +111,9 @@ Practically, annotators read the full article text using the event typology as a
 During first reading(s) they note possible events mentioned in the article.
 We advice annotators to focus on identifying types first and only assign subtypes after triggers have been found.
 
-Next they attentively go over the article a second time and looking for the lexical triggers.
+Next, they attentively go over the article a second time and look for the lexical triggers.
 Noting the triggers, annotators double check their spans.
 
-% \subsubsection{Triggers as contiguous groups of words}
-
-% Is the trigger an uninterrupted group of words?
-
-% An event can be described by a group of words such that it is impossible to pick one word without losing the meaning of the phrase.
-% In that case, the trigger is the entire phrase.
-% Like many aspects of annotation, this is often subjective; we encourage annotators to use their best judgment based on the examples in this document -- keeping in mind that triggers should not be longer than they absolutely need to be.
-
-% \begin{exe}
-%     \ex \annexe{Hoe zijn de Spaanse autoriteiten de Catalaanse ex-minister-president Carles Puigdemont \anntrg{op het spoor gekomen?}}
-%         \expl \type{Justice.Investigation}
-%     \ex \annexe{De soldaten \anntrg{zijn weer thuis.}}
-%         \expl None of the words in this group by itself carry the meaning of movement.
-%         \expl \type{Movement.TransportPerson}
-% \end{exe}
 
 \subsubsection{Picking a word from multiple possible trigger words}
 
@@ -129,9 +125,9 @@ If the verb+noun cannot be reduced without loosing the event meaning multiple wo
 
 \begin{exe}
     \ex \annexe{Foo Corp. had previously \textit{filed} \anntrg{Chapter 11} in 2001.}
-        \expl the \textbf{noun} \anntrg{Chapter 11} not verb+noun \textit{filed Chapter 11} is the trigger as per the Stand-Alone Noun Rule.
+        \expl the \textbf{noun} "\anntrg{Chapter 11}" - not verb+noun \textit{filed Chapter 11} - is the trigger as per the Stand-Alone Noun Rule.
     \ex \annexe{The company had to \textit{pay a} \anntrg{fine} of 300.000EUR.}
-        \expl the \textbf{fine} \anntrg{Chapter 11} not verb+noun \textit{pay a fine} is the trigger as per the Stand-Alone Noun Rule.
+        \expl the \textbf{noun} "\anntrg{fine}" - not verb+noun \textit{pay a fine} - is the trigger as per the Stand-Alone Noun Rule.
 \end{exe}
 
 \noindent\textbf{Stand-Alone Adjective Rule}:
@@ -142,24 +138,27 @@ In \textbf{verb+X+noun} constructions, when a verb and an adjective are used tog
         \expl the \textbf{adjective} \anntrg{disapproved} not verb+X+adjective \textit{left 3 projects} is the trigger as per the Stand-Alone Adjective Rule.
 \end{exe}
 
-\noindent\textbf{Main Verb Rule}: When several verbs are used to together to express an event, only the main verb is the trigger.
+\noindent\textbf{Main Verb Rule}: When several verbs are used to together to express an event, only the main verb is the trigger. Auxiliary verbs or main verbs of which the event trigger is the complement are not part of the event trigger.
 \begin{exe}
-    \ex \annexe{XYZ Corp. \textit{announced} \annexe{laying off} 37 workers in the Chicago facility.}
+    \ex \annexe{XYZ Corp. \textit{announced} \anntrg{laying off} 37 workers in the Chicago facility.}
     \ex \annexe{John D. Idol will \anntrg{take over} as Chief Executive.}
     \ex \annexe{XYZ Corp \anntrg{laid} Jane off.}
     \ex \annexe{John D. Idol had \anntrg{taken} the company over.}
 \end{exe}
 
-\noindent\textbf{Contiguous Verb+Particle/Verb+Adverb Rule}: In \textbf{verb+particle and verb+adverb} constructions we will tag main verb and particle together only if the words occur contiguously. If they are interrupted we only annotate the verb.
+\noindent\textbf{Contiguous Verb+Particle/Verb+Adverb Rule}:
+In \textbf{verb+particle and verb+adverb}, constructions we will tag main verb and particle together.
+If they are discontiguous, i.e., interrupted, we annotate the verb with its particle or adverb using a discontiguous span relation annotation.
+
 \begin{exe}
     \ex \annexe{Jane was \anntrg{laid off} by XYZ Corp.}
     \ex \annexe{John D. Idol will \anntrg{take over} as Chief Executive.}
-    \ex \annexe{XYZ Corp \anntrg{laid} Jane off.}
-    \ex \annexe{John D. Idol had \anntrg{taken} the company over.}
+    \ex \annexe{XYZ Corp \anntrg{laid} Jane \anntrg{off}.}
+    \ex \annexe{John D. Idol had \anntrg{taken} the company \anntrg{over}.}
 \end{exe}
 
-\subsection{Multiple events within a sentence}
-Do not confuse cases where there multiple possible triggers for the same event within the same sentence with cases where there multiple events expressed in the same sentence.
+\subsection{Multiple Events within a Sentence}
+Do not confuse cases where there are multiple possible triggers for the same event within the same sentence with cases where there multiple different events expressed in the same sentence.
 Multiple events can be expressed in the same sentence.
 
 This usually both in complex sentences, i.e. with coordinated (\textit{and, or, but, for, etc.}) and subordinated (if, that, because, where, etc.) clauses.
@@ -167,44 +166,109 @@ But also in simplex sentences consisting of one clause.
 
 \begin{exe}
     \ex \annexe{The \anntrg{product launch} caused a rise in \anntrg{revenue} and \anntrg{sales}.}
-    \ex \annexe{John D. Idol will \anntrg{take over} as Chief Executive.}
+    \ex \annexe{John D. Idol will \anntrg{take over} as Chief Executive and Bertrand Locke will \anntrg{step down}.}
 \end{exe}
 
 Sometimes multiple events are triggered by adjectives sharing the same verb. Tag each adjective as a separate event.
 
-% \section{Realis}
+\section{Factuality}
 
-% The Realis attribute indicates how `real' the event is. \textbf{Actual} events are attested to have occurred in real life; the author asserts with certainty that they have happened. Most events you will find are Actual. \textbf{Generic} events also actually happen, but they do not refer to single specific events. They describe things that happen without referring to a specific instance. For instance, in example \ref{ex/generic_realis}, the act of smuggling is habitual and not specific. Finally, a trigger might describe an event that will happen in the future, or might happen at some point, or might have happened in the past, or someone suggests something might happen or has happened. These type of events, along with negated events, go into the realis category \textbf{Other}.
+Event factuality captures the factual nature of the occurrences mentioned in the text.
+The author expresses if the event corresponds to a fact, a possibility or a situation which is not true.
+We define factuality labels along two axes: Modality (Certain vs. Other) and Polarity (Affirmed vs. Negated).
+Polarity captures whether an event mention is affirmed or negated.
+Modality captures the degree of certainty (i.e., epistemic modality) about the event being the case as expressed by the author or other source.
 
-% Events that are reported according to some source (as in example \ref{ex/volgens_politie}) also carry a realis attribute of \textbf{Other}.
-% % I checked the ACE guidelines for this but they have no info at all.
+The factuality value is a matter of perspective and always depends on a source: in written text this is the author by default, but other sources can be introduced by using quotation or paraphrasing.
+We do not annotate the source.
 
-% \begin{exe}
-%     \ex \annexe{Provincie Oost-Vlaanderen geeft \anntrg{miljoenencadeau} aan projectontwikkelaar. }
-%         \expl \type{Trans\-action.\-Trans\-fer\-Money, Realis = Actual.}
+Some examples of events with different combinations of Modality and Polarity:
+\begin{exe}
+    \ex \annexe{Amazon's workforce \anntrg{surged} 66 \% last year , to 556,000 nationwide.}
+        \expl The \type{Employment.Start} event certainly took place according to the author.
+        \expl Factuality label: \textbf{Certain} modality, \textbf{Positive} polarity.
+    \ex \annexe{The Seattle Times reported Monday that the tech giant was \anntrg{cutting} hundreds of jobs at its Seattle headquarters.}
+        \expl The \type{Employement.End} event certainly takes place according to the explicitly mentioned source (The Seattle Times).
+        \expl Factuality label: \textbf{Certain} modality, \textbf{Positive} polarity.
+    \ex \annexe{The 3bn euro acquisition of VNU's directories business by Apex and Cinven did not go through in 2014 .}
+        \expl The \type{MergerAcquisition} event certainly did not take place. The author does not express uncertainty about the fact that the event did not take place.
+        \expl Factuality label: \textbf{Certain} modality, \textbf{Negative} polarity.
+    \ex \annexe{With Express Wi-Fi , Facebook hopes to bring more Indians online and also empower more Indian businesses that could \anntrg{become advertisers} on the site .}
+        \expl The \type{SalesVolume.Increase} event is uncertain and is a not negated according to Facebook: Facebook thinks it is probable that a \type{SalesVolume.Increase} event will take place.
+        \expl Factuality label: \textbf{Other} uncertain modality, \textbf{Positive} polarity.
+    \ex \annexe{Regulators even raised the possibility that Duke would abandon the proposed \textbf{construction} of the Lee Nuclear Station .}
+        \expl The \type{Facility.Open} event is uncertain and the opening is negated: It is a possibility that a \type{Facility.Open} event does not take place.
+        \expl Factuality label: \textbf{Other} uncertain modality, \textbf{Negative} polarity.
+\end{exe}
+
+\noindent
+For \textbf{modality}, there are two possible values: Certain and Other.
+
+\begin{description}[noitemsep,leftmargin=!,labelwidth=\widthof{\bfseries Certain}]
+    \item[Certain] Certain events are asserted by the author as lacking any uncertainty.
+    According to the author, the event certainly has (not) happened, is (not) happening or will (not) happen in the future.
+    These are events that are believed to be true.
+    The source/author expresses certainty by not using explicit or implicit expressions to signal that the event is possible, probable, likely, impossible, improbably, unlikely or otherwise has any degree of uncertainty.
+    Most events you will find are Certain.
+    Certain is the default value and does not have to be annotated.\\
+    Note that future events are often presented as Certain as the author is certain something will take place in the future.
+    The use of future tense does not automatically cause an uncertainty Other label.
     
-%     \ex\label{ex/generic_realis} \annexe{Drugs worden vaak de grens \anntrg{overgesmokkeld}.}
-%         \expl \type{Movement.TransportArtifact, Realis = Generic.}
-
-%     \ex\label{ex/volgens_politie} \annexe{Volgens politiebronnen \anntrg{schept} de dader op in de kliniek.}
-%         \expl \type{Contact.Broad\-cast, Realis = Other.} \annexe{Volgens politiebronnen} indicates that the event is a claim by police sources. A claim is not sufficient to tag this event as Actual.
+    \item[Other] Other events have a degree of uncertainty: the label captures all event factualities that are different from certain: probable, possible or likely events and improbably, impossible or unlikely events.
+    The author indicates it is a possibility, probability or likelihood that the event takes place or does not take place.
+    These can be realized by epistemic modality markers such as verbal auxiliaries (must, may), adverbials (probably, possibly, presumably), and adjectives (likely, possible).
+    In many cases, epistemic modality will be conveyed by verbs with the event as complement (e.g., "think", "want", "wish", "hope", "speculate", "propose", \annexe{The company \underline{wants} to \anntrg{fire} its factory line worksforce.})
     
-%     \ex \annexe{President Trump \anntrg{dreigt} ermee Saipov naar Guantanamo te \anntrg{sturen}. }
-%         \expl \annexe{Dreigt:} \type{Contact.Broadcast, Realis = Actual.} 
-%         \expl \annexe{Sturen:} \type{Movement.\-Trans\-port\-Personnel, Realis = Other.} The first event indicates the second is only something that might happen in the future.
-    
-%     \ex \annexe{Uiteindelijk werd het geld helemaal niet \anntrg{overgebracht}. }
-%         \expl \type{Transaction.Trans\-fer\-Money, Realis = Other.} Negated events go into Other.
-% \end{exe}
+    The Other label also includes cases in which the author signals that he does not know the certainty level or does not commit to it.
 
-\section{Dealing with quotations}
+\end{description}
+
+\noindent
+There are \textbf{polarity} two polarity values: Positive and Negative.
+\begin{description}[noitemsep,leftmargin=!,labelwidth=\widthof{\bfseries Certain}]
+    \item[Positive] is for events that are not negated.
+    These events are typically realized as part of affirmative sentences.
+    This is the default value in annotation and does not have to be annotated.
+
+    \item[Negative] is for events that are negated.
+    By using negation the source asserts that the event did not take place, is not taking place or will not take place.
+    The event trigger has to be under the scope of the negation.
+    Negation can be realized in many way in English: adverbs ("not", "neither", "never"), determiners ("no", "none"), verbs ("deny, "prevent", "negate").
+    In many cases, negation will be conveyed by verbs with the event as complement (e.g. "\annexe{They \underline{prevented} the \anntrg{sale} of the company.}, \annexe{The board \underline{avoided} the \anntrg{litigation} by settling out of court.})
+\end{description}
+
+\begin{description}[noitemsep,leftmargin=!,labelwidth=\widthof{\bfseries Uncertain + Negative}]
+ \item[Certain + Positive] According to the source, it is \textbf{certainly} the case that X.
+ \item[Certain + Negative] According to the source, it is \textbf{certainly not} the case that X.
+ \item[Uncertain + Positive] According to the source, it is \textbf{probably/possibly/unknown} the case that X.
+ \item[Uncertain + Negative] According to the source, it is \textbf{probably not} the case that X.
+\end{description}
+
+\noindent
+\textbf{Other Discriminative Test}: 
+To test if events are in the Other category, you can add an opposite polarity contex: 
+Other uncertain events can at the same time be possible in a context of opposite polarity:
+\begin{exe}
+    \ex \annexe{It is speculated that Amazon is laying off hundreds of workers [...]} (Other + \textbf{Positive})
+        \expl ... but it is possible that they will not lay off hundreds. (Other + \textbf{Negative})
+    \ex \annexe{The employee count is not likely to rise higher around the holidays.} (Other + \textbf{Negative})
+        \expl ... but it is possible that will rise higher. 
+\end{exe}
+
+Certain events cannot at the same time be possible in a context of opposite polarity without the author contradicting themselves:
+\begin{exe}
+    \ex \annexe{Amazon is laying off hundreds of workers [...]} (Certain +\textbf{Positive})
+        \expl \#!... but it is possible that they will not lay of hundreds. (Certain + \textbf{Negative}) -> Contradiction.
+    \ex \annexe{The employee count will not rise higher around the holidays.} (Certain + \textbf{Negative})
+        \expl \#!... but it is possible that it will rise higher. (Certain + \textbf{Positive}) -> Contradiction.
+\end{exe}
+
+
+\section{Dealing with Quotations}
 
 We annotate inside a quotation the same way we annotate outside of it. We do not consider the quotation to be a separate sentence. That means it is possible to identify an event outside a quotation and annotate arguments for that event inside of it, and vice-versa.
 
 \begin{exe}
-    \ex \annexe{\emph{De politie} liet hem weten dat \emph{hij} "snel \anntrg{gearresteerd} zou worden".}
-        \expl \type{Justice.ArrestJail}
-        \expl Agent = De politie
-        \expl Person = hij
-        \expl The Person argument lies outside the quote.
+    \ex \annexe{\exargpart{The CEO} announced that \exargpart{J. Peterson} will be \anntrg{replaced} swiftly.}
+        \expl \type{Employment.End} with \type{Employer} Participant argument "The CEO" and \type{Employee} Participant argument "J. Peterson".
 \end{exe}

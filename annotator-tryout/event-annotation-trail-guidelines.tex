@@ -7,7 +7,6 @@
 \renewcommand*\thesection{\arabic{section}}
 \setcounter{section}{0}
 
-
 \begin{document}
 
 \chapter*{\project Event Annotator Try-out}
@@ -46,11 +45,11 @@ In the examples below (and throughout this document), event triggers are \anntrg
 We also indicate the \type{type and type} of most events in the example sentences.
 
 \begin{exe}
-    \ex\label{ex/verb1} \annxpl{On Monday, shares of biopharmaceutical company Celgene \anntrg{tumbled}}
+    \ex\label{ex/verb1} \annexe{On Monday, shares of biopharmaceutical company Celgene \anntrg{tumbled}}
         \expl the \textbf{verb} \anntrg{tumbled} is the trigger of a \type{Conflict.Attack} event.
-    \ex\label{ex/noun1} Noun: \annxpl{[..] AA's exclusive airline \anntrg{sponsorship deal} with the World Series champion Cubs.}
+    \ex\label{ex/noun1} Noun: \annexe{[..] AA's exclusive airline \anntrg{sponsorship deal} with the World Series champion Cubs.}
         \expl the noun \anntrg{sponsorship deal} is the trigger of a \type{CSR/Brand} event.
-    \ex\label{ex/noun2} \annxpl{Viscen is revealed to be the \anntrg{buyer} of the ACX directories.}
+    \ex\label{ex/noun2} \annexe{Viscen is revealed to be the \anntrg{buyer} of the ACX directories.}
         \expl the \textbf{noun} \anntrg{buyer} is the trigger of a \type {MA.Acquisition} event.
 \end{exe}
 
@@ -59,18 +58,18 @@ We also indicate the \type{type and type} of most events in the example sentence
 As examples \ref{ex/verb1} and \ref{ex/noun1} show, the trigger can be a \textbf{verb}, but also a \textbf{noun}, \textbf{pronoun} or a past or present \textbf{participle} or \textbf{adjective} in modifier position.
 
 \begin{exe}
-    \ex\label{ex/verb2} Verb: \annxpl{The FDA did not \anntrg{approve} JNJ's new medicine.}
-    \ex\label{ex/noun2} Noun: \annxpl{The \anntrg{acquisition} of ACX went over without a problem.}
-    \ex\label{ex/adjective} Adjective: \annxpl{The \anntrg{banktrupt} firm left investors angry.}
+    \ex\label{ex/verb2} Verb: \annexe{The FDA did not \anntrg{approve} JNJ's new medicine.}
+    \ex\label{ex/noun2} Noun: \annexe{The \anntrg{acquisition} of ACX went over without a problem.}
+    \ex\label{ex/adjective} Adjective: \annexe{The \anntrg{banktrupt} firm left investors angry.}
 \end{exe}
 
 We typically think of events as processes or actions; but we also tag states that result from taggable events.
 As shown by the examples below, resultative events can be predicate adjectives, participles used as modifiers or even present participles that denote an action currently in progress.
 
 \begin{exe}
-    \ex\label{ex/predicateadjective} Predicate adjective: \annxpl{The firm is \anntrg{bankrupt.}}
-    \ex\label{ex/npadjective} Nominal modifier adjective: \annxpl{The \anntrg{bankrupt} firm leaves many angry investors behind.}
-    \ex\label{ex/presentparticiple} Present participle: \annxpl{The firms are currently \anntrg{merging}.}
+    \ex\label{ex/predicateadjective} Predicate adjective: \annexe{The firm is \anntrg{bankrupt.}}
+    \ex\label{ex/npadjective} Nominal modifier adjective: \annexe{The \anntrg{bankrupt} firm leaves many angry investors behind.}
+    \ex\label{ex/presentparticiple} Present participle: \annexe{The firms are currently \anntrg{merging}.}
 \end{exe}
 
 As resultative states these examples can be paraphrased as "the state of having gone bankrupt" or "the state of having been merged".
@@ -79,9 +78,9 @@ Always tag both on-going events and resultative events.
 Anaphors of events such as \textbf{pronouns and definite descriptions} of previously mentioned events are also tagged.
 
 \begin{exe}
-    \ex\label{ex/pronoun1} Pronoun: \annxpl{The firm went \anntrg{bankrupt.} \anntrg{It} was a great loss for many of the early-stage investors.}
+    \ex\label{ex/pronoun1} Pronoun: \annexe{The firm went \anntrg{bankrupt.} \anntrg{It} was a great loss for many of the early-stage investors.}
         \expl pronoun \anntrg{It} refers to a previous \type{Bankruptcy} event and is tagged.
-    \ex\label{ex/pronoun1} Definite noun phrase: \annxpl{Amazon \anntrg{launched} its own smartphone. \anntrg{It} was a festive \anntrg{affair}.}
+    \ex\label{ex/pronoun1} Definite noun phrase: \annexe{Amazon \anntrg{launched} its own smartphone. \anntrg{It} was a festive \anntrg{affair}.}
         \expl pronoun \anntrg{It} and definite noun \anntrg{affair} refers to a previous event \type{Product.Launch}.
 \end{exe}
 
@@ -111,9 +110,9 @@ Noting the triggers, annotators double check their spans.
 % Like many aspects of annotation, this is often jective; we encourage annotators to use their best judgment based on the examples in this document -- keeping in mind that triggers should not be longer than they absolutely need to be.
 
 % \begin{exe}
-%     \ex \annxpl{Hoe zijn de Spaanse autoriteiten de Catalaanse ex-minister-president Carles Puigdemont \anntrg{op het spoor gekomen?}}
+%     \ex \annexe{Hoe zijn de Spaanse autoriteiten de Catalaanse ex-minister-president Carles Puigdemont \anntrg{op het spoor gekomen?}}
 %         \expl \type{Justice.Investigation}
-%     \ex \annxpl{De soldaten \anntrg{zijn weer thuis.}}
+%     \ex \annexe{De soldaten \anntrg{zijn weer thuis.}}
 %         \expl None of the words in this group by itself carry the meaning of movement.
 %         \expl \type{Movement.TransportPerson}
 % \end{exe}
@@ -127,9 +126,9 @@ In \textbf{verb+noun} constructions, we will simply select the noun whenever tha
 If the verb+noun cannot be reduced without loosing the event meaning multiple words will be tagged.
 
 \begin{exe}z
-    \ex \annxpl{Foo Corp. had previously \textit{filed} \anntrg{Chapter 11} in 2001.}
+    \ex \annexe{Foo Corp. had previously \textit{filed} \anntrg{Chapter 11} in 2001.}
         \expl the \textbf{noun} \anntrg{Chapter 11} not verb+noun \textit{filed Chapter 11} is the trigger as per the Stand-Alone Noun Rule.
-    \ex \annxpl{The company had to \textit{pay a} \anntrg{fine} of 300.000EUR.}
+    \ex \annexe{The company had to \textit{pay a} \anntrg{fine} of 300.000EUR.}
         \expl the \textbf{fine} \anntrg{Chapter 11} not verb+noun \textit{pay a fine} is the trigger as per the Stand-Alone Noun Rule.
 \end{exe}
 
@@ -137,24 +136,24 @@ If the verb+noun cannot be reduced without loosing the event meaning multiple wo
 In \textbf{verb+X+noun} constructions, when a verb and an adjective are used together to express the occurrence of an event, the adjective will be chosen as the trigger whenever it can stand alone to express the resulting state brought about by the event.
 
 \begin{exe}
-    \ex \annxpl{The negative findings left 3 projects \anntrg{disapproved}.}
+    \ex \annexe{The negative findings left 3 projects \anntrg{disapproved}.}
         \expl the \textbf{adjective} \anntrg{disapproved} not verb+X+adjective \textit{left 3 projects} is the trigger as per the Stand-Alone Adjective Rule.
 \end{exe}
 
 \noindent\textbf{Main Verb Rule}: When several verbs are used to together to express an event, only the main verb is the trigger.
 \begin{exe}
-    \ex \annxpl{XYZ Corp. \textit{announced} \annxpl{laying off} 37 workers in the Chicago facility.}
-    \ex \annxpl{John D. Idol will \anntrg{take over} as Chief Executive.}
-    \ex \annxpl{XYZ Corp \anntrg{laid} Jane off.}
-    \ex \annxpl{John D. Idol had \anntrg{taken} the company over.}
+    \ex \annexe{XYZ Corp. \textit{announced} \annexe{laying off} 37 workers in the Chicago facility.}
+    \ex \annexe{John D. Idol will \anntrg{take over} as Chief Executive.}
+    \ex \annexe{XYZ Corp \anntrg{laid} Jane off.}
+    \ex \annexe{John D. Idol had \anntrg{taken} the company over.}
 \end{exe}
 
 \noindent\textbf{Contiguous Verb+Particle/Verb+Adverb Rule}: In \textbf{verb+particle and verb+adverb} constructions we will tag main verb and particle together only if the words occur contiguously. If they are interrupted we only annotate the verb.
 \begin{exe}
-    \ex \annxpl{Jane was \anntrg{laid off} by XYZ Corp.}
-    \ex \annxpl{John D. Idol will \anntrg{take over} as Chief Executive.}
-    \ex \annxpl{XYZ Corp \anntrg{laid} Jane off.}
-    \ex \annxpl{John D. Idol had \anntrg{taken} the company over.}
+    \ex \annexe{Jane was \anntrg{laid off} by XYZ Corp.}
+    \ex \annexe{John D. Idol will \anntrg{take over} as Chief Executive.}
+    \ex \annexe{XYZ Corp \anntrg{laid} Jane off.}
+    \ex \annexe{John D. Idol had \anntrg{taken} the company over.}
 \end{exe}
 
 \section{Multiple events within a sentence}
@@ -165,8 +164,8 @@ This usually occurs both in complex sentences, i.e. with coordinated (\textit{an
 But also in simplex sentences consisting of one clause.
 
 \begin{exe}
-    \ex \annxpl{The \anntrg{product launch} caused a rise in \anntrg{revenue} and \anntrg{sales}.}
-    \ex \annxpl{John D. Idol will \anntrg{take over} as Chief Executive.}
+    \ex \annexe{The \anntrg{product launch} caused a rise in \anntrg{revenue} and \anntrg{sales}.}
+    \ex \annexe{John D. Idol will \anntrg{take over} as Chief Executive.}
 \end{exe}
 
 Sometimes multiple events are triggered by adjectives sharing the same verb. Tag each adjective as a seperate event.

@@ -1,22 +1,48 @@
-\section{Event coreference: event hoppers}
+The final annotation step is that of linking coreferent events in the document.
+This means you annotate a link between event triggers that intuitively refer to the same real-world event.\\[10pt]
+\noindent
+The criteria for linking coreferent event mentions:
+\begin{enumerate}[noitemsep]
+    \item \textbf{Semantically and intuitively} refer to the same real-world event.
+    \item \textbf{\type{Type} and \type{Subtype} are identical}.
+    \item \textbf{Temporal and location scope are identical}, but the time and place expressions do not have to be exactly the same (e.g., \annexe{"The product launch in 2017"} and \annexe{"Last year's product release"}, \annexe{"The company opens its new headquarters in Detroit"} and \annexe{"the real-estate investment in Motor City"} use different expressions to denote the same point in time or space).
+    The place and time do not have to be exactly the same but \textbf{correspond in scope} (e.g., \annexe{"six month ago"} and \annexe{"last year"} are in the same temporal scope, \annexe{"Canada and the US" and "North-America"} are in the same location scope).
+    Time periods/points and locations are coreferent as long as the roughly fit into each other.
+    \item Not necessarily the same arguments:
+    Argument mentions do not have to be identical.
+    However, the referred arguments will roughly correspond in their referents.
+    Arguments can be left implied, specified, or generalized but do not have to be exactly identical.
+    \item Not necessarily the same trigger.
+    \item Not necessarily the same Factuality.
+\end{enumerate}
 
-To perform event coreference, we inherit Rich ERE's concept of event hoppers. \cite{LDC2016.rich_ere}
-A hopper is a group of annotated events that refer to the same event occurence.
-\textbf{Technically, all events must be put into a hopper: this means many hoppers are singletons.
-You do not need to annotate these explicitly.}
+\noindent
+Note that \textbf{events with same \type{Type.Subtype} and corresponding place/time are not automatically coreferent}:
+Annotators should always infer from context and meaning that they are indeed the same real-world event involving the same entities, persons, companies, etc.
+For example: \annexe{"XYZ Corp. ended their cloud computing service in 2017. [...] Last year they stopped their service contract with ABC Inc."} have the same \type{Product.CancellationRecall} type and subtype and are within the same temporal scope, but refer to distinct events by way of having clearly separate involved arguments.\\
+
+\noindent
+Many events will not have coreferent events in the document.
+
+\tagged{full}{
+\section{Correspondence to Event Hoppers in Rich ERE}
+For event coreference, we directly inherited Rich ERE's concept of event hoppers. \cite{LDC2016.rich_ere}
+A hopper is a group of annotated events that refer to the same event occurrence.
+This differs from strict event coreference in ACE and Light ERE in which arguments also have to corefer strictly.
+
 Quoting \cite{LDC2016.rich_ere}:
 
 \begin{quote}
-    Tagged event mentions that refer to the same event occurrence will be grouped into Event Hoppers. Event Hopper is a more inclusive, less strict notion of event coreference as compared to strict event coreference in ACE and Light ERE. Event hoppers contain mentions of events that “feel” coreferential to the annotator even if they do not meet the earlier strict event identity requirement. More specifically, event mentions that have the following features go into the same hopper:
-
-    \begin{el}
-        § They have the same event type and subtype (exceptions to this are Contact.Contact and Transaction.Transaction mentions, which can be added to any Contact or Transaction hopper, respectively)
-        § They have the same temporal and location scope, though not necessarily the same temporal expression or specifically the same date (Attack in Baghdad on Thursday vs. Bombing in the Green Zone last week)
-        § Trigger granularity can be different (assaulting 32 people vs. wielded a knife)
-        § Event arguments may be non-coreferential or conflicting (18 killed vs. dozens killed)
-        § Realis status may be different (will travel [OTHER] to Europe next week vs. is on a 5-day trip [ACTUAL])
-    \end{el}
+    Tagged event mentions that refer to the same event occurrence will be grouped into Event Hoppers. 
+    Event Hopper is a more inclusive, less strict notion of event coreference as compared to strict event coreference in ACE and Light ERE. Event hoppers contain mentions of events that “feel” coreferential to the annotator even if they do not meet the earlier strict event identity requirement. More specifically, event mentions that have the following features go into the same hopper:
 \end{quote}
 
-\section{Entity coreference}
-
+Rich ERE event hopper criteria can be summarized as follows:
+\begin{itemize}[noitemsep]
+    \item They have the same event type and subtype.
+    \item They have the same temporal and location scope, though not necessarily the same temporal expression or specifically the same date (Attack in Baghdad on Thursday vs. Bombing in the Green Zone last week).
+    \item Trigger granularity can be different (assaulting 32 people vs. wielded a knife).
+    \item Event arguments may be non-coreferential or conflicting (18 killed vs. dozens killed).
+    \item Realis status may be different (will travel [OTHER] to Europe next week vs. is on a 5-day trip [ACTUAL])
+\end{itemize}
+}

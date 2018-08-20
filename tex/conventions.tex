@@ -1,0 +1,48 @@
+\section{Basic Concepts and Terminology}
+\begin{description}[noitemsep]
+    \item[Mention] a span of words (tokens) corresponding to a specific annotation unit, i.e., event, Participant or Filler argument.
+    \item[Extent] The textual boundaries (start and end) of a linguistic expression associated with an Participant or FILLER argument.
+    The string of text we annotate to indicate a concept.
+    The extent rules described in these guidelines define restrictions on linguistic constructions (e.g. Noun Phrase, Prepositional Phrase, Pronoun, Proper Noun, Noun, etc.) that are allowed for that category.
+    Extent is different for Participant and FILLER argument.
+    \item[Taggability] The rules and circumstances in which a running full-text mention is tagged.
+    \item[Event mention] An instance of an event in full-text annotation.
+    \item[Argument mention] An instance of an argument in full-text annotation.
+    \item[Event mention scope] The textual scope from which arguments and attributes are tagged for a specific event mention.
+    The event mention scope definition specifies the start and end of a specific event mention in the document 
+    \item[FILLER argument] \tagged{full}{This is the Rich ERE equivalent of "Argument FILLER".}
+    \item[Participant argument] \tagged{full}{This is the Rich ERE equivalent of "Event Participant Argument".}
+\end{description}
+
+\section{Typographical Conventions}
+We lay out some typographical signifiers for consistency and ease of reading:
+\\[10pt]
+In \annexe{sentence examples}: \exargpart{Full underline} shows the event Participant arguments or potential Participant argument candidates.
+\exargfill{Dashed underline} shows the FILLER arguments or candidate FILLER arguments.
+When discussing mention extent [ \exargpart{square brackets} ] are used to highlight the correct delimitation of the mention span.
+\anntrg{Bold} indicates the event trigger.
+\\[10pt]
+\textbf{Event tables} take the following form:\\[10pt]
+\begin{tabular}{|l|l|} \hline
+\type{Type.Subtype} of event & "event trigger token span" \\\hline
+\type{EventParticipantArgument} in CamelCase & "Participant argument token span" \\
+\type{FILLERARGUMENT} in ALLCAPS & "FILLER argument token span" \\\hline \end{tabular}
+\\\\
+e.g.,
+\begin{exe}
+\ex \annexe{The \exargpart{FDA} \anntrg{approved} \exargpart{the medicine} submitted by \exargpart{Johnson\&Johnson} in \exargfill{2013} and \exargpart{it} was \anntrg{launched} in \exargfill{February 2016}.}
+    \expl \begin{tabular}{|L{6cm}|L{7cm}|} \hline
+        \type{ProductService.Approval} & "approved" \\\hline
+        \type{Approver} & "FDA" \\
+        \type{Owner} & "Johnson\&Johnson" \\
+        \type{ProductService} & "the medicine" \\
+        \type{TIME} & "2013" \\
+        \hline \end{tabular}
+        \\\\ "approved" triggers \type{ProductService.Approval} event with \type{Owner} Participant argument "Johnson\&Johnson", \type{ProductService} Participant argument "product line", \type{Approver} Participant argument "FDA", and FILLER argument \type{TIME} "2013"
+    \expl \begin{tabular}{|L{6cm}|L{7cm}|} \hline
+        % \rowcolor{lightergray}
+        \type{ProductService.Launch} & "launched" \\\hline
+        \type{ProductService} & "it" \\
+        \type{TIME} & "February 2016" \\\hline \end{tabular}
+        \\\\ "launched" triggers event \type{ProductService.Launch} \type{ProductService} Participant argument "it" and \type{TIME} FILLER argument "February 2016".
+\end{exe}

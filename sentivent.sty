@@ -1,12 +1,18 @@
 \ProvidesPackage{sentivent}
+
+\usepackage{lmodern}
+\usepackage{vhistory}
+\usepackage{ragged2e}
 \usepackage{array}
 \usepackage{csquotes}
 \usepackage{graphicx}
+\usepackage{bold-extra}
 \usepackage[table]{xcolor}
+\usepackage[hyphens]{url}
 \usepackage{tagging}
 \usepackage{markdown}
 \usepackage[normalem]{ulem} % [normalem] prevents the package from changing the default behavior of `\emph` to underline.
-\usepackage[a4paper,left=2.42cm,right=2.42cm,top=2.42cm,bottom=3.61cm]{geometry}
+\usepackage[a4paper,left=2.42cm,right=2.42cm,top=2.42cm,bottom=2.82cm]{geometry}
 \usepackage[
 backend=biber,
 style=numeric,
@@ -27,12 +33,18 @@ sorting=none
 \usepackage{enumitem}
 \usepackage[
 colorlinks=true,
-allcolors=blue
+allcolors=midnightblue
 ]{hyperref}
 \usepackage{easylist}
 \usepackage[normalem]{ulem}
+\usepackage[T1]{fontenc}
+\usepackage{calc}
+\usepackage{titlesec}
 
-% custom fonts
+\titleformat{\chapter}{\normalfont\Huge\bfseries}{\thechapter.}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-25pt}{20pt}
+
+% % custom fonts
 % \usepackage{fontspec}
 % \setmainfont[Ligatures=TeX]{NotoSans}[
 % Extension = .ttf ,
@@ -47,29 +59,29 @@ allcolors=blue
 
 % ensure autoreference of chapter starts with capital Chapter:
 \addto\extrasenglish{%
-  \renewcommand{\chapterautorefname}{Chapter}%
+  \renewcommand*{\chapterautorefname}{Chapter}%
 }
 \addto\extrasenglish{%
-  \renewcommand{\sectionautorefname}{Section}%
+  \renewcommand*{\sectionautorefname}{Section}%
 }
 
-\newcommand{\onpage}[1]{p. #1}
-\newcommand{\betweenpages}[2]{p. #1--#2}
-\newcommand{\code}[1]{\texttt{#1}}
-\newcommand{\wip}{\textbf{WIP~}}
+\newcommand*{\onpage}[1]{p. #1}
+\newcommand*{\betweenpages}[2]{p. #1--#2}
+\newcommand*{\code}[1]{\texttt{#1}}
+\newcommand*{\wip}{\textbf{WIP~}}
 
 % inline markup
-\newcommand{\annexe}[1]{\textit{#1}}
-\newcommand{\type}[1]{\texttt{#1}}
-\newcommand{\annhead}[1]{\emph{#1}}
-\newcommand{\anntrg}[1]{\textbf{#1}}
-\newcommand{\exargpart}[1]{\underline{#1}}
-\newcommand{\exargfill}[1]{\dashuline{#1}}
-\newcommand{\expl}{\par \hspace{0.5em} $\rightarrow$ \hspace{0.5em}}
+\newcommand*{\annexe}[1]{\textit{#1}}
+\newcommand*{\type}[1]{\texttt{#1}}
+\newcommand*{\annhead}[1]{\emph{#1}}
+\newcommand*{\anntrg}[1]{\textbf{#1}}
+\newcommand*{\exargpart}[1]{\underline{#1}}
+\newcommand*{\exargfill}[1]{\dashuline{#1}}
+\newcommand*{\expl}{\par \hspace{0.5em} $\rightarrow$ \hspace{0.5em}}
 \newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1}.~\nameref*{#1}}}
 
 % % inline with types
-% \newcommand{\anntrg}[2]{%
+% \newcommand*{\anntrg}[2]{%
 %     \textbf{#1}
 %     \ifthenelse{\equal{#2}{}}{}{\textsubscript{#2}}%
 % }
@@ -82,10 +94,10 @@ allcolors=blue
 \noautomath % This command cancels some behaviour in gb4e that causes trouble
 
 %  placeholder variables
-\newcommand{\project}{\textsc{Sent}i\textsc{vent}~}
-\newcommand{\scheme}{\textsc{Sent}i\textsc{vent} Event Annotation Guidelines~}
-\newcommand{\typecount}{14~}
-\newcommand{\subtypecount}{38~}
+\newcommand*{\project}{{\scshape Sent}i{\scshape vent}~}
+\newcommand*{\scheme}{{\scshape Sent}i{\scshape vent} Event Annotation Guidelines~}
+\newcommand*{\typecount}{17~}
+\newcommand*{\subtypecount}{43~}
 
 \newenvironment{hint}
     {
@@ -95,9 +107,10 @@ allcolors=blue
         \end{quote}
     }
 
-\newcommand{\cntnt}{\narrower \color{blue}}
+\newcommand*{\cntnt}{\narrower \color{blue}}
 
 \definecolor{lightergray}{RGB}{220,220,220}
+\definecolor{midnightblue}{rgb}{0.10, 0., 1.}
 
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
