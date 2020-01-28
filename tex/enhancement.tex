@@ -1,0 +1,133 @@
+During annotation, correction, and adjudication, potential improvements for \scheme v1.0 became apparent. This proposal should ideally be incorporated in future application of the annotation scheme to better fulfill the goals of coverage, distinctiveness, and domain descriptability. We propose the following categories of changes and improvements: Typology annotation process improvements, etc.
+
+Some issues include indications about how they can be automatically resolved by pre-processing the data for experimenting with the v1.0 dataset. These automated solutions sacrifice the descriptiveness of the annotation unit for more consistency and correctness.
+
+NB: Some changes in the event descriptions were also made during annotation and correction. These changes were clarifications on difficult and ambiguous cases to help annotators. Annotators continually received updated copies of the typology. These are described in the version history and not in this section.
+
+\section{Typology Enhancements}
+Typology enhancements serve to improve coverage of the events that capture the financial news domain, as well as resolve ambiguity between categories and their descriptions.
+Each proposed enhancement is expressed Addition, Deletion, Separation, and Combination of Participants, Types or Subtypes.
+Addition is typically proposed because a new relevant Type, Subtype, Participant argument was prevalent in the corpus.
+Inversely, we consider Deletion when an annotation unit was considerably rare.
+We propose Combination of types when two categories are semantically too similar and separation does not aid descriptiveness.
+Inversely, we consider Separation when an annotation unit is too general and consequently ambiguous and non-descriptive.
+
+\begin{itemize}[leftmargin=*]
+    \item Addition of participant Source to Expense, Profit/Loss, Revenue, SalesVolume event types.
+        \begin{itemize}
+            \item Description: The source of earnings, revenue, expenses, and sales is often mentioned, but unaccounted for in V1.0. 
+            Source participant: The source, good/service, subsidiary company, brand, etc. that generates the event.
+            \item Example:
+            \item Status: Not yet implemented.
+        \end{itemize}
+    \item Addition of participant Indicator to Expense, Profit/Loss, Revenue, SalesVolume event types.
+        \begin{itemize}
+            \item Description: Financial metrics/indicators are often not tagged consistently when they are related to an event. These indicators often contain event triggers (i.e., Revenue, Expense, Profit/Loss, SalesVolume). Especially the time expressions associated with the period for financial metrics/indicators should be annotated more consistently. These time expressions are often modifiers in the NP that expresses the indicator and is also an event trigger. The TIME filler does not fulfill this role because TIME constitutes a defined period or point in time related to the event. Often long dependencies arise with these expressions as they are used adverbially.
+            We propose to add a universal Filler participant Indicator which captures the financial indicator/metric associated with an event. A disadvantage is the event trigger would often be part of this participant.
+            \item Example: adjusted annual rate of (sales/revenue/etc.) [...] year-over-year, year-to-date, etc.
+            \item Status: Not yet implemented.
+        \end{itemize}
+    \item Addition of event subtype Pricing on Product/Service event.
+        \begin{itemize}
+            \item Description: Pricing of Goods and Services is often discussed in articles. Discussion on the change or announcements of pricing of goods/services. Includes changes in pricing, discounts, incentives, etc. Participants: Company (company that prices the good or service), GoodService (The good or service which is priced), Price (reported or announced price as a monetary expression), and ChangeAmount (nominal or percentage change in pricing).
+            \item Example: 
+            \item Status: Not yet implemented.
+        \end{itemize}
+    \item Separation of Macroeconomics event type into MarketShare and Macroeconomics (potentially also Legislation or Trends):
+        \begin{itemize} 
+            \item Description: The Macroeconomics type was conceptualized as a category for events that are aggregated indicators for sectorial trends, policy, and the interrelations among the different markets and sectors of the economy. A large amount of Macroeconomic discuss the market share of a company in a market/sector and are distinct in event structure and relevancy to a company.
+            \item Example: 
+            \item Status: Not yet implemented.
+        \end{itemize}
+    \item Extent redefinition TIME Filler participant:
+        \begin{itemize} 
+            \item Description: TIME Filler participant extents should include the prepositions that define the temporal expression, instead of the NP with post- and pre-modifiers. The propositions of time "around, on, in, from ... to, etc." contain relevant temporal information that would be tagged by only annotating the NP.
+            \item Example: 
+            \item Status: Not yet implemented.
+        \end{itemize}
+    \item Addition of Increase/DecreaseAmount participant on all Increase/Decrease "indicator" event subtypes: Dividend\_YieldX, Expense, Profit/Loss, Revenue (already included in v1.0), and SecurityValue.
+        \begin{itemize}
+            \item Description: As in Revenue main type, the Increase/Decrease/Stable(?) subtypes of indicator events, should specify a participant that captures the nominal or percentage change in the indicator value. This is currently named "Increase/Decrease" amount on the Revenue main type, but could be renamed to ChangeAmount. These types express a movement from some historical indicator value to another current value. This movement is often also discussed as a nominal or percentage amount. Amount on these event types should be renamed CurrentAmount for clarity.
+            In v1.0, this number is included in the Amount participant for those event type that miss this participant.
+            \item Example: 
+            \item Status: Not yet implemented.
+            \item Experimental pre-processing: Join the Revenue Increase/DecreaseAmount into Amount to be consistent with other types.
+        \end{itemize}
+    \item Addition of Complainant participant on all Legal event types.
+        \begin{itemize}
+            \item Description: The Complainant participant is missing on all Legal main and subtypes except for Legal\_Proceeding and Legal\_Appeal. This was an oversight and should be added for completing this event frame.
+            \item Example: 
+            \item Status: Not yet implemented.
+        \end{itemize}
+    \item Addition of CorporateGovernance event type.
+        \begin{itemize}
+            \item Description: Discussion of corporate governance (board votes and make-up) is rare in reporting, but important to detect.
+            \item Example: 
+            \item Status: Not yet implemented.
+        \end{itemize}
+    \item Deletion of Result participant from FinancialResult. Alternatively: Rename Result to Metric/Indicator.
+        \begin{itemize}
+            \item Description: Result is redundant and often includes a whole clause in annotations. Renaming to Metric/Indicator would better suit the originally intended role.
+            \item Example: 
+            \item Status: Not yet implemented.
+            \item Experimental pre-processing: This can be achieved automatically by string substitution.
+        \end{itemize}
+    \item Rename Profit/Loss to Earnings.
+        \begin{itemize}
+            \item Description: Earnings is a more technical term that better describes this event type.
+            \item Example: 
+            \item Status: Not yet implemented.
+            \item Experimental pre-processing: This can be achieved automatically by string substitution.
+        \end{itemize}
+\end{itemize}
+
+\section{Common issues and difficulties}
+Here we describe issues, mistakes, and difficulties commonly encountered by annotators.
+
+\begin{itemize}[leftmargin=*]
+    \item Event trigger identification for subtypes.
+        \begin{itemize} 
+            \item Description: Annotators often forgo annotating the full trigger for identifying the event subtype. Often, annotators correctly annotate the trigger for the main event type, but fail to annotate additional tokens necessary for the expression of the subtype.
+            \item Example: "Sales increase" with only Sales annotated as trigger is sufficient for capturing a SalesVolume event, but not the SalesVolume\_Increase subtype.
+            \item Status: Not yet implemented.
+        \end{itemize}
+    \item Join FILLER and Participant arguments into one participant argument annotation unit.
+        \begin{itemize}
+            \item Description: Do not distinguish between FILLER and Participant arguments. TO DO review this. The FILLER scope difference is often not observed by annotators and serves as a source of confusion.
+            \item Example:
+            \item Status: Not yet implemented.
+        \end{itemize}
+    \item Pronominal realization of Participants is often not tagged and an adjacent nominal referent is chosen.
+        \begin{itemize} 
+            \item Description: Pronominal realization of Participants is often not tagged and an adjacent nominal referent is chosen.
+            \item: Automatic pre-processing: Remove pronominal participants and only use nominal when running experiments. Check Participant mention tokens against list of pronouns and if it contains a pronoun follow PronomCanonRef relation to nominal referent.
+            \item Example: It's hard to argue [P\&G](wrongly tagged) did not meet [its](missed) growth challenges.
+            \item Status: Not yet implemented.
+    \end{itemize}
+    \item Pronominal or non-specific nominal realizations of Events are often not tagged.
+        \begin{itemize} 
+            \item Description: Pronominal realization of events are often not tagged. This happens most often when Events are referred to coreferentially with pronouns or with non-specific nouns.
+            \item: Automatic pre-processing: Remove pronominal events and only use nominal when running experiments. Check event mention tokens against list of pronouns and if it contains a pronoun follow PronomCanonRef relation to nominal referent.
+            \item Example: It's hard to argue P\&G wrongly tagged did not meet its [growth challenges]. [These](wrongly missed coreferent with previous event) include lagging consumer sales, ...
+            \item Status: Not yet implemented.
+    \end{itemize}
+    % \item Issue name
+    %     \begin{itemize} 
+    %         \item Description: 
+    %         \item Example: 
+    %         \item Status: Not yet implemented.
+    %     \end{itemize}
+\end{itemize}
+
+\section{Process improvements}
+We propose enhancing the annotation process by modularizing the stages of event annotation.
+This was already the case in \scheme v1.0, where the annotation process was described in step-by-step process indicating in each step which annotation units should be considered.
+However, annotators were not forced to adhere to these steps and applied a more holistic approach to annotation.
+
+We propose splitting the annotation process into sand-boxed steps with each step applied to the corpus before moving on to the next step.
+In each step only the relevant annotation units and attributes can be annotated.
+In this manner, annotators do not have to consider all rules for all annotation units at once.
+This avoids cognitive overload and facilitates consistency during training and annotation phases.
+
+\section{Implementation and tooling improvements}
+WebAnno remains the best choice as of writing for a stable and complete annotation platform.

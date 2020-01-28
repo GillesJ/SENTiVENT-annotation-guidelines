@@ -4,8 +4,9 @@ This chapter describes the annotation of events, argument FILLERs and event co-r
 
 \subsubsection{Conceptually: events in economic news}
 
-An event is a textual description of a real-world occurrence that involves multiple Participants.
-Generally, it describes a change of state in the world.
+An event is a textual description of a real-world occurrence of a certain change that involves multiple Participants.
+Generally, it describes a change of state-of-affairs in the world.
+These state of affairs can be described as being in the past, future, or present.
 Events have inherent temporality: they occupy a specific duration or point in time.
 An event describes what has happened, who was involved, at what time, in which place.
 
@@ -31,7 +32,9 @@ We also perform event co-reference to link event mentions to each other if they 
 In the following sections, we explain these elements in detail.\\
 
 \noindent
-\textbf{We do not annotate events outside of the event typology.}
+\textbf{We do not annotate events outside of the event typology.}\\
+\noindent
+\textbf{Types are required but selecting subtypes is optional}: do not select a subtype when it is a bad fit for the event being described. Absence of a subtype on an annotated event denotes an "Other" subtype.
 
 \section{Event Triggers}
 
@@ -43,11 +46,11 @@ We also indicate the \type{type and subtype} of most events in the example sente
 
 \begin{exe}
     \ex\label{ex/verb1} \annexe{On Monday, shares of biopharmaceutical company Celgene \anntrg{tumbled}}.
-        \expl the verb \anntrg{tumbled} is the trigger of a \type{SecurityValue} event.
+        \expl the verb \anntrg{tumbled} is the trigger of a \type{SecurityValue\_Decrease} event.
     \ex\label{ex/noun1} Noun: \annexe{[..] AA's exclusive airline \anntrg{sponsorship deal} with the World Series champion Cubs.}
         \expl the noun \anntrg{sponsorship deal} is the trigger of a \type{CSR/Brand} event.
     \ex\label{ex/noun2} \annexe{Viscen is revealed to be the \anntrg{buyer} of the ACX directories.}
-        \expl the noun \anntrg{buyer} is the trigger of a \type {MergerAcquisition} event.
+        \expl the noun \anntrg{buyer} is the trigger of a \type{MergerAcquisition} event.
 \end{exe}
 
 \subsection{Event Trigger Extent: What Forms Do Event Triggers Take?}
@@ -56,7 +59,7 @@ As examples \ref{ex/verb1} and \ref{ex/noun1} show, the trigger can be a \textbf
 \begin{exe}
     \ex\label{ex/verb2} Verb: \annexe{The FDA did not \anntrg{approve} JNJ's new medicine.}
     \ex\label{ex/noun3} Noun: \annexe{The \anntrg{acquisition} of ACX went over without a problem.}
-    \ex\label{ex/adjective} Adjective: \annexe{The \anntrg{banktrupt} firm left investors angry.}
+    \ex\label{ex/adjective} Adjective: \annexe{The \anntrg{convicted} executive has made many enemies among the board.}
     \ex\label{ex/pastparticiple} Past-participle: \annexe{The company was \anntrg{litigated} against on grounds of workfloor safety violations.}
 \end{exe}
 
@@ -65,8 +68,8 @@ We typically think of events as processes or actions; but we also tag states tha
 As shown by the examples below, resultative events can be predicate adjectives, participles used as modifiers or even present participles that denote an action currently in progress.
 
 \begin{exe}
-    \ex\label{ex/predicateadjective} Predicate adjective: \annexe{The firm is \anntrg{bankrupt.}}
-    \ex\label{ex/npadjective} Nominal modifier adjective: \annexe{The \anntrg{bankrupt} firm leaves many angry investors behind.}
+    \ex\label{ex/predicateadjective} Predicate adjective: \annexe{The firm is \anntrg{fined.}}
+    \ex\label{ex/npadjective} Nominal modifier adjective: \annexe{The \anntrg{fined} firm has to pay a significant sum.}
     \ex\label{ex/presentparticiple} Present participle: \annexe{The firms are currently \anntrg{merging}.}
 \end{exe}
 
@@ -79,20 +82,20 @@ In this case, only the noun that refers to the event is tagged:
 
 \begin{exe}
     \ex \annexe{Quaker Oats rejected PepsiCo's \anntrg{takeover} offer as too low.}
-        \expl \type{MergerAcquisition}
-    \ex \annexe{In April of last year, the CR Company began \anntrg{bankruptcy} procedures}.
-        \expl \type{Bankruptcy}
+        \expl \type{Merger/Acquisition}
+    \ex \annexe{In April of last year, the CR Company began \anntrg{litigation}}.
+        \expl \type{Legal\_Proceeding}
     \ex \annexe{Biogen's Alzheimer drug began the clinical \anntrg{testing} phase}.
-        \expl \type{ProductService.Trail}
+        \expl \type{ProductService\_Trail}
 \end{exe}
 
 Anaphors of events such as \textbf{pronouns and definite descriptions} of previously mentioned events are also tagged.
 
 \begin{exe}
-    \ex\label{ex/pronoun1} Pronoun: \annexe{The firm went \anntrg{bankrupt.} \anntrg{It} was a great loss for many of the early-stage investors.}
-        \expl pronoun \anntrg{It} refers to a previous \type{Bankruptcy} event and is tagged.
+    \ex\label{ex/pronoun1} Pronoun: \annexe{The firm was \anntrg{fined.} \anntrg{It} was a great loss for many of the early-stage investors.}
+        \expl pronoun \anntrg{It} refers to a previous \type{Legal\_Conviction} event and is tagged.
     \ex\label{ex/pronoun2} Definite noun phrase: \annexe{Amazon \anntrg{launched} its own smartphone. \anntrg{It} was a festive \anntrg{affair}.}
-        \expl pronoun \anntrg{It} and definite noun \anntrg{affair} refers to a previous event \type{Product.Launch}.
+        \expl pronoun \anntrg{It} and definite noun \anntrg{affair} refers to a previous event \type{Product\_Launch}.
 \end{exe}
 
 Anaphoric triggers, i.e. \anntrg{it} and \anntrg{affair} do not require arguments.
@@ -117,17 +120,32 @@ Noting the triggers, annotators double check their spans.
 
 \subsubsection{Picking a word from multiple possible trigger words}
 
-There may still be situations where you can reasonably identify multiple different words for a single event trigger. We provide a few rules in these cases to avoid confusion. As a general rule-of-thumb: Always select the smallest meaningful lexical unit as an event trigger.
-\\[10pt]
+There may still be situations where you can reasonably identify multiple different words for a single event trigger.
+We provide a few rules in these cases to avoid confusion.
+As a general rule-of-thumb: Always select the smallest meaningful lexical unit as an event trigger.
+
+However, keep in mind that words that determine the event subtype should also be tagged.
+
+\begin{exe}
+    \ex \annexe{Foo Corp. 's services business \anntrg{grew} \$ 2 Million in \anntrg{revenue} .} \hspace*{\fill}{(aapl s01)}
+        \expl the noun "\anntrg{revenue}" denotes a \type{Revenue} main event type.
+        However the verb \anntrg{grew} specifies that the subtype is \type{Revenue.Increase}. Because the verb \anntrg{grew} denotes an increase in the revenue, it is central to determining the event subtype.
+        In WebAnno, you can tag trigger tokens that are seperated with the "Discontiguous\_trigger" feature on the main type trigger.
+    \ex \annexe{That lets the chain obtain the item at a lower cost , letting it sell it for less money , likely at the same or a greater margin .} \hspace*{\fill}{(wmt03 s23)}
+        \expl the noun "\anntrg{revenue}" denotes a \type{Revenue} main event type.
+        However the verb \anntrg{grew} specifies that the subtype is \type{Revenue.Increase}. Because the verb \anntrg{grew} denotes an increase in the revenue, it is central to determining the event subtype.
+        In WebAnno, you can tag trigger tokens that are seperated with the "Discontiguous\_trigger" feature on the main type trigger.
+\end{exe}
+
 \noindent\textbf{The Stand-Alone Noun Rule}:
 In \textbf{verb+noun} constructions, we will simply select the noun whenever that noun can be used by itself to refer to the event.
 If the verb+noun cannot be reduced without loosing the event meaning multiple words will be tagged.
 
 \begin{exe}
-    \ex \annexe{Foo Corp. had previously \textit{filed} \anntrg{Chapter 11} in 2001.}
-        \expl the \textbf{noun} "\anntrg{Chapter 11}" - not verb+noun \textit{filed Chapter 11} - is the trigger as per the Stand-Alone Noun Rule.
+    \ex \annexe{Foo Corp. has previously \textit{released} great results on their \anntrg{10-K} in 2016.}
+        \expl the noun "\anntrg{10-K}" - not verb+noun \textit{released 10-K} - is the trigger as per the Stand-Alone Noun Rule. (A Form 10-K is an annual report required by the U.S. Securities and Exchange Commission (SEC), that gives a comprehensive summary of a company's financial performance.)
     \ex \annexe{The company had to \textit{pay a} \anntrg{fine} of 300.000EUR.}
-        \expl the \textbf{noun} "\anntrg{fine}" - not verb+noun \textit{pay a fine} - is the trigger as per the Stand-Alone Noun Rule.
+        \expl the noun "\anntrg{fine}" - not verb+noun \textit{pay a fine} - is the trigger as per the Stand-Alone Noun Rule.
 \end{exe}
 
 \noindent\textbf{Stand-Alone Adjective Rule}:
@@ -148,7 +166,7 @@ In \textbf{verb+X+noun} constructions, when a verb and an adjective are used tog
 
 \noindent\textbf{Contiguous Verb+Particle/Verb+Adverb Rule}:
 In \textbf{verb+particle and verb+adverb}, constructions we will tag main verb and particle together.
-If they are discontiguous, i.e., interrupted, we annotate the verb with its particle or adverb using a discontiguous span relation annotation.
+If they are discontiguous, i.e., interrupted, we annotate the verb with its particle or adverb using a discontiguous span relation annotation in WebAnno.
 
 \begin{exe}
     \ex \annexe{Jane was \anntrg{laid off} by XYZ Corp.}
@@ -191,7 +209,7 @@ Some examples of events with different combinations of Modality and Polarity:
         \expl The \type{Employement.End} event certainly takes place according to the explicitly mentioned source (The Seattle Times).
         \expl Factuality label: \textbf{Certain} modality, \textbf{Positive} polarity.
     \ex \annexe{The 3bn euro acquisition of VNU's directories business by Apex and Cinven did not go through in 2014 .}
-        \expl The \type{MergerAcquisition} event certainly did not take place. The author does not express uncertainty about the fact that the event did not take place.
+        \expl The \type{Merger/Acquisition} event certainly did not take place. The author does not express uncertainty about the fact that the event did not take place.
         \expl Factuality label: \textbf{Certain} modality, \textbf{Negative} polarity.
     \ex \annexe{With Express Wi-Fi , Facebook hopes to bring more Indians online and also empower more Indian businesses that could \anntrg{become advertisers} on the site .}
         \expl The \type{SalesVolume.Increase} event is uncertain and is a not negated according to Facebook: Facebook thinks it is probable that a \type{SalesVolume.Increase} event will take place.
@@ -263,6 +281,9 @@ Certain events cannot at the same time be possible in a context of opposite pola
         \expl \#!... but it is possible that it will rise higher. (Certain + \textbf{Positive}) -> Contradiction.
 \end{exe}
 
+In our \project corpus, the most common categories are \textbf{Certain + Positive} and \textbf{Uncertain + Positive}.
+\textbf{Uncertain + Positive} seems to be possible more common than in other reporting genres due to the forward future facing character of financial forecasts, investment advice, etc., however we did not quantitively check this.
+Due to the news reporting genre positive polarity is used to assert events, possibly because events that did not happen are not good material to be reported on.
 
 \section{Dealing with Quotations}
 

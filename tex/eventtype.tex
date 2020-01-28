@@ -13,90 +13,116 @@
 
 \section{Typographical convention}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{EventType\_Subtype}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{EventType\_Subtype}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		A description of the event type or subtype.
+		A description of the event type or subtype. Types are required but selecting subtypes is optional: do not select a subtype when it is a bad fit for the event being described. Absence of a subtype on an annotated event denotes an "Other" subtype.
 	\end{minipage}
 	} & \annexe{Event mention example sentence with the trigger word in \anntrg{bold}.} \\ \thline
-ParticipantArgument & Description of the Participant argument. & \annexe{Participant argument example sentence with the argument \exargpart{highlighted}} \\
-FILLERARGUMENT & Brief description of FILLER argument. For full description for FILLER arguments see \ref{sec:FILLERtypes}. Note: TIME and PLACE FILLERs are allowed on all event types and are not included in event type overviews. & \annexe{FILLER argument example sentence with the FILLER argument \exargfill{highlighted}.}  \\
+ParticipantArgument & Description of the Participant argument. \underline{Taggability}: Rules on the taggability and extent of the participant is given as needed. As a general rule, the participant extent is a full Noun Phrase. & \annexe{Participant argument example sentence with the argument \exargpart{highlighted}} \\
+FILLERARGUMENT & Brief description of the type-specific FILLER argument. For the full description for FILLER arguments and their taggability see \ref{sec:FILLERtypes}. CAPITAL, TIME and PLACE are universal FILLERS allowed on all event types and are not included in event type overviews. & \annexe{FILLER argument example sentence with the FILLER argument \exargfill{highlighted}.}  \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
+\begin{itemize}[noitemsep,leftmargin=*]
+	\item \textbf{Overlap} with a different \type{Type}: Sometimes there is conceptual overlap for an event with a different event that is likely to cause confusion when annotating. Here we resolve such conceptual overlap and make explicit the difference between types.
+	\item Keywords: Here we provide keywords that are often associated with a type.
+	\item "Concept": \url{an.exampleoftype.url} Additionally, we provide URLs to webpages with further explanations and examples of the event concept.
+\end{itemize}
 \section{Event types}
 
 %-------CSR/Brand----------
 \subsection{CSR/Brand}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{CSR/Brand}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{CSR/Brand}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		Corporate Social Responsibility and Branding events take place when the company's effects on environmental and social wellbeing are assessed or when the brand image is affected. Includes environmental and social efforts (e.g. affirmative action, employee well-being) and scandals violating responsibility such as sexism accusations, corruption, bribing, etc. Branding includes events improving or damaging image and credibility of the brand image, company image, or product image. This includes advertising campaigns, affiliations, sponsorships.
+		Corporate Social Responsibility (CSR) and Branding events take place when the company's effects on environmental and social well-being are assessed or when the brand image is affected.
+		CSR involves ethical, ecological, environmental and social efforts (e.g. affirmative action, employee well-being, obtaining certifications) and on scandals violating responsibility such as sexism accusations, corruption, bribing, etc.
+		Branding and marketing involves events improving or damaging image and credibility of the brand image, company image, or product image. This includes marketing, advertising campaigns, awards, affiliations, and sponsorships.
+		Includes announcements, reports, quotations, and speculation on CSR and branding events.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
-Company & The company or brand directly associated with the CSR/Brand event  & \annexe{Argument 1 example sentence with the argument highlighted} \\
+Company & The company or brand directly associated with the CSR, branding, or marketing event. & \annexe{Argument 1 example sentence with the argument highlighted} \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \begin{itemize}[noitemsep,leftmargin=*]
-	\item Keywords: Scandal, Corruption, Social Responsibility, Environmental Responsibility, Company Image, Brand Image, Product Image, Credibility, Award, Sponsorship, Advertising Campaign, Affiliation.
-	\item \url{en.wikipedia.org/wiki/Corporate_social_responsibility}
-	\item \url{www.investopedia.com/terms/c/corp-social-responsibility.asp}
+	\item \hypertarget{csrbrandvsemployment}{\textbf{Overlap} with \type{Employment}: \type{CSR/Brand} is similar when social responsibility issues such as scandals or mistreatment of workers are discussed. The difference lies in the framing of the event: if a specific hiring or employee issue is discussed with the contextual focus on the problem itself we tag \type{Employment\_Problem}, if it is reported on in light of the impact on the brand or as a scandal we tag \type{CSR/Brand}.}
+    \item \hypertarget{csrbrandvsproductservice}{\textbf{Overlap} with \type{Product/Service}: \type{CSR/Brand} is tagged when an issue with a product or service is explicitly framed as affecting the brand or social responsibility of a company. If there is no explicit reference to the brand impact, \type{Product/Service} is tagged.}
+    \item \hypertarget{csrbrandvslegal}{\textbf{Overlap} with \type{Legal}: A scandal or social and environmental violations are often reference a legal framework or proceedings/outcomes. When to focus lies on the legalility of the event we tag \type{Legal}. When the event is framed affecting the image or social/environmental responsibility we tag \type{CSR/Brand}.}
+	\item Keywords: ecological efforts, ethical and social efforts, scandal, corruption, social responsibility, environmental responsibility, marketing strategies and efforts, company image, brand image, product image, credibility, award, sponsorship, advertising campaign, affiliation.
+	\item \url{https://en.wikipedia.org/wiki/Corporate_social_responsibility}
+	\item \url{https://investopedia.com/terms/c/corp-social-responsibility.asp}
+	\item \url{https://en.wikipedia.org/wiki/Brand_management}
 \end{itemize}
 
 \vspace{0.5cm}
 
-%-------Capital Returns----------
-\subsection{Capital Returns}
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-\multicolumn{3}{C{14.85cm}}{\Large \textbf{CapitalReturns}}                \\
+%-------Deal---------
+\subsection{Deal}
+
+\hypertarget{Deal}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large \textbf{Deal}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		A company returns capital to its shareholders. The typical methods are Stock Buy Backs (or Share Repurchases) and Dividends.
+		Deals and partnerships to cooperate with another company or entity.
+		Two or more companies, organization or entities agree to jointly reach a goal.
+		Examples of deals include service and product deals, licensing, contract bid, alliance, partnership, Memorandum of Understanding (MOU), pacts, joint ventures (two companies pool resources to accomplish a task), collaborations, contracts, agreements, development partnerships (usually public private partnerships for development projects), and affiliations.
+		Includes announcements, reports, quotations, and speculation on deal events.\\
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
-Returnee & The company giving out dividends or buying back its stock  & \annexe{Argument 1 example sentence with the argument highlighted} \\
-Amount & Amount of capital returned to the company in monetary amount, amount of shares bought-back, or dividends payed-out.  & \annexe{Argument 2 example sentence with the argument highlighted}  \\
-\specialrule{.1em}{.05em}{.05em}
-\end{tabularx}
+Partner & One of the partner in the deal. Taggability: A deal by definition has multiple partners so at least two or more Partner participants need to be tagged (if there is no violation of Event Mention Scope). & \annexe{Argument 1 example sentence with the argument highlighted} \\
+Goal & Goal and aims of the deal. Taggability: Only annotate non-sentential units as the annotation extent, full sentences are not taggable. & \\
+\specialrule{.1em}{.05em}{.05em} 
+\end{tabularx}}
 
 \begin{itemize}[noitemsep,leftmargin=*]
-	\item \url{www.investopedia.com/terms/r/returnofcapital.asp}
-	\item \url{www.investopedia.com/terms/b/buyback.asp}
-	\item \url{en.wikipedia.org/wiki/Share_repurchase}
-	\item \url{corporatefinanceinstitute.com/resources/knowledge/finance/dividend-vs-share-buyback-repurchase/}
-	\item \url{https://en.wikipedia.org/wiki/Dividend}
-	\item \url{https://www.investopedia.com/terms/d/dividendyield.asp}
+	\item \hypertarget{dealvsinvestment}{\textbf{Overlap} with \type{Investment}: Deal is a more general type than investment: in an \type{Investment} event one party invest an amount of capital in a second party expecting a return on investment. A deal does not have to involve an expectation of a return nor an amount of capital and is more general.}
+	\item \hypertarget{dealvsmergeracquisition}{\textbf{Overlap} with \type{Merger/Acquisition}: Mergers and acquisition are large deals in which one company acquires ownership of another company. \type{Merger/Acquistion} are more specific then the general \type{Deal}, they require a targeted takeover of the full company or specific departments/assets of a company by an acquiring company.}
+	\item \hypertarget{dealvsemployment}{\textbf{Overlap} with \type{Employment}: In rare cases, a cooperation or agreement on hiring a company for a task is discussed. When the two parties concerned are companies, organization or governments, we tag a \type{Deal} event. When on of the parties is uni-vocally described in their function as an employ or job position a \type{Employment} event is annotated.}
+	\item \hypertarget{dealvsfacility}{\textbf{Overlap} with \type{Facility}: When two organization, companies or entities close a deal for the use of real-estate (such a lease), we tag \type{Deal}. When the event as framed as an opening or closing of a specific facility or describes any other issue with a specific facility, we tag \type{Facility}.}
+    \item Keywords: service and product deals, licensing, contract bid, alliance, partnership, Memorandum of Understanding (MOU), pacts, joint ventures (two companies pool resources to accomplish a task), collaborations, contracts, agreements, development partnerships (usually public private partnerships for development projects), and affiliations.
 \end{itemize}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-\multicolumn{3}{C{14.85cm}}{\Large CapitalReturns\_\textbf{ShareRepurchase}}                \\
+
+%-------Dividend---------- NEW promoted to maintype in v0.9
+\subsection{Dividend}
+
+\hypertarget{Dividend}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large \textbf{Dividend}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		Share repurchase (or stock buyback) is the re-acquisition by a company of its own stock.
-		A share repurchase is a program by which a company buys back its own shares from the marketplace, usually because management thinks the shares are undervalued, and thereby reducing the number of outstanding shares. 
-		The company buys shares directly from the market or offers its shareholders the option of tendering their shares directly to the company at a fixed price.
+	    A dividend is a distribution of a portion of a company's earnings, decided by the board of directors, paid to a class of its shareholders. We also include other types of capital returns in this type such as share buybacks and ROC. Dividends can be issued as cash payments, as shares of stock, or other property. A dividend is a payment made by a corporation to its shareholders, usually as a distribution of profits. When a corporation earns a profit or surplus, the corporation is able to re-invest the profit in the business (called retained earnings) and pay a proportion of the profit as a dividend to shareholders. Distribution to shareholders may be in cash (usually a deposit into a bank account). Investors often view the company’s dividend by its dividend yield which measures the dividend in terms of a percent of the current market price. The dividend rate can also be quoted in terms of the dollar amount each share receives (dividends per share, or DPS). Includes forecasts, reports, announcements, quotations and speculation on dividends and capital returns.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
-Returnee & The company giving out dividends or buying back its stock  & \annexe{Argument 1 example sentence with the argument highlighted} \\
-Amount & Amount of capital returned to the company in monetary amount, amount of shares bought-back, or dividends payed-out.  & \annexe{Argument 2 example sentence with the argument highlighted}  \\
-Price & Unit price of the shares. & \\
-\specialrule{.1em}{.05em}{.05em}
-\end{tabularx}
+Company & The company giving out dividends.  & \annexe{Argument 1 example sentence with the argument highlighted} \\
+Amount & The total amount of dividends payed-out in monetary amount or as count of dividends.  & \annexe{Argument 2 example sentence with the argument highlighted}  \\
+YieldRatio & The current dividend yield ratio in percentage. &                                    \\
+\specialrule{.1em}{.05em}{.05em} 
+\end{tabularx}}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+    \item \hypertarget{dividendvssecurityvalue}{\textbf{Overlap} with \type{SecurityValue}: Securities (i.e., stocks, options or bonds) and dividends can be broadly categorized as assets. However, a dividend is only an asset from a shareholder point-of-view. For companies on the other hand, dividends are a temporary liability. Due to this difference it is always clear whether dividends or securities are being discussed. For a more in depth discussion cf. \url{https://www.investopedia.com/ask/answers/091115/are-dividends-considered-asset.asp}.}
+    \item Keywords: dividend yield, yield ratio, pay-out, retained earnings, stable dividend policy, dividend reinvestment, cash dividend, stock or scrip dividend, stock dividend distribution, target pay-out ration, constant pay-out ratio.
+    \item "Dividend": \url{https://www.investopedia.com/terms/d/dividend.asp}
+    \item "Dividend": \url{https://en.wikipedia.org/wiki/Dividend}
+    \item "Types of dividend": \url{https://www.accountingtools.com/articles/2017/5/16/types-of-dividends}
+	\item "Types of dividend": \url{https://businessjargons.com/types-of-dividend.html}
+\end{itemize}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-\multicolumn{3}{C{14.85cm}}{\Large CapitalReturns\_\textbf{DividendPayment}}                \\
+\hypertarget{Dividend\_Payment}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large Dividend\_\textbf{Payment}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
@@ -105,16 +131,16 @@ Price & Unit price of the shares. & \\
 		Distribution to shareholders may be in cash (usually a deposit into a bank account).
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
-Returnee & The company giving out dividends or buying back its stock  & \annexe{Argument 1 example sentence with the argument highlighted} \\
-Amount & Amount of capital returned to the company in monetary amount, amount of shares bought-back, or dividends payed-out.  & \annexe{Argument 2 example sentence with the argument highlighted}  \\
+Company & The company giving out dividends.  & \annexe{Argument 1 example sentence with the argument highlighted} \\
+Amount & The total amount of dividends payed-out in monetary amount or as count of dividends.  & \annexe{Argument 2 example sentence with the argument highlighted}  \\
 YieldRatio & The current dividend yield ratio in percentage. &                                    \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-\multicolumn{3}{C{14.85cm}}{\Large CapitalReturns\_\textbf{DividendYieldRaise}}                \\
+\hypertarget{Dividend\_YieldRaise}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large Dividend\_\textbf{YieldRaise}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
@@ -123,17 +149,17 @@ YieldRatio & The current dividend yield ratio in percentage. &                  
 		Dividend yield is represented as a percentage and can be calculated by dividing the dollar value of dividends paid in a given year per share of stock held by the dollar value of one share of stock.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
-Returnee & The company giving out dividends or buying back its stock  & \annexe{Argument 1 example sentence with the argument highlighted} \\
-Amount & Capital returned to the company in gross monetary amount, amount of shares bought-back, or dividends payed-out.  & \annexe{Argument 2 example sentence with the argument highlighted}  \\
+Company & The company giving out dividends.  & \annexe{Argument 1 example sentence with the argument highlighted} \\
+Amount & The total amount of dividends payed-out in monetary amount or as count of dividends.  & \annexe{Argument 2 example sentence with the argument highlighted}  \\
 YieldRatio & The current dividend yield ratio in percentage. &                                    \\
 HistoricalYieldRatio & The dividend yield ratio in percentage compared to which the current yield ratio has increased. &        \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-\multicolumn{3}{C{14.85cm}}{\Large CapitalReturns\_\textbf{DividendYieldReduction}}                \\
+\hypertarget{Dividend\_YieldReduction}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large Dividend\_\textbf{YieldReduction}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
@@ -142,18 +168,18 @@ HistoricalYieldRatio & The dividend yield ratio in percentage compared to which 
 		Dividend yield is represented as a percentage and can be calculated by dividing the dollar value of dividends paid in a given year per share of stock held by the dollar value of one share of stock.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
-Returnee & The company giving out dividends or buying back its stock  & \annexe{Argument 1 example sentence with the argument highlighted} \\
-Amount & Capital returned to the company in monetary amount, amount of shares bought-back, or dividends payed-out.  & \annexe{Argument 2 example sentence with the argument highlighted}  \\
+Company & The company giving out dividends.  & \annexe{Argument 1 example sentence with the argument highlighted} \\
+Amount & The total amount of dividends payed-out in monetary amount or as count of dividends.  & \annexe{Argument 2 example sentence with the argument highlighted}  \\
 YieldRatio & The current dividend yield ratio in percentage. &                                    \\
 HistoricalYieldRatio & The dividend yield ratio in percentage compared to which the current yield ratio has decreased. &        \\
  & & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-\multicolumn{3}{C{14.85cm}}{\Large CapitalReturns\_\textbf{DividendYieldStable}}                \\
+\hypertarget{Dividend\_YieldStable}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large Dividend\_\textbf{YieldStable}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
@@ -162,59 +188,42 @@ HistoricalYieldRatio & The dividend yield ratio in percentage compared to which 
 		Dividend yield is represented as a percentage and can be calculated by dividing the dollar value of dividends paid in a given year per share of stock held by the dollar value of one share of stock. 
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
-Returnee & The company giving out dividends or buying back its stock  & \annexe{Argument 1 example sentence with the argument highlighted} \\
-Amount & Capital returned to the company in monetary amount, amount of shares bought-back, or dividends payed-out.  & \annexe{Argument 2 example sentence with the argument highlighted}  \\
+Company & The company giving out dividends.  & \annexe{Argument 1 example sentence with the argument highlighted} \\
+Amount & The total amount of dividends payed-out in monetary amount or as count of dividends.  & \annexe{Argument 2 example sentence with the argument highlighted}  \\
 YieldRatio & The current dividend yield ratio in percentage. &                                    \\
 HistoricalYieldRatio & The dividend yield ratio in percentage compared to which the current yield ratio has remained stable. &        \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
-
-\vspace{0.5cm}
-
-%-------Deal---------
-\subsection{Deal}
-
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-\multicolumn{3}{C{14.85cm}}{\Large \textbf{Deal}}                \\
-\specialrule{.1em}{.05em}{.05em} 
-\multicolumn{2}{|L{8.55cm}}{
-	\begin{minipage}{8.55cm}
-		Deals and partnerships to cooperate with another company or entity. Service and product deals, licensing, contract bid, alliance, partnership, Memorandum of Understanding (MOU), pacts, joint ventures (two companies pool resources to accomplish a task), collaborations, contracts, agreements, development partnerships (usually public private partnerships for development projects), and affiliations.
-	\end{minipage}
-	} & \annexe{example}                                                                         \\ \thline
-Partner & One of the partner in the deal. A deal by definition has multiple partners. & \annexe{Argument 1 example sentence with the argument highlighted} \\
-Goal & Goal and aims of the deal. & \\
-
-\specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
-Keywords: Service and product deals, licensing, contract bid, alliance, partnership, Memorandum of Understanding (MOU), pacts, joint ventures (two companies pool resources to accomplish a task), collaborations, contracts, agreements, development partnerships (usually public private partnerships for development projects), and affiliations.
-\begin{itemize}
-	\item \url{en.wikipedia.org/wiki/Corporate_social_responsibility}
-\end{itemize}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
 %-------Employment---------
 \subsection{Employment}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Employment}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{Employment}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
 		Events regarding employment changes (firing and hiring), compensation, and issues regarding the workforce or other employees such as executives.
-		Includes CEO changes, executive change, board change, executive compensation, employment issues, strikes, workforce increase, workforce decrease/firing.
+		Examples of this type are CEO changes, executive change, board change, executive compensation, employment issues, strikes, workforce increase, workforce decrease/firing.
+		Includes announcements, reports, quotations, and speculation on employment events.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 Employee & Employee, group of employees, part of the workforce. & \annexe{Argument 2 example sentence with the argument highlighted}  \\
 Employer & Employer company or employing person.  & \annexe{Argument example sentence with the argument highlighted} \\
 TITLE & The job title/position of the employee. & \annexe{FILLER example sentence with the argument highlighted} \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+    \item \textbf{Overlap} with \type{CSR/Brand}: \hyperlink{csrbrandvsemployment}{See \type{CSR/Brand}.}
+    \item \textbf{Overlap} with \type{Deal}: \hyperlink{dealvsemployment}{see \type{Deal}.}
+\end{itemize}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Employment\_Start}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Employment\_\textbf{Start}}                \\
 \specialrule{.1em}{.05em}{.05em}
 \multicolumn{2}{|L{8.55cm}}{
@@ -227,11 +236,11 @@ Employer & Employer company or employing person.  & \annexe{Argument example sen
 Replacing & The person that the starting Employee replaces. & \annexe{Argument example sentence with the argument highlighted}\\
 TITLE & The job title/position of the starting Employee. & \annexe{Argument example sentence with the argument highlighted} \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Employment\_End}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Employment\_\textbf{End}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -243,13 +252,12 @@ Employee & Employee, group of employees, part of the workforce being terminated/
 Employer & Employer company or employing person doing the firing.  & \annexe{Argument example sentence with the argument highlighted} \\
 Replacer & The person that replaces the terminated Employee. & \annexe{Argument example sentence with the argument highlighted}\\
 TITLE & The job title/position of the terminated Employee. & \annexe{Argument example sentence with the argument highlighted} \\
-
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Employment\_Compensation}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Employment\_\textbf{Compensation}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -262,31 +270,101 @@ Employer & Employer company or employing person.  & \annexe{Argument example sen
 Amount & the monetary amount of compensation. & \\
 TITLE & The job title/position of the terminated Employee. & \annexe{Argument example sentence with the argument highlighted} \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-\multicolumn{3}{C{14.85cm}}{\Large Employment\_\textbf{Problem}}                \\
+%-------Expense---------
+\subsection{Expense}
+
+\hypertarget{Expense}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large \textbf{Expense}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		Issues, strikes, hiring failure, and other problems regarding employment.
+	An expense is the cost that a business requires to operate on the short-term and long-term.
+	An operating expense (OPEX) is a recurring expense a company incurs through its operations.
+	Often abbreviated as OPEX, operating expenses include rent, equipment, inventory costs, marketing, payroll, insurance, and funds allocated for research and development.
+	Revenue and capital expenses (CAPEX) are costs a company makes to maintain or upgrade existing assets made over a period of time.
+    Includes announcements, reports, quotations, and speculation on operating, revenue and capital expenses.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
-Employee & Employee, group of employees, part of the workforce who is involved in a problem. & \annexe{Argument 2 example sentence with the argument highlighted}  \\
-Employer & Employer company or employing person.  & \annexe{Argument example sentence with the argument highlighted} \\
-TITLE & The job title/position of the terminated Employee. & \annexe{Argument example sentence with the argument highlighted} \\
+Company & Company making the expense. & \annexe{Argument 2 example sentence with the argument highlighted}  \\
+Amount & The capital cost of the expense expressed as a monetary value. & \annexe{Argument 2 example sentence with the argument highlighted}  \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
-Note: has overlap with CSR/Brand.
+\end{tabularx}}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+    \item \hypertarget{expensevsrevenue}{\textbf{Overlap} with \type{Revenue}}: Revenue is money a company earns from conducting business. Expenses are the costs you incur to generate that revenue. The ingredients you buy to make the ice cream, the wages you pay your employees, the rent and utilities you pay for your stand -- these are all expenses. To remain viable, a company's revenue must exceed its expenses. Revenue is often referred to as the "top line" because it sits at the top of the income statement.
+    \item \hypertarget{expensevsprofitloss}{\textbf{Overlap} with \type{Profit/Loss}}: \type{Profit/Loss} captures total earnings or net income (AKA "the bottom line"). It consists of the gross revenue minus all expenses. A reduction in expenses can lead to increased earnings.
+    \item \hypertarget{expensevssalesvolume}{\textbf{Overlap} with \type{SalesVolume}}: \type{SalesVolume} events capture changes in the amount of product/service sales or consumers/subscriptions. The volume of sales impacts revenue and expenses. Variable operating expenses (such as delivery costs) closely associated with, and varying in close proportion to, changes in the total sales volume. Although not listed separately in income statement, these expenses are an important item of management accounts.
+    \item \hypertarget{expensevsinvestment}{\textbf{Overlap}} with \type{Investment}: \type{Expenses} and \type{Investments} both incur costs to a business. An investment is an expense for which the primary purpose is to change the future revenue or cost structure of the enterprise. An investment involves an expected future return, while an expense is a cost to cover current operations, production, etc. 
+    \item \hypertarget{expensevsrevenue}{\textbf{Overlap}} with \type{Revenue}:	A business can incur expenses that relate to acquiring revenue in the short-term, i.e. "revenue expenses". Revenue expenses will be tagged under the \type{Expense} type which is typically associated with capital expenses. The difference between revenue expenses and capital expenses is that revenue expenses are one-time costs instead of gradual over-time capital expense. These involve fixed one-time costs related to real estate, factory equipment, computers, office furniture, and other physical capital asset or intangible assets such as intellectual property, copyrights, patents, trademarks, et. al. Whenever a revenue expense is discussed we tag \type{Expense}.
+    \item Keywords: operating expense, capital cost, cost saving, revenue expenditure.
+    \item OPEX vs. CAPEX: We include both revenue types in \type{Revenue}. What follows is an explanation of the difference for clarification: Capital expenditure should not be confused with revenue expenditure or operating expenses (OPEX). Revenue expenses are shorter-term expenses required to meet the ongoing operational costs of running a business, and therefore they are essentially identical to operating expenses. Unlike capital expenditures, revenue expenses can be fully tax-deducted in the same year in which the expenses occur. (cf. \url{https://www.investopedia.com/terms/c/capitalexpenditure.asp}) While these types of expense are different in accounting because of US taxation and legal reasons, we combine them under one event as they capture the cost of operating a company.
+    \item "Operating expense": \url{https://www.investopedia.com/terms/o/operating_expense.asp}
+    \item "Capital expenditure": \url{https://www.investopedia.com/terms/c/capitalexpenditure.asp}
+    \item "Revenue expenditure": \url{https://www.accountingtools.com/articles/the-difference-between-capital-expenditures-and-revenue-expe.html}
+\end{itemize}
+
+\vspace{0.5cm}
+
+\hypertarget{Expense\_Increase}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large Expense\_\textbf{Increase}}                \\
+\specialrule{.1em}{.05em}{.05em} 
+\multicolumn{2}{|L{8.55cm}}{
+	\begin{minipage}{8.55cm}
+    Expenses and costs have increased compared to a historical trend.
+    The company is expending more costs than before as a trend or on specific tangible (real-estate, rent, infrastructure) or intangible assets (intellectual property) assets.
+	\end{minipage}
+	} & \annexe{example}                                                                         \\ \thline
+Company & Company making the expense. & \annexe{Argument 2 example sentence with the argument highlighted}  \\
+Amount & The current capital cost of the expense expressed as a monetary value. & \annexe{Argument 2 example sentence with the argument highlighted}  \\
+HistoricalAmount & The historical capital cost compared to which the current amount is increased.  & \\
+\specialrule{.1em}{.05em}{.05em} 
+\end{tabularx}}
+
+\vspace{0.5cm}
+
+\hypertarget{Expense\_Decrease}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large Expense\_\textbf{Decrease}}                \\
+\specialrule{.1em}{.05em}{.05em} 
+\multicolumn{2}{|L{8.55cm}}{
+	\begin{minipage}{8.55cm}
+    Expenses and costs have decreased compared to a historical trend.
+    The company is expending less costs than before as a trend or on specific tangible (real-estate, rent, infrastructure) or intangible assets (intellectual property) assets.
+    The company makes efficiency efforts in production or its operation saving capital.
+	\end{minipage}
+	} & \annexe{example}                                                                         \\ \thline
+Company & Company making the expense. & \annexe{Argument 2 example sentence with the argument highlighted}  \\
+Amount & The current capital cost of the expense expressed as a monetary value. & \annexe{Argument 2 example sentence with the argument highlighted}  \\
+HistoricalAmount & The historical capital cost compared to which the current amount is decreased.  & \\
+\specialrule{.1em}{.05em}{.05em} 
+\end{tabularx}}
+
+\vspace{0.5cm}
+
+\hypertarget{Expense\_Stable}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large Expense\_\textbf{Stable}}                \\
+\specialrule{.1em}{.05em}{.05em} 
+\multicolumn{2}{|L{8.55cm}}{
+	\begin{minipage}{8.55cm}
+    Expenses and costs remain stable or have not changed significantly compared to a historical trend.
+    The company is expending less costs than before as a trend or on specific tangible (real-estate, rent, infrastructure) or intangible assets (intellectual property) assets.
+    The company makes efficiency efforts in production or its operation saving capital.	\end{minipage}
+	} & \annexe{example}                                                                         \\ \thline
+Company & Company making the expense. & \annexe{Argument 2 example sentence with the argument highlighted}  \\
+Amount & The current capital cost of the expense expressed as a monetary value. & \annexe{Argument 2 example sentence with the argument highlighted}  \\
+HistoricalAmount & The historical capital cost compared to which the current amount has remained stable.  & \\
+\specialrule{.1em}{.05em}{.05em} 
+\end{tabularx}}
 
 \vspace{0.5cm}
 
 %-------Facility---------
 \subsection{Facility}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Facility}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{Facility}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -296,13 +374,18 @@ Note: has overlap with CSR/Brand.
 	} & \annexe{example}                                                                         \\ \thline
 Facility & Facility, factory or headquarters. & \annexe{Argument 2 example sentence with the argument highlighted}  \\
 Company & Company that is owner of the facility or headquarters.  & \annexe{Argument 1 example sentence with the argument highlighted} \\
-
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+    \item \hypertarget{facilityvsinvestment}{\textbf{Overlap} with \type{Investment}}: We tag \type{Investment} when a company allocates capital for the development of a facility. \type{Facility} types are reserved for an existing, opening or planned product or service or for any other issue related to facilities.
+    \item \textbf{Overlap} with \type{Deal}: \hyperlink{dealvsfacility}{See \type{Deal}.}
+    \item Keywords: production site, facility, factory, headquarters, 
+\end{itemize}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Facility\_Open}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Facility\_\textbf{Open}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -312,13 +395,12 @@ Company & Company that is owner of the facility or headquarters.  & \annexe{Argu
 	} & \annexe{example}                                                                         \\ \thline
 Facility & Facility or headquarters & \annexe{Argument 2 example sentence with the argument highlighted}  \\
 Company & Company opening facility or headquarters.  & \annexe{Argument 1 example sentence with the argument highlighted} \\
-
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Facility\_Close}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Facility\_\textbf{Close}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -329,37 +411,38 @@ Company & Company opening facility or headquarters.  & \annexe{Argument 1 exampl
 Facility & Facility or headquarters & \annexe{Argument 2 example sentence with the argument highlighted}  \\
 Company & Company opening facility or headquarters.  & \annexe{Argument 1 example sentence with the argument highlighted} \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-%-------FinancialResult---------
-\subsection{Financial Result}
+%-------FinancialResult---------RENAMED to FinancialReport in v0.9 
+\subsection{Financial Report}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-\multicolumn{3}{C{14.85cm}}{\Large \textbf{FinancialResult}}                \\
+\hypertarget{FinancialReport}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large \textbf{FinancialReport}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		Financial results as discussed in reports published by the company or other instance.
+		Financial results as discussed in reports published by the company or other instance (such as an rating firm, analyst, or fund).
 		Quarterly and annual reports include key accounting and financial data for a company, including gross revenue, net profit, operational expenses and cash flow.
+		We include all statements about cash flow that involves the incoming and outgoing transactions of a company (e.g., free cash flow (FCF)) and metrics derived thereof under this type.
 		A quarterly report for a public company typically includes an income statement, balance sheet, and cash flow statement for the quarter and the year-to-date (YTD), as well as comparative results for the prior year.
 		This event captures publishing, announcement or discussions of these reports and reported results within them.\\
-		Overlap with \type{Financing}, \type{Investment}, \type{Profit/Loss}, \type{Revenue}, \type{Sales Volume}: \type{FinancialResult}
-		Result contained in these reports should be tagged into these more specific event types.
-		\type{FinancialResult} is more general than these types and should be tagged when talking about a report or when the result does not fit in the more specific categories.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 Reportee & Company that is the topic of the financial report. & \\
 Result & The type of result with associated monetary amount that is reported on. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
+
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item \textbf{Overlap} with \type{Financing}, \type{Investment}, \type{Profit/Loss}, \type{Revenue}, \type{SalesVolume}: Business journalism often relies on the financial reporting of a company. Financial statements involve the accounting concepts that are captured by the above types. When a specific result belonging to the above categories is contained in these reports, we tag the more specific event types. We tag \type{FinancialReport} when i) general financial result trends about the company are assessed or ii) a specific report (10-k, quarterly report, etc.) itself is evaluated.
+\end{itemize}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-
-\multicolumn{3}{C{14.85cm}}{\Large FinancialResult\_\textbf{Beat}}                \\
+\hypertarget{FinancialReport\_Beat}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large FinancialReport\_\textbf{Beat}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
@@ -369,13 +452,12 @@ Result & The type of result with associated monetary amount that is reported on.
 Reportee & Company that is the topic of the financial report. & \\
 Result & The type of result with associated monetary amount that is reported on. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-
-\multicolumn{3}{C{14.85cm}}{\Large FinancialResult\_\textbf{Miss}}                \\
+\hypertarget{FinancialReport\_Miss}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large FinancialReport\_\textbf{Miss}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
@@ -385,13 +467,12 @@ Result & The type of result with associated monetary amount that is reported on.
 Reportee & Company that is the topic of the financial report. & \\
 Result & The type of result with associated monetary amount that is reported on. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-
-\multicolumn{3}{C{14.85cm}}{\Large FinancialResult\_\textbf{Stable}}                \\
+\hypertarget{FinancialReport\_Stable}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\multicolumn{3}{C{14.85cm}}{\Large FinancialReport\_\textbf{Stable}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
@@ -401,14 +482,14 @@ Result & The type of result with associated monetary amount that is reported on.
 Reportee & Company that is the topic of the financial report. & \\
 Result & The type of result with associated monetary amount that is reported on. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
 %-------Financing---------
 \subsection{Financing}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Financing}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{Financing}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -417,21 +498,20 @@ Result & The type of result with associated monetary amount that is reported on.
 		Equity financing involves not just the sale of stocks, but also the sale of other equity or quasi-equity instruments such as preferred stock, convertible preferred stock and equity units that include common shares and warrants.
 		These events focus on how a company raises equity through issuing shares in IPOs, stock splits, etc.
 		Debt Financing refers to the way in which companies raise funds by taking on debt by issuing bonds or taking on loans. Debt financing occurs when a firm sells fixed income products, such as bonds, bills, or notes, to investors.
-		Event mentions pertaining to company debt and debt ratios. Includes debt announcements, debt forecasts, debt increases, debt reductions, and debt and equity restructuring.
-		The balance between equity and debt of a company is expressed as the weighted average cost of capital, or WACC.
-		\\
-		Overlap with \type{Ratings\_Debt} and \type{Investment}.
-		Difference with \type{Ratings\_Debt} that this is not a rating by an analyst. \type{Financing} events are focused around a company taking on debt to raise capital.
-		Difference with \type{Investment} is that \type{Financing} events are focused around means of raising capital and not the investor-investee relation in se.
+		The balance between equity and debt of a company is expressed as the weighted average cost of capital (WACC).
+		Event mentions pertaining to company debt and debt ratios. 
+		Includes debt announcements, debt forecasts, debt increases, debt reductions, and debt and equity restructuring.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 Financee & The company selling equity as shares or taking on debt by issuing bonds or taking out loans. & \\
 Financer & The company, institution, or private entity investing in equity or giving out the loan. & \\
 Amount & Amount of capital financed as debt or equity. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \begin{itemize}[noitemsep,leftmargin=*]
+    \item \hypertarget{financingvsratingdebt}{\textbf{Overlap}} with \type{Ratings\_Credit/Debt}: The difference with \type{Ratings\_Credit/Debt} is not a debt or credit rating by an analyst. Debt Financing focuses on the means of gathering capital through taking on debt while a rating is a judgment made by an analyst an the companies overall debt (or capacity to repay debt).
+	\item \hypertarget{financingvsinvestment}{\textbf{Overlap} with \type{Investment}}: The difference between \type{Investment} and \type{Financing} is that \type{Financing} events are focused around means of raising capital and not the investor-investee relation and the expectation of a future return. \type{Financing} events are focused around a company taking on debt to raise capital.
     \item \url{https://www.investopedia.com/terms/d/debtfinancing.asp}
     \item \url{https://www.investopedia.com/terms/e/equityfinancing.asp}
     \item \url{https://www.investopedia.com/ask/answers/032515/how-does-company-choose-between-debt-and-equity-its-capital-structure.asp}
@@ -446,26 +526,34 @@ Amount & Amount of capital financed as debt or equity. & \\
 %-------Investment---------
 \subsection{Investment}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Investment}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{Investment}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		Investment in other companies or subsidiaries.
-		This event involves one company investing in another company it owns as a subsidiary or does not control or own fully as in affiliate/associate companies.
-		Corporate investments are often Capital Investments as part of a Corporate Finance strategy.
-		This event has overlap with i) MergerAcquisition and ii) Deal: i) the difference between MergerAcquisition and Investment is that in the MergerAcquisition event one company gains full ownership of another company or parts of that company. This is not the case in Investment where partial ownership through share investment is possible but not the goal. ii) Deal is more general than Investment, an Investment is between two companies with the investing party investing some capital expecting a return. A Deal can be between any two entities and is much more general regarding its meaning.
+	    Investment takes place when an organization, company or entity allocates capital or time in expectation for some benefit/return in the future.
+		We include corporate investment in other companies or subsidiaries as well as investments a company makes in infrastructure or products/services.
+		Corporate capital investment involves one company investing in another company it owns as a subsidiary or does not control or own fully as in affiliate/associate companies.
+		Corporate investments are often Capital Investments as part of a Corporate Finance strategy to strengthen the companies' portfolio.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 Investor & Company or organization that makes the investment. & \\
 Investee & Company being in which the Investor invests. Can also be a stock or other security. & \\
+Return  & The expected return or future benefit of the investment. & \\
 CapitalInvested & Amount of capital invested as a monetary expression. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \begin{itemize}[noitemsep,leftmargin=*]
-	\item \url{https://www.investopedia.com/terms/c/capital-investment.asp}
-	\item cf. Capital Investment \url{https://www.investopedia.com/terms/c/corporatefinance.asp}
+    \item \textbf{Overlap} with \type{Merger/Acquisition}: The difference between \type{Merger/Acquisition} and \type{Investment} is that in the \type{Merger/Acquisition} event one company gains full ownership of another company or parts of that company. This is not the case in Investment where partial ownership through share investment is possible but not the goal.
+    \item \textbf{Overlap} with \type{Deal}: \hyperlink{dealvsinvestment}{See \type{Deal.}}
+    \item \hypertarget{investmentvsproductservice}{\textbf{Overlap}} with \type{Product/Service}: We tag \type{Investment} when a company allocates capital for the development of a future product or service. \type{Product/Service} types are reserved for an existing, trialed or planned product or service or for any other issue directly related to products or services.
+    \item \textbf{Overlap} with \type{Facility}: \hyperlink{facilityvsinvestment}{See \type{Facility}.}
+    \item \textbf{Overlap} with \type{Financing}: \hyperlink{financingvsinvestment}{See \type{Financing}.}
+    \item \textbf{Overlap} with \type{Expense}: \hyperlink{expensevssalesvolume}{See \type{Expense}.}
+    \item General term "Investment": \url{https://en.wikipedia.org/wiki/Investment}
+	\item "Capital investment": \url{https://www.investopedia.com/terms/c/capital-investment.asp}
+	\item "Capital Investment": \url{https://www.investopedia.com/terms/c/corporatefinance.asp}
 \end{itemize}
 
 \vspace{0.5cm}
@@ -473,7 +561,7 @@ CapitalInvested & Amount of capital invested as a monetary expression. & \\
 %-------Legal---------
 \subsection{Legal}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Legal}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{Legal}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -485,11 +573,15 @@ CapitalInvested & Amount of capital invested as a monetary expression. & \\
 Defendant & Entity, company, or person being alleged of a crime, under investigation, convicted, fined, etc. & \\
 ALLEGATION & Allegation or other formal/legal offence that is alleged against a Defendant. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+    \item \textbf{Overlap} with \type{CSR/Brand}: \hyperlink{csrbrandvslegal}{See \type{CSR/Brand}}.
+\end{itemize}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Legal\_Proceeding}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Legal\_\textbf{Proceeding}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -502,11 +594,11 @@ Complainant & Entity filing suit or initiating the proceeding by accusation of t
 Adjudicator & Judge or court. In case of investigation, the investigator either private by attorney or public police investigators. & \\
 ALLEGATION & Allegation or other formal/legal offence that is alleged against a Defendant. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Legal\_Conviction/Settlement}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Legal\_\textbf{Conviction/Settlement}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -517,16 +609,15 @@ ALLEGATION & Allegation or other formal/legal offence that is alleged against a 
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 Defendant & Entity being convicted, fined, etc. & \\
-Adjudicator & Entity proclaiming the conviction & \\
+Adjudicator & Entity proclaiming the conviction. & \\
 SENTENCE & Sentence, fine, incarceration, or other punishment. & \\
 ALLEGATION & Allegation or other formal/legal offence that is alleged against a Defendant. & \\
-
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Legal\_Acquit}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Legal\_\textbf{Acquit}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -535,14 +626,14 @@ ALLEGATION & Allegation or other formal/legal offence that is alleged against a 
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 Defendant & Entity being convicted, fined, etc. & \\
-Adjudicator & Entity proclaiming the conviction. & \\
+Adjudicator & Entity proclaiming the acquittal. & \\
 ALLEGATION & Allegation or other formal/legal offence that is alleged against a Defendant. & \\
 \specialrule{.1em}{.05em}{.05em}
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Legal\_Appeal}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Legal\_\textbf{Appeal}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -552,28 +643,29 @@ ALLEGATION & Allegation or other formal/legal offence that is alleged against a 
 	} & \annexe{example}                                                                         \\ \thline
 Defendant & Entity being convicted, fined, etc. & \\
 Complainant & Entity filing suit or initiating the proceeding by accusation of the defendant. Governmental prosecutor, plaintiff, litigator, sue-er, petitioner. & \\
-Adjudicator & Entity proclaiming the conviction. & \\
+Adjudicator & Entity proclaiming the appeal. & \\
 ALLEGATION & Allegation or other formal/legal offence that is alleged against a Defendant. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
 %-------Macroeconomics---------
 \subsection{Macroeconomics}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Macroeconomics}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{Macroeconomics}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		Macro-economic events are aggregated indicators such as sectorial trends, policy, GDP, unemployment rates, national income, price indices, and the interrelations among the different markets and sectors of the economy. Includes events, speculation, expectation, forecasts, announcements, changes on a company's position in the marker, the state of the market, sector or country in general,  headwinds, tailwinds, business trends, market share, consumer spending, etc.
+		Macro-economic events are aggregated indicators such as sectorial trends, policy, GDP, unemployment rates, national income, price indices, and the interrelations among the different markets and sectors of the economy. Includes events, speculation, expectation, forecasts, announcements, changes on a company's position in the market, the state of the market, sector or country in general, headwinds, tailwinds, business trends, market share, consumer spending, etc.
+		We include discussions on a company's position in the market (e.g. compared to competitors).
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 AffectedCompany & Company, organization, or entity being affected by the macroeconomic event. & \\
 Sector & Sector, industry, market, state, geographical location where the event takes effect. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
@@ -581,7 +673,7 @@ Sector & Sector, industry, market, state, geographical location where the event 
 %-------Merger/Acquisition---------
 \subsection{Merger/Acquisition}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Merger/Acquisition}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{Merger/Acquisition}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -593,7 +685,15 @@ Acquirer & Entity receiving the company or assets & \\
 Target & Entity filing suit or initiating the proceeding by accusation of the defendant. Governmental prosecutor, plaintiff, litigator, suer, petitioner. & \\
 Cost & Cost of the merger or acquisition in monetary amount. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+	\item \textbf{Overlap} with \type{Deal}: \hyperlink{dealvsmergeracquisition}{see \type{Deal}.}
+    \item \textbf{Overlap} with \type{Investment}: The difference between \type{MergerAcquisition} and \type{Investment} is that in the \type{MergerAcquisition} event one company gains full ownership of another company or parts of that company. This is not the case in Investment where partial ownership through share investment is possible but not the goal.
+    \item "Mergers and Acquisitions": \url{https://www.investopedia.com/university/mergers/mergers1.asp}
+    \item "Mergers and Acquisitions": \url{https://en.wikipedia.org/wiki/Mergers_and_acquisitions}
+    % \item "Merger" \url{https://www.investopedia.com/terms/m/merger.asp}
+\end{itemize}
 
 \vspace{0.5cm}
 
@@ -601,22 +701,28 @@ Cost & Cost of the merger or acquisition in monetary amount. & \\
 %-------Product/Service---------
 \subsection{Product/Service}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Product/Service}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{Product/Service}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		Events pertaining to a product or service. Includes announcements, launches, testing, changes, up/downgrades, updates, recalls, trial results, approvals, reviews, and other issues regarding products and services of a company.
+		Events pertaining to a specific product or service. Includes announcements, launches, testing, changes, up/downgrades, updates, recalls, trial results, approvals, reviews, and other issues regarding products and services of a company. NOTE: General mentions of a product or service as belonging to a company are not tagged: the product has to be involved in a concrete event or issue.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 ProductService & The Product/Service in question. & \\
 Producer & Company, organization, or entity that produces, delivers, or otherwise brings to market the product or service. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
+
+\begin{itemize}[noitemsep,leftmargin=*]
+    \item \textbf{Overlap} with \type{Investment}: \hyperlink{investmentvsproductservice}{See \type{Investment}.}
+    \item \textbf{Overlap} with \type{CSR/Brand}: \hyperlink{csrbrandvsproductservice}{See \type{CSR/Brand}.}
+    \item Keywords: Launch, recall, cancellation, production pipeline, goods, trial, acceptation.
+\end{itemize}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Product/ServiceLaunch}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Product/Service\_\textbf{Launch}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -627,11 +733,13 @@ Producer & Company, organization, or entity that produces, delivers, or otherwis
 ProductService & Product/Service being launched. & \\
 Producer & Company, organization, or entity that launches (or updates) a new product or service. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
+
+\type{Product/Service\_Launch}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Product/Service\_Cancellation/Recall}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Product/Service\_\textbf{Cancellation/Recall}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -642,11 +750,11 @@ Producer & Company, organization, or entity that launches (or updates) a new pro
 ProductService & Product/service being launched & \\
 Producer & Company, organization, or entity that recalls or cancels a product or service. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Product/Service\_Trial}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Product/Service\_\textbf{Trial}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -660,85 +768,79 @@ ProductService & Product/service being launched & \\
 Producer & Company, organization, or entity that is testing the product/service. & \\
 Trialer & Governmental or private regulator, organization, or other entity overseeing the trial. & \\                    
 \specialrule{.1em}{.05em}{.05em}
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
 %-------Profit/Loss---------
 \subsection{Profit/Loss}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Profit/Loss}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{Profit/Loss}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		Profits are financial benefits that are realized when the amount of revenue exceeds expenses. Inversely, losses happen when the expense exceeds the revenue. We include declarations and forecasts of profit/loss, positive and negative (losses) profit, lower than, higher than, as expected, increased, decreased, and stable profits. Has conceptual overlap with Revenue.
+	    Net income or earnings are the profits/losses realized by a business (commonly called "the bottom line").
+		Profits are financial benefits that are realized when the amount of revenue exceeds expenses and costs. Inversely, losses happen when the expense exceeds the revenue.
+		Net income is the difference between revenue and the cost of making a product or providing a service, before deducting overheads, payroll, taxation, and interest payments. 
+		We also include operating profit (earnings before interest and taxes (EBIT)) and other metrics for assessing a company's profitability such as "earnings per share" (EPS).
+		We include declarations and forecasts of profit/loss, positive and negative (losses) profit, lower than, higher than, as expected, increased, decreased, and stable profits.
 	\end{minipage}
 	} & \annexe{example} \\ \thline
 Profiteer & Company, organization, or entity turning a profit or loss. & \\
 Amount & The amount of money won/lost. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
+
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item \textbf{Overlap} with \type{Expense}: \hyperlink{expensevsprofitloss}{See \type{Expense}.}
+    \item \hypertarget{profitvsrevenue}{\textbf{Overlap}} with \type{Revenue}: \type{Profit/Loss} is what remains after expenses are deducted from revenue. Net income is calculated by taking revenues and subtracting the costs of doing business such as depreciation, interest, taxes, and other expenses.
+    \item Keywords: net income, net earnings, profit, loss, total comprehensive income, net earnings, net profit, bottom line, gross profit, gross margin, sales profit, credit sales, net profit margin percentage.
+\end{itemize}
+
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Profit/Loss\_Increase}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Profit/Loss\_\textbf{Increase}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-        Profit or Loss has increased compared to a historical trend. We do not differentiate between Profit and Loss: this event applies to whichever is the topic of topic of the event.\\
-		Overlap with \type{Revenue}:
+        Profit or Loss has increased compared to a historical trend. We do not differentiate between Profit and Loss: this event applies to whichever is the topic of the event.\\
 	\end{minipage}
 	} & \annexe{example}    \\ \thline
 Profiteer & Company, organization, or entity turning a profit or loss. & \\
 Amount & The current amount of money won/lost. & \\
 HistoricalAmount & The historical amount of money won or lost compared to which the current amount is higher. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Profit/Loss\_Decrease}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Profit/Loss\_\textbf{Decrease}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-        Profit or Loss has decreased compared to a historical trend. We do not differentiate between Profit and Loss: this event applies to whichever is the topic of topic of the event.\\
-		Overlap with \type{Revenue}:
+        Profit or Loss has decreased compared to a historical trend. This includes a nominal decrease as well as a slowing in earnings growth.
+ We do not differentiate between Profit and Loss: this event applies to whichever is the topic of the event.\\
+		Overlap with \type{Revenue}.
 	\end{minipage}
 	} & \annexe{example}       \\ \thline
 Profiteer & Company, organization, or entity turning a profit or loss. & \\
 Amount & The current amount of money won/lost. & \\
 HistoricalAmount & The historical amount of money won or lost compared to which the current amount is lower. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-\multicolumn{3}{C{14.85cm}}{\Large Profit/Loss\_\textbf{Decrease}}                \\
-\specialrule{.1em}{.05em}{.05em} 
-\multicolumn{2}{|L{8.55cm}}{
-	\begin{minipage}{8.55cm}
-        Profit or Loss has decreased compared to a historical trend. We do not differentiate between Profit and Loss: this event applies to whichever is the topic of topic of the event.\\
-		Overlap with \type{Revenue}:
-	\end{minipage}
-	} & \annexe{example}                                                                         \\ \thline
-Profiteer & Company, organization, or entity turning a profit or loss. & \\
-Amount & The current amount of money won/lost. & \\
-HistoricalAmount & The historical amount of money won or lost compared to which the current amount is lower. & \\
-\specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
-
-\vspace{0.5cm}
-
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Profit/Loss\_Stable}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Profit/Loss\_\textbf{Stable}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-        Profit or Loss has remained stable or there is no significant change compared to a historical trend. We do not differentiate between Profit and Loss: this event applies to whichever is the topic of topic of the event.\\
+        Profit or Loss has remained stable or there is no significant change compared to a historical trend. We do not differentiate between Profit and Loss: this event applies to whichever is the topic of the event.\\
 		Overlap with \type{Revenue}:
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
@@ -746,7 +848,7 @@ Profiteer & Company, organization, or entity turning a profit or loss. & \\
 Amount & The current amount of money won/lost. & \\
 HistoricalAmount & The historical amount of money won or lost compared to which the current amount remained stable. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
@@ -754,7 +856,7 @@ HistoricalAmount & The historical amount of money won or lost compared to which 
 %-------Rating---------
 \subsection{Rating}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Rating}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{Rating}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -765,15 +867,16 @@ HistoricalAmount & The historical amount of money won or lost compared to which 
 Security & Security or company's debt being rated. & \\
 Analyst & Rater, advisor or analyst publishing the rating. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
-\begin{itemize}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Overlap of subtype \type{Rating\_Credit/Debt} with \type{Financing}: \hyperlink{financingvsratingdebt}{See \type{Financing}.}
     \item \url{https://www.investopedia.com/financial-edge/0512/understanding-analyst-ratings.aspx}
 \end{itemize}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Rating\_BuyOutperform}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Rating\_\textbf{BuyOutperform}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -784,11 +887,11 @@ Analyst & Rater, advisor or analyst publishing the rating. & \\
 Security & Security being rated. & \\
 Analyst & Rater, advisor or analyst publishing the rating. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Rating\_SellUnderperform}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Rating\_\textbf{SellUnderperform}}                \\
 \specialrule{.1em}{.05em}{.05em}
 \multicolumn{2}{|L{8.55cm}}{
@@ -799,11 +902,11 @@ Analyst & Rater, advisor or analyst publishing the rating. & \\
 Security & Security being rated. & \\
 Analyst & Rater, advisor or analyst publishing the rating. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Rating\_Hold}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Rating\_\textbf{Hold}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -814,12 +917,11 @@ Analyst & Rater, advisor or analyst publishing the rating. & \\
 Security & Security being rated. & \\
 Analyst & Rater, advisor or analyst publishing the rating. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-
+\hypertarget{Rating\_Upgrade}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Rating\_\textbf{Upgrade}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -833,12 +935,11 @@ Security & Security being rated. & \\
 Analyst & Rater, advisor or analyst publishing the rating. & \\
 HistoricalRating & The previous rating from which the security is upgraded. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-
+\hypertarget{Rating\_Downgrade}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Rating\_\textbf{Downgrade}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -852,12 +953,11 @@ Security & Security being rated. & \\
 Analyst & Rater, advisor or analyst publishing out the rating. & \\
 HistoricalRating & The previous rating from which the security is downgraded. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-
+\hypertarget{Rating\_Maintain}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Rating\_\textbf{Maintain}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -869,12 +969,11 @@ Security & Security being rated. & \\
 Analyst & Rater, advisor or analyst publishing the rating. & \\
 HistoricalRating & The previous rating from which the security remains stable. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-
+\hypertarget{Rating\_PriceTarget}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Rating\_\textbf{PriceTarget}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -889,12 +988,11 @@ Security & Security being rated. & \\
 Analyst & Rater, advisor or analyst publishing the rating. & \\
 TargetPrice & The target price or value of a security as a range or singular price expressed as monetary value. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-
+\hypertarget{Rating\_Credit/Debt}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Rating\_\textbf{Credit/Debt}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -908,7 +1006,7 @@ TargetPrice & The target price or value of a security as a range or singular pri
 Security & Security being rated. & \\
 Analyst & Rater, advisor or analyst publishing the rating. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \begin{itemize}[noitemsep,leftmargin=*]
 	\item \url{https://www.investopedia.com/terms/c/corporate-credit-rating.asp}
@@ -921,35 +1019,30 @@ Analyst & Rater, advisor or analyst publishing the rating. & \\
 %-------Revenue---------
 \subsection{Revenue}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Revenue}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{Revenue}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-	    Revenue is the total amount of income generated its diverse range of activities.
+	    Revenue is the total amount of income generated its diverse range of activities before any expenses.
 		Events regarding operating revenue is revenue generated from a company's primary business activities. 
 		Non-operating revenue is revenue generated by activities outside of a company's primary operations; this revenue tends to be infrequent and oftentimes unusual.
 		We include both revenue types.
-		Revenue refers to gross and not net revenue.\\
-		Overlap with \type{SalesVolume}: Sales are a part of the revenue and are considered almost identical to operating revenue in some industries.
-		However, if explicit mention of sales volume or amount is made a SalesVolume event should be tagged.
+		Revenue refers to both gross and net revenue (i.e. the revenue after revenue expenses: the cost made to obtain revenue, (e.g., returns, delivery, etc.)).\\
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 Company & Company responsible for the revenue. & \\
 Amount & Amount of gross revenue expressed as monetary value. & \\
 \specialrule{.1em}{.05em}{.05em}
-\end{tabularx}
+\end{tabularx}}
 
 \begin{itemize}[noitemsep,leftmargin=*]
+    \item \textbf{Overlap} with \type{Expense}: \hyperlink{expensevsrevenue}{See \type{Expense}.}
+    \item \textbf{Overlap} with \type{Profit/Loss}: \hyperlink{profitvsrevenue}{See \type{Profit/Loss}.}
+    \item \hypertarget{revenuevssalesvolume}{\textbf{Overlap}} with \type{SalesVolume}: Sales are the proceeds from the selling of goods or services to its customers. In accounting terms, sales make up one component of a company's revenue. On an income statement, sales are usually referred to as gross sales or "the top line" since sales are often used interchangeably with revenue. If your revenues are increasing but your net profits are not, that is a sure sign your expenses are up. Sales is the leading indicator for most companies, so most companies track sales closely.
 	\item \url{https://www.investopedia.com/terms/o/operating-revenue.asp}
 	\item \url{https://en.wikipedia.org/wiki/Revenue}
-	\item Sales Volume VS. Revenue:
 	\begin{itemize}
-	    \item Sales are the proceeds from the selling of goods or services to its customers.
-        In accounting terms, sales make up one component of a company's revenue.
-        On an income statement, sales are usually referred to as gross sales or "the top line" since sales are often used interchangeably with revenue.
-    	It is important for businesses to closely track both sales and revenue. Keeping track of revenue is obviously important. As long as you keep expenses under control, increasing revenues means your business is likely to be flourishing.
-    	By the same token, if your revenues are increasing but your net profits are not, that is a sure sign your expenses are up. Sales is the leading indicator for most companies, so most companies track sales closely.
     	\item \url{https://keydifferences.com/difference-between-sales-and-revenue.html}
     	\item \url{https://www.investopedia.com/ask/answers/122214/what-difference-between-revenue-and-sales.asp}
 	\end{itemize}
@@ -957,12 +1050,13 @@ Amount & Amount of gross revenue expressed as monetary value. & \\
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Revenue\_Increase}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Revenue\_\textbf{Increase}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
         Revenue has increased compared to a historical trend.\\
+        This includes a nominal increase as well as a acceleration in growth rate.
 		Overlap with \type{SalesVolume}: Sales are a part of the revenue and are considered almost identical to operating revenue in some industries.
 		However, if explicit mention of sales volume or amount is made a SalesVolume event should be tagged.
 	\end{minipage}
@@ -970,70 +1064,57 @@ Amount & Amount of gross revenue expressed as monetary value. & \\
 Company & Company responsible for the revenue. & \\
 Amount & Current amount of gross revenue expressed as monetary value. & \\
 HistoricalAmount & The historical revenue amount compared to which the current amount is higher. & \\
+IncreaseAmount & Relative or nominal capital increase in revenue as monetary amount or percentage. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Revenue\_Decrease}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Revenue\_\textbf{Decrease}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-        Revenue has decreased compared to a historical trend.\\
-		Overlap with \type{SalesVolume}: Sales are a part of the revenue and are considered almost identical to operating revenue in some industries.
-		However, if explicit mention of sales volume or amount is made a SalesVolume event should be tagged.
+        Revenue has decreased compared to a historical trend.
+        This includes a nominal decrease as well as a slowing in revenue growth rate.\\
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 Company & Company responsible for the revenue. & \\
 Amount & Current amount of gross revenue expressed as monetary value. & \\
 HistoricalAmount & The historical revenue amount compared to which the current amount is lower. & \\
+DecreaseAmount & Relative or nominal capital decrease in revenue as monetary amount or percentage. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{Revenue\_Stable}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large Revenue\_\textbf{Stable}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-        Revenue has remained stable or there is no significant change compared to a historical trend.\\
-		Overlap with \type{SalesVolume}: Sales are a part of the revenue and are considered almost identical to operating revenue in some industries.
-		However, if explicit mention of sales volume or amount is made a SalesVolume event should be tagged.
+        Revenue figures or growth has remained stable or there is no significant change compared to a historical trend.\\
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 Company & Company responsible for the revenue. & \\
 Amount & Current amount of gross revenue expressed as monetary value. & \\
 HistoricalAmount & The historical revenue amount compared to which the current amount has remained stable. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
-
-\vspace{0.5cm}
-
-% \centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
-% \thline
-% \multicolumn{3}{C{14.85cm}}{\Large \textbf{Stock Holding}}                \\
-% \specialrule{.1em}{.05em}{.05em} 
-% \multicolumn{2}{|L{8.55cm}}{
-% \begin{minipage}{8.55cm}
-% Fund position, inside sell-purchase, index change.
-% \end{minipage}
-% } & \annexe{example}                                                                         \\ \thline
-% \specialrule{.1em}{.05em}{.05em} 
-% \end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
 %-------Sales Volume---------
 \subsection{Sales Volume}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{SalesVolume}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{SalesVolume}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		The quantity of goods and services sold over a certain period. This quantity can be expressed by a gross amount of money or . We include changes, announcements, declarations and forecasts of sales volume figures, increased, decreased, stable. Has conceptual overlap with Revenue and FinancialResult.
+		The quantity of goods and services sold over a certain period. This quantity can be expressed by a gross amount of money or units sold/customers served.
+		We include changes, announcements, declarations and forecasts of sales volume figures, increased, decreased, stable.\\
+		Overlap with \type{Revenue} and \type{FinancialReport}.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 GoodsService & The product, goods or services that makes up the sales volume & \\
@@ -1041,20 +1122,23 @@ Seller & The company, organization or entity selling the goods or services. & \\
 Buyer & The buyer, group of buyers, or target market to which the change in sales volume can be attributed. & \\
 Amount & Current amount of goods and services sold, expressed as monetary expression or as amount of units. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
-\begin{itemize}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item \textbf{Overlap} with \type{Expense}: \hyperlink{expensevssalesvolume}{See \type{Expense}.}
+    \item \textbf{Overlap} with \type{Revenue}: \hyperlink{revenuevssalesvolume}{See \type{SalesVolume}.}
     \item \url{https://www.accountingtools.com/articles/what-is-sales-volume.html}
 \end{itemize}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{SalesVolume\_Increase}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large SalesVolume\_\textbf{Increase}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		The quantity of goods and services sold over a certain period. We include changes, announcements, declarations and forecasts of sales volume figures, increased, decreased, stable. Has conceptual overlap with Revenue and FinancialResult.
+		The quantity of goods and services sold over a certain period.
+		We include changes, announcements, declarations and forecasts of sales volume figures, increased, decreased, stable.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 GoodsService & The product, goods or services that makes up the sales volume & \\
@@ -1063,16 +1147,17 @@ Buyer & The buyer, group of buyers, or target market to which the change in sale
 Amount & Current amount of goods and services sold, expressed as monetary expression or as amount of units. & \\
 HistoricalAmount & The historical sales volume amount compared to which the current amount is higher. &  \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{SalesVolume\_Decrease}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large SalesVolume\_\textbf{Decrease}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		The quantity of goods and services sold over a certain period. We include changes, announcements, declarations and forecasts of sales volume figures, increased, decreased, stable. Has conceptual overlap with Revenue and FinancialResult.
+		The quantity of goods and services sold over a certain period. This includes a nominal decrease as well as a slowing in sales growth. We include changes, announcements, declarations and forecasts of decreasing sales volume figures and slowing sales volume growth.\\
+		Overlap with Revenue and FinancialReport.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 GoodsService & The product, goods or services that makes up the sales volume & \\
@@ -1081,16 +1166,16 @@ Buyer & The buyer, group of buyers, or target market to which the change in sale
 Amount & Current amount of goods and services sold, expressed as monetary expression or as amount of units. & \\
 HistoricalAmount & The historical sales volume amount compared to which the current amount is lower. &  \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{SalesVolume\_Stable}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large SalesVolume\_\textbf{Stable}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		The quantity of goods and services sold over a certain period. We include changes, announcements, declarations and forecasts of sales volume figures, increased, decreased, stable. Has conceptual overlap with Revenue and FinancialResult.
+		The quantity of goods and services sold over a certain period. We include changes, announcements, declarations and forecasts of sales volume figures, increased, decreased, stable. Has conceptual overlap with Revenue and FinancialReport.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 GoodsService & The product, goods or services that makes up the sales volume. & \\
@@ -1099,13 +1184,13 @@ Buyer & The buyer, group of buyers, or target market to which the change in sale
 Amount & Current amount of goods and services sold expressed as monetary expression or as amount of units. & \\
 HistoricalAmount & The historical sales volume amount compared to which the current amount is stable. &  \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 
 %-------Security Value---------
 \subsection{Security Value}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{SecurityValue}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large \textbf{SecurityValue}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -1116,16 +1201,17 @@ HistoricalAmount & The historical sales volume amount compared to which the curr
 Security & The security in question. & \\
 Price & The current price of a single security. Expressed as monetary value. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \begin{itemize}[noitemsep,leftmargin=*]
+    \item  \textbf{Overlap} with \type{Dividend}: \hyperlink{dividendvssecurityvalue}{See \type{Dividend}}.
 	\item \url{https://www.investopedia.com/terms/s/security.asp}
 	\item \url{https://en.wikipedia.org/wiki/Security_(finance)}
 \end{itemize}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{SecurityValue\_Increase}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large SecurityValue\_\textbf{Increase}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -1136,13 +1222,13 @@ Price & The current price of a single security. Expressed as monetary value. & \
 Security & The security in question. & \\
 Price & The current price of a single security up to which the historical price increased. Expressed as monetary value. & \\
 HistoricalPrice & The historical unit price of the security compared to which to current price is an increase. Expressed as monetary value. & \\
-IncreaseAmount & Relative or nomimal price increase as monetary amount or percentage. & \\
+IncreaseAmount & Relative or nominal price increase as monetary amount or percentage. & \\
 \specialrule{.1em}{.05em}{.05em}
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{SecurityValue\_Decrease}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large SecurityValue\_\textbf{Decrease}}                \\
 \specialrule{.1em}{.05em}{.05em}
 \multicolumn{2}{|L{8.55cm}}{
@@ -1153,13 +1239,13 @@ IncreaseAmount & Relative or nomimal price increase as monetary amount or percen
 Security & The security in question. & \\
 Price & The current price of a single security. Expressed as monetary value. & \\
 HistoricalPrice & The historical unit price of the security compared to which to current price is a decrease. Expressed as monetary value. & \\
-DecreaseAmount & Relative or nomimal price decrease as monetary amount or percentage. & \\
+DecreaseAmount & Relative or nominal price decrease as monetary amount or percentage. & \\
 \specialrule{.1em}{.05em}{.05em} 
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
-\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
+\hypertarget{SecurityValue\_Stable}{\centering\begin{tabularx}{\textwidth}{| L{2.55cm} L{6cm} L{6.3cm} |}
 \multicolumn{3}{C{14.85cm}}{\Large SecurityValue\_\textbf{Stable}}                \\
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
@@ -1171,7 +1257,7 @@ Security & The security in question. & \\
 Price & The current price of a single security up to which the historical price remained stable. Expressed as monetary value. & \\
 HistoricalPrice & The historical unit price of the security compared to which to current price is stable. Expressed as monetary value. & \\
 \specialrule{.1em}{.05em}{.05em}
-\end{tabularx}
+\end{tabularx}}
 
 \vspace{0.5cm}
 
@@ -1190,7 +1276,8 @@ These arguments are universal because they are highly probable to be associated 
 An event is inherently temporal (\type{TIME}) and locational (\type{PLACE}): it occurs somewhere and takes up some point or duration in time.
 In economic news, events often carry a cost or involve an amount of money. For this, we introduce the \type{CAPITAL} FILLER argument.
 
-\subsubsection{TIME}
+\hypertarget{TIME}{
+\subsubsection{TIME}}
 
 \justify
 \noindent\textbf{On types and subtypes}: all.\\[6pt]
@@ -1213,7 +1300,8 @@ This includes pre- and post-modifiers and excludes the preposition that is the h
 
 \vspace{0.5cm}
 
-\subsubsection{PLACE}
+\hypertarget{PLACE}{
+\subsubsection{PLACE}}
 
 \justify
 \noindent\textbf{On types and subtypes}: all.\\[6pt]
@@ -1232,7 +1320,9 @@ This information is particularly important for many economic events as business 
 
 \vspace{0.5cm}
 
-\subsubsection{CAPITAL}
+
+\hypertarget{CAPITAL}{
+\subsubsection{CAPITAL}}
 
 \justify
 \noindent\textbf{On types and subtypes}: all.\\[6pt]
@@ -1266,10 +1356,12 @@ Similar to Rich ERE MONEY (MON) arguments, but in taggability resembles the COMM
 
 \vspace{0.5cm}
 
+
 \subsection{Type-Specific FILLER Arguments}
 These FILLER arguments are only tagged when they belong to a specific \type{type} or \type{subtype}.
 
-\subsubsection{SENTENCE}
+\hypertarget{SENTENCE}{
+\subsubsection{SENTENCE}}
 
 \justify
 \noindent\textbf{On types and subtypes}: \type{Legal.Conviction/Settlement}.\\[6pt]
@@ -1283,7 +1375,8 @@ The full NP containing the sentence is tagged including any determiners, article
 
 \vspace{0.5cm}
 
-\subsubsection{ALLEGATION}
+\hypertarget{ALLEGATION}{
+\subsubsection{ALLEGATION}}
 
 \justify
 \noindent\textbf{On types and subtypes}: any \type{Legal} type.\\[6pt]
@@ -1296,7 +1389,8 @@ The full NP containing the sentence is tagged including any determiners, article
 
 \vspace{0.5cm}
 
-\subsubsection{TITLE}
+\hypertarget{TITLE}{
+\subsubsection{TITLE}}
 
 \justify
 \noindent\textbf{On types and subtypes}: any \type{Employment} type.\\[6pt]
@@ -1319,7 +1413,7 @@ Many events in this typology express some form of change: either in rating, pric
 Among these events we can distinguish changes that apply to continuous values and categorical values.
 A continuous event is a SalesVolume or SecurityPrice event.
 A real price value changes gradually over time and the event structure captures a snapshot of this change.
-A categorical change are Financial Result and Rating change. 
+A categorical change are Financial Report and Rating change. 
 We expect the event trigger to inherently signal the change in value rather than a verb
 as a predicate taking arguments that signal the change.
 
@@ -1328,6 +1422,7 @@ The would-be Rating Participant argument is necessary for making the subtype dis
 This is unlike Continuous events which are more likely to be triggered by a verb that takes multiple semantic arguments: SecurityValue\_Increase inherently involves a historical price trend and a current price as Participant argument.
 The process of increasing itself can easily be expressed by standalone verbs such as "increase", "grow", "go up".
 }
+
 
 % ISSUES:
 

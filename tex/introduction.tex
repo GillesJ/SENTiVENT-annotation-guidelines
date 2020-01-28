@@ -43,6 +43,7 @@ The ACE/ERE-like task that we wish to enable in the economic domain with this da
 
 \section{Workflow Overview}
 
+Keep the guidelines at hand. When any doubt arises during annotation, refer to the guidelines.
 The annotation procedure for events in a set of news text sentences can be summarized as follows:
 
 \bigskip
@@ -62,12 +63,13 @@ The annotation procedure for events in a set of news text sentences can be summa
         \item For each trigger:
             \begin{enumerate}
                 \item Determine event type, subtype, and factuality.
-                \item Look in the sentence for Participant and FILLER arguments as required by the Event Typology.
+                \item Look in the sentence for Participant and FILLER arguments as required by the Event Typology. For Participant arguments take into account Event Mention Scope.
                 \item Annotate the entities that serve as arguments (if any are present). Remember Event Mention Scope for Participant arguments.
                 \item If a Participant argument is pronominal, add a canonical mention coreference link to that Participant argument.
+                \item Ensure you reviewed all slots and features in the tagging interface and you have not missed an annotation unit.
             \end{enumerate}
     \item Perform event coreference: chain together events that intuitively refer to the same occurrence across the document.
-    \item Re-read article and examine annotatorsr annotations on correctness.
+    \item Re-read article and examine annotations on correctness.
     Make adjustments where needed.
 \end{enumerate}
 
@@ -149,3 +151,28 @@ Wikis for economics and finance:
 Once annotators are sufficiently trained, peer resolution of issues will be enabled.
 In this process, annotators examine and verify problematic annotations of other annotators.
 Corrections are made when needed possible.
+
+\section{Financial reporting: the income statement event types.}
+
+Many business news articles discuss a company's financial state using several metrics that describe financial performance.
+Usually the company itself or a third-party (such as an auditor, fund or an analyst) releases financial statements which the media reports on.
+
+A commonly discussed statement is the income report: An income statement or profit and loss account (also referred to as a profit and loss statement (P\&L), statement of profit or loss, revenue statement, statement of financial performance, earnings statement, operating statement, or statement of operations) is one of the financial statements of a company and shows the company’s revenues and expenses during a particular period.
+It indicates how the revenues (money received from the sale of products and services before expenses are taken out, also known as the “top line”) are transformed into the net income (the result after all revenues and expenses have been accounted for, also known as “net profit” or the “bottom line”).
+The income statement shows investors and managers whether the company made or lost money during a certain period. 
+
+In \fullref{chapter/eventtype}, we define several types that are reported on the income statement \type{Revenue}, \type{Profit/Loss}, \type{SalesVolume}, \type{Expense} and one general type: \type{FinancialReport}.
+For each event in \fullref{chapter/eventtype}, we discuss the differences between these types and other types where conceptual overlap is likely. Please take careful notes of these differences.
+
+\subsection{Cash flow vs. income statement}
+Cash flow statements are reports that describe the incoming and outgoing capital of a company.
+A cash flow statement is a simplified representation of a business's current financial standing.
+Accounting departments prepare these statements to give management and investors a clear and concise picture of their aggregated financial transactions.
+
+While cash flow is sometimes discussed in economic reporting (e.g., as Free Cash Flow (FCF), etc.), we do not include specific types in the typology because they are relatively rare.
+Generally, you tag these types as \type{FinancialReport}.
+Sometimes when discussing cash flow, a concrete transaction is discussed relating to \type{Revenue}, \type{Financing} or \type{Investment}.
+If the focus is on the cash flow and not an event of type \type{Revenue}, \type{Financing} and \type{Investment} then \type{FinancialReport} is tagged, otherwise tag the corresponding specific type.
+
+See also: Income vs. cash flow statement: \url{https://en.wikipedia.org/wiki/Cash\_flow\_statement}
+

@@ -73,11 +73,12 @@ allcolors=midnightblue
 % inline markup
 \newcommand*{\annexe}[1]{\textit{#1}}
 \newcommand*{\type}[1]{\texttt{#1}}
+% \newcommand*{\type}[1]{\hyperlink{{#1}}{\texttt{#1}}}
 \newcommand*{\annhead}[1]{\emph{#1}}
 \newcommand*{\anntrg}[1]{\textbf{#1}}
 \newcommand*{\exargpart}[1]{\underline{#1}}
 \newcommand*{\exargfill}[1]{\dashuline{#1}}
-\newcommand*{\expl}{\par \hspace{0.5em} $\rightarrow$ \hspace{0.5em}}
+\newcommand*{\expl}{\par $\rightarrow$ \hspace{0.5em}}
 \newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1}.~\nameref*{#1}}}
 
 % % inline with types
@@ -86,6 +87,27 @@ allcolors=midnightblue
 %     \ifthenelse{\equal{#2}{}}{}{\textsubscript{#2}}%
 % }
 
+% Redefine title page so numbering starts at 1 (easier for electronic reader referencing)
+\makeatletter
+\renewenvironment{titlepage}
+ {%
+  \if@twocolumn
+    \@restonecoltrue\onecolumn
+  \else
+    \@restonecolfalse\newpage
+  \fi
+  \thispagestyle{plain}%
+ }
+ {%
+  \if@restonecol
+    \twocolumn
+  \else
+    \newpage
+  \fi
+ }
+\makeatother
+
+% easylist
 \newenvironment{el}
     {\bigskip \begin{easylist}[itemize]}
     {\end{easylist} \bigskip}
@@ -96,7 +118,7 @@ allcolors=midnightblue
 %  placeholder variables
 \newcommand*{\project}{{\scshape Sent}i{\scshape vent}~}
 \newcommand*{\scheme}{{\scshape Sent}i{\scshape vent} Event Annotation Guidelines~}
-\newcommand*{\typecount}{17~}
+\newcommand*{\typecount}{18~}
 \newcommand*{\subtypecount}{43~}
 
 \newenvironment{hint}

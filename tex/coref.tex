@@ -1,10 +1,12 @@
+\section{Event coreference definition} \label{sec:eventcorefdefinition}
+
 The final annotation step is that of linking coreferent events in the document.
 This means you annotate a link between event triggers that intuitively refer to the same real-world event.\\[10pt]
 \noindent
 The criteria for linking coreferent event mentions:
 \begin{enumerate}[noitemsep]
     \item \textbf{Semantically and intuitively} refer to the same real-world event.
-    \item \textbf{\type{Type} and \type{Subtype} are identical}.
+    \item \textbf{\type{Type} and \type{Subtype} are identical}. Exceptionally, coreferent event are tagged as a certain main type but with an unspecified subtype. The subtype is later specified in the content of the text. In those cases the events are tagged as \textbf{coreferent if the \type{Main type} matches and one has no subtype}.
     \item \textbf{Temporal and location scope are identical}, but the time and place expressions do not have to be exactly the same (e.g., \annexe{"The product launch in 2017"} and \annexe{"Last year's product release"}, \annexe{"The company opens its new headquarters in Detroit"} and \annexe{"the real-estate investment in Motor City"} use different expressions to denote the same point in time or space).
     The place and time do not have to be exactly the same but \textbf{correspond in scope} (e.g., \annexe{"six month ago"} and \annexe{"last year"} are in the same temporal scope, \annexe{"Canada and the US" and "North-America"} are in the same location scope).
     Time periods/points and locations are coreferent as long as the roughly fit into each other.
@@ -23,6 +25,13 @@ For example: \annexe{"XYZ Corp. ended their cloud computing service in 2017. [..
 
 \noindent
 Many events will not have coreferent events in the document.
+
+
+\section{WebAnno: Tagging coreference chains}
+In order to tag coreference effectively in WebAnno, the coreference step is left for last.
+The annotator reviews all tagged event types and evaluates for each event with same \type{Type\_Subtype} whether they are coreferent.
+Chains should be drawn in sequential order to avoid interface clutter: if event A, B, C are coreferent in the text and they follow each other sequentially, the arrows should be drawn A > B, B > C and starting from the initial event not A > B , A > C.
+The direction of a coreference relation does not matter.
 
 \tagged{full}{
 \section{Correspondence to Event Hoppers in Rich ERE}

@@ -1,9 +1,16 @@
 \documentclass[a4paper]{report}
 \usepackage{sentivent}
 %use \tagged{full}{text} to have extra text for full publication with academic details, not relevant for students.
-% \usetag{full}
+\usetag{full}
 
-\title{\includegraphics[width=5cm]{img/semalyticslogonotext.png}\\[10pt]{\huge\bfseries {\Huge S{\huge ENT}i{\huge VENT}}\\Event Annotation Guidelines\\v\vhCurrentVersion}}
+\title{
+    \includegraphics[width=5cm]{img/semalyticslogonotext.png}\\
+    [10pt]{\huge\bfseries {\Huge S{\huge ENT}i{\huge VENT}}\\
+    Event Annotation Guidelines\\
+    v\vhCurrentVersion\\
+    \Large{\normalfont{Technical Report}}
+    }
+}
 \author{Gilles~Jacobs}
 \date{August 2018}
 
@@ -39,6 +46,15 @@
 \label{chapter/eventtype}
 \input{tex/eventtype.tex}
 
+\chapter{Bibliography}
+\label{chapter/bibliography}
+\input{tex/bibliography.tex}
+
+\tagged{full}{
+\chapter{Guidelines Enhancement Proposal}
+\label{chapter/enhancement}
+\input{tex/enhancement.tex}
+}
 % \printbibliography
 
 \end{document}
