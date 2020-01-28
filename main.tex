@@ -3,6 +3,8 @@
 %use \tagged{full}{text} to have extra text for full publication with academic details, not relevant for students.
 \usetag{full}
 
+\addbibresource{references.bib}
+
 \title{
     \includegraphics[width=5cm]{img/semalyticslogonotext.png}\\
     [10pt]{\huge\bfseries {\Huge S{\huge ENT}i{\huge VENT}}\\
@@ -15,6 +17,7 @@
 \date{August 2018}
 
 \begin{document}
+
 \maketitle
 \tableofcontents
 \newpage
@@ -46,15 +49,13 @@
 \label{chapter/eventtype}
 \input{tex/eventtype.tex}
 
-\chapter{Bibliography}
-\label{chapter/bibliography}
-\input{tex/bibliography.tex}
-
 \tagged{full}{
 \chapter{Guidelines Enhancement Proposal}
 \label{chapter/enhancement}
 \input{tex/enhancement.tex}
 }
-% \printbibliography
+
+\nocite{*}
+\printbibliography[heading=bibintoc]
 
 \end{document}
