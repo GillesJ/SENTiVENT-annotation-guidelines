@@ -2,7 +2,7 @@
 Annotation Guidelines for economic Events in the SENTiVENT project for economic news text mining.
 
 The goal of this annotation scheme is to produce a gold-standard labeled dataset for enabling supervised event extraction in the company-specific news text domain.
-The guidelines are based on the [Rich-ERE Guidelines][1] for [Events][2] and Argument Fillers[3] but adapted to a corpus of business and financial news articles.
+The guidelines are based on the [Rich-ERE Guidelines][1] for [Events][2] and [Argument Fillers][3] but adapted to a corpus of business and financial news articles.
 We exclusively annotate event structures, unlike Rich ERE which annotates Entities and Relations separately.
 
 Version 1.1. of these Guidelines were used for SENTiVENT English Event 1.0 dataset release.
@@ -23,11 +23,11 @@ Rationale is also given for the event taxonomy as well insights in the iterative
 8. Bibliography
 
 ## References
-[1] Linguistic Data Consortium. (2016). Rich ERE Annotation Guidelines Overview V4.2, 1–14. Retrieved from http://www.nist.gov/tac/2016/KBP/guidelines/summary_rich_ere_v4.2.pdf on September 2018
+[1]: Linguistic Data Consortium. (2016). Rich ERE Annotation Guidelines Overview V4.2, 1–14. Retrieved from http://www.nist.gov/tac/2016/KBP/guidelines/summary_rich_ere_v4.2.pdf on September 2018
 
-[2] Linguistic Data Consortium. (2015). DEFT Rich ERE Annotation Guidelines: Events V3.0, 1–14.
+[2]: Linguistic Data Consortium. (2015). DEFT Rich ERE Annotation Guidelines: Events V3.0, 1–14.
 
-[3] Linguistic Data Consortium. (2015). DEFT Rich ERE Annotation Guidelines: Argument Filler V2.3, 1–14.
+[3]: Linguistic Data Consortium. (2015). DEFT Rich ERE Annotation Guidelines: Argument Filler V2.3, 1–14.
 
 ## LaTeX Compilation
 XeLaTeX engine recommended, LuaLatex and pdfLatex produce errors on Overleaf.com editor.
@@ -42,3 +42,4 @@ This Technical Report is stored and mirrored in the following locations:
 - Mirror: osf.io/
 
 ## How to cite
+
