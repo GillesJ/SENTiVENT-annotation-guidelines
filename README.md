@@ -38,8 +38,19 @@ XeLaTeX engine recommended, LuaLatex and pdfLatex produce errors on Overleaf.com
 
 ## Mirrors
 This Technical Report is stored and mirrored in the following locations:
-- Primary source: github.com/ (commit: on date of publication.)
-- Mirror: osf.io/
+- Primary source: https://github.com/GillesJ/sentivent-event-annotation-guidelines (@commit:eb44075a329996691ea9c657c90b6f2a18bf9c87 on date of publication.)
+- Mirror: osf.io/xqzw5
 
 ## How to cite
-
+```
+@techreport{jacobs2020sentiventeventguidelines,
+    author = {{Gilles Jacobs}},
+    title = {{SENTiVENT Event Annotation Guidelines v1.1}},
+    year = {2020},
+    month = {1},
+    publisher = {{Language and Translation Technology Team, Ghent University}},
+    url = {{https://osf.io/xqzw5}},
+    pages = {69},
+    doi = {10.17605/OSF.IO/XQZW5}
+}
+```
