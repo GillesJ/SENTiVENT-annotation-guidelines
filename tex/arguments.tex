@@ -56,46 +56,46 @@ Events can be related and similar, but not coreferent:
 Non-coreferent events do not have the same \type{Type.Subtype} or do not refer to same exact event instance.
 For Participant argument, this does not violate the event mention scope boundary and Participants can be tagged.
 
-In these examples, the over- and underlined $\overline{\underline{argument}}$ should attach to both different event mentions in \anntrg{bold}:
+In these examples, the over- and underlined $\overline{\uline{argument}}$ should attach to both different event mentions in \anntrg{bold}:
 \begin{samepage}
 \begin{exe}
 
-\ex \annexe{The \exargpart{FDA} \anntrg{approved} \exargpart{the medicine} submitted by $\overline{\underline{Johnson\&Johnson}}$ in \exargpart{2013} and \underline{it} was \anntrg{launched} in \exargfill{February 2016}.} \label{ex:sharedarg1}
+\ex \annexe{The \exargpart{FDA} \anntrg{approved} \exargpart{the medicine} submitted by $\overline{\uline{Johnson\&Johnson}}$ in \exargpart{2013} and \uline{it} was \anntrg{launched} in \exargfill{February 2016}.} \label{ex:sharedarg1}
     \nopagebreak
     \expl \begin{tabular}{|L{6cm}|L{7cm}|} \hline
         \type{ProductService.Trail} & "approved" \\\hline
         \type{Approver} & "FDA" \\
-        $\overline{\underline{\type{Owner}}}$ & "$\overline{\underline{Johnson\&Johnson}}$" \\
+        $\overline{\uline{\type{Owner}}}$ & "$\overline{\uline{Johnson\&Johnson}}$" \\
         \type{ProductService} & "the medicine" \\
         \type{TIME} & "2013" \\
         \hline \end{tabular}
     \expl \begin{tabular}{|L{6cm}|L{7cm}|} \hline
         % \rowcolor{lightergray}
         \type{ProductService.Launch} & "launched" \\\hline
-        $\overline{\underline{\type{Owner}}}$ & "$\overline{\underline{Johnson\&Johnson}}$" \\
+        $\overline{\uline{\type{Owner}}}$ & "$\overline{\uline{Johnson\&Johnson}}$" \\
         \type{ProductService} & "it" \\
         \type{TIME} & "February 2016" \\\hline \end{tabular}
-    \expl The token span "$\overline{\underline{Johnson\&Johnson}}$" is tagged as \type{Owner} participant role in both events with the Owner participant role because the two events are clearly not coreferent.
+    \expl The token span "$\overline{\uline{Johnson\&Johnson}}$" is tagged as \type{Owner} participant role in both events with the Owner participant role because the two events are clearly not coreferent.
     
 \ex  \annexe{\exargpart{Amazon} will \anntrg{open} \exargpart{a new distribution center} in \exargfill{Glendale} after securing a \anntrg{tax abatement deal} with \exargpart{local government} .} \label{ex:sharedarg2}
     \expl \begin{tabular}{|L{6cm}|L{7cm}|} \hline
         \type{Facility.Open} & "open" \\\hline
-        $\overline{\underline{\type{Company}}}$ & "$\overline{\underline{Amazon}}$" \\
+        $\overline{\uline{\type{Company}}}$ & "$\overline{\uline{Amazon}}$" \\
         \type{Facility} & "a new distribution center" \\
         \type{PLACE} & "Glendale" \\
         \hline \end{tabular}
     \expl \begin{tabular}{|L{6cm}|L{7cm}|} \hline
         \type{Deal} & "tax abatement deal" \\\hline
-        $\overline{\underline{\type{Partner}}}$ & "$\overline{\underline{Amazon}}$" \\
+        $\overline{\uline{\type{Partner}}}$ & "$\overline{\uline{Amazon}}$" \\
         \type{Partner} & "local government" \\
         \type{Goal} & "tax abatement" \\
         \hline \end{tabular}
-    \expl The token span "$\overline{\underline{Amazon}}$" is shared between the \type{Facility.Open} and \type{Deal} with different participant roles because the two events are clearly not coreferent.
+    \expl The token span "$\overline{\uline{Amazon}}$" is shared between the \type{Facility.Open} and \type{Deal} with different participant roles because the two events are clearly not coreferent.
     
 \ex  \annexe{\exargpart{Amazon} will \anntrg{open} \exargpart{a new distribution center} in \exargfill{Glendale} . \anntrg{The opening} has caused political controversy .}  \label{ex:sharedargcoref}
     \expl \begin{tabular}{|L{6cm}|L{7cm}|} \hline
         \type{Facility.Open} & "open" \\\hline
-        $\overline{\underline{\type{Company}}}$ & "$\overline{\underline{Amazon}}$" \\
+        $\overline{\uline{\type{Company}}}$ & "$\overline{\uline{Amazon}}$" \\
         \type{Facility} & "a new distribution center" \\
         \type{PLACE} & "Glendale" \\
         \hline \end{tabular}
@@ -108,7 +108,7 @@ In these examples, the over- and underlined $\overline{\underline{argument}}$ sh
 \ex  \annexe{\exargpart{Amazon} will \anntrg{open} \exargpart{a new distribution center} in \exargfill{Glendale} . \anntrg{The opening} has caused political controversy for \exargpart{the ecommerce giant}.} \label{ex:sharedargcorefbutdifferentmention}
     \expl \begin{tabular}{|L{6cm}|L{7cm}|} \hline
         \type{Facility.Open} & "open" \\\hline
-        $\overline{\underline{\type{Company}}}$ & "$\overline{\underline{Amazon}}$" \\
+        $\overline{\uline{\type{Company}}}$ & "$\overline{\uline{Amazon}}$" \\
         \type{Facility} & "a new distribution center" \\
         \type{PLACE} & "Glendale" \\
         \hline \end{tabular}
@@ -132,7 +132,7 @@ In this case, choose the most salient role.
 The most salient role is the one that is most important to interpreting the event and distinguishing it from other event types or subtypes.
 
 \begin{exe}
-    \ex \annexe{The \underline{company} \anntrg{approved} the product line.}
+    \ex \annexe{The \uline{company} \anntrg{approved} the product line.}
         \expl "approved" \type{ProductService.Approval} with two plausible candidates as Participant arguments for "company" as specified in the event typology: \type{Owner} and \type{Approver}. The company is both the approving entity for the product and owner of the product.
         \expl \type{Approver} is the correct Participant argument tag as it characterizes the event better.
 \end{exe}
@@ -233,7 +233,7 @@ We \textbf{only tag Participant argument mentions that occur within the event me
 The event mention scope is defined as the span of a document from the first trigger of an event to the next trigger you see for the same, coreferent event.
 
 Event mention scopes do not begin and end at the trigger words themselves, but at sentence boundaries:
-\textbf{The scope of an event spans to the start of the trigger sentence to the start if the sentence of the next \underline{coreferent} event.}
+\textbf{The scope of an event spans to the start of the trigger sentence to the start if the sentence of the next \uline{coreferent} event.}
 
 Note: this means not any next event but the next \emph{coreferent} event, i.e. with the same \type{type} referring to the same conceptual event.
 (Event coreference is described in \fullref{chapter/coref}.)

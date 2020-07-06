@@ -21,7 +21,7 @@
 		A description of the event type or subtype. Types are required but selecting subtypes is optional: do not select a subtype when it is a bad fit for the event being described. Absence of a subtype on an annotated event denotes an "Other" subtype.
 	\end{minipage}
 	} & \annexe{Event mention example sentence with the trigger word in \anntrg{bold}.} \\ \thline
-ParticipantArgument & Description of the Participant argument. \underline{Taggability}: Rules on the taggability and extent of the participant is given as needed. As a general rule, the participant extent is a full Noun Phrase. & \annexe{Participant argument example sentence with the argument \exargpart{highlighted}} \\
+ParticipantArgument & Description of the Participant argument. \uline{Taggability}: Rules on the taggability and extent of the participant is given as needed. As a general rule, the participant extent is a full Noun Phrase. & \annexe{Participant argument example sentence with the argument \exargpart{highlighted}} \\
 FILLERARGUMENT & Brief description of the type-specific FILLER argument. For the full description for FILLER arguments and their taggability see \ref{sec:FILLERtypes}. CAPITAL, TIME and PLACE are universal FILLERS allowed on all event types and are not included in event type overviews. & \annexe{FILLER argument example sentence with the FILLER argument \exargfill{highlighted}.}  \\
 \specialrule{.1em}{.05em}{.05em} 
 \end{tabularx}}
@@ -46,8 +46,9 @@ FILLERARGUMENT & Brief description of the type-specific FILLER argument. For the
 		Branding and marketing involves events improving or damaging image and credibility of the brand image, company image, or product image. This includes marketing, advertising campaigns, awards, affiliations, and sponsorships.
 		Includes announcements, reports, quotations, and speculation on CSR and branding events.
 	\end{minipage}
-	} & \annexe{example}                                                                         \\ \thline
-Company & The company or brand directly associated with the CSR, branding, or marketing event. & \annexe{Argument 1 example sentence with the argument highlighted} \\
+	} & \annexe{\exargpart{Duke Energy Corp.} said Tuesday some of its customers may have been affected by a \anntrg{data breach} revealed by PayPal Holdings Inc. \exargfill{last week}.~\footnotesize{[duk05 s01]} \newline\newline
+} \annexe{The public overreacted to \exargpart{Chipotle}'s E. coli \anntrg{scandal}.~\footnotesize{[cmg02 s02]}} \newline\newline \annexe{\exargpart{Boeing} \anntrg{grants} bolster STEM education and veterans~\footnotesize{[ba02 s11]}}                                                                         \\ \thline
+Company & The company or brand directly associated with the CSR, branding, or marketing event. & \annexe{With its new Note 8, \exargpart{Samsung} hopes to \anntrg{redeem} itself.~\footnotesize{[aapl09 s26]}}\\
 \specialrule{.1em}{.05em}{.05em} 
 \end{tabularx}}
 
@@ -72,13 +73,16 @@ Company & The company or brand directly associated with the CSR, branding, or ma
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
 		Deals and partnerships to cooperate with another company or entity.
-		Two or more companies, organization or entities agree to jointly reach a goal.
-		Examples of deals include service and product deals, licensing, contract bid, alliance, partnership, Memorandum of Understanding (MOU), pacts, joint ventures (two companies pool resources to accomplish a task), collaborations, contracts, agreements, development partnerships (usually public private partnerships for development projects), and affiliations.
-		Includes announcements, reports, quotations, and speculation on deal events.\\
+		Two or more companies, organizations or entities agree to jointly reach a goal.
+		Examples of deals include service and product deals, licensing, contract bid, alliance, partnership, Memorandum of Understanding (MOU), pacts, joint ventures (two companies pool resources to accomplish a task), collaborations, contracts, agreements, development partnerships (usually public private partnerships for development projects), and affiliations. Includes announcements, reports, quotations, and speculation on deal events.\\
 	\end{minipage}
-	} & \annexe{example}                                                                         \\ \thline
-Partner & One of the partner in the deal. Taggability: A deal by definition has multiple partners so at least two or more Partner participants need to be tagged (if there is no violation of Event Mention Scope). & \annexe{Argument 1 example sentence with the argument highlighted} \\
-Goal & Goal and aims of the deal. Taggability: Only annotate non-sentential units as the annotation extent, full sentences are not taggable. & \\
+	} & \annexe{\exargpart{Ford} surprised the industry when \exargpart{it} announced a new \anntrg{joint venture} with \exargpart{Zotye , a private electric vehicle maker}.~\footnotesize{[f15 s28]}
+} \newline\newline \annexe{\exargpart{It} also cut a three-year \anntrg{deal} with \exargpart{the Boston Celtics} to \exargpart{provide data , analytics and equipment} , and \exargpart{to put its logo on their uniforms}.~\footnotesize{[ge00 s14]}
+}                                                                         \\ \thline
+Partner & One of the partners in the deal. Taggability: A deal by definition has multiple partners so at least two or more Partner participants need to be tagged (if there is no violation of Event Mention Scope). & \annexe{\exargpart{Ford} said \exargpart{it} will continue to \anntrg{work with} \exargpart{China-based internet company Baidu Inc.} to develop driverless cars.~\footnotesize{[f11 s04]}
+} \\
+Goal & Goal and aims of the deal. Taggability: Only annotate non-sentential units as the annotation extent, full sentences are not taggable. & \annexe{Boeing wins \anntrg{contract} to \exargpart{build DARPA XS}.~\footnotesize{[ba03 s00]}
+} \\
 \specialrule{.1em}{.05em}{.05em} 
 \end{tabularx}}
 
@@ -1137,7 +1141,7 @@ Amount & Current amount of goods and services sold, expressed as monetary expres
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		The quantity of goods and services sold over a certain period.
+		The quantity of goods and services sold over a certain period has increased compared to a historical trend.
 		We include changes, announcements, declarations and forecasts of sales volume figures, increased, decreased, stable.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
@@ -1156,7 +1160,7 @@ HistoricalAmount & The historical sales volume amount compared to which the curr
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		The quantity of goods and services sold over a certain period. This includes a nominal decrease as well as a slowing in sales growth. We include changes, announcements, declarations and forecasts of decreasing sales volume figures and slowing sales volume growth.\\
+		The quantity of goods and services sold over a certain period has decreased compared to a historical trend. This includes a nominal decrease as well as a slowing in sales growth. We include changes, announcements, declarations and forecasts of decreasing sales volume figures and slowing sales volume growth.\\
 		Overlap with Revenue and FinancialReport.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
@@ -1195,7 +1199,7 @@ HistoricalAmount & The historical sales volume amount compared to which the curr
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		Events describing the value/price or change in value/price of a share, stock, derivative or any tradable financial asset. We also includes groupings of securities as in Exchange Traded Funds of market indices (This includes when descriptions and growth/decline/stability in a market index is discussed). We include announcements, forecasts, speculation, expectation, reports, etc. on price increase/decrease/stability or plain value/price descriptions that do not compare to a historical trend.
+		Events describing the value/price or change in value/price of a share, stock, derivative or any tradable financial asset. We also include movements of market indices (This includes when descriptions and growth/decline/stability in a market index is discussed). We include announcements, forecasts, speculation, expectation, reports, etc. on price increase/decrease/stability or plain value/price descriptions that do not compare to a historical trend.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 Security & The security in question. & \\
@@ -1216,13 +1220,14 @@ Price & The current price of a single security. Expressed as monetary value. & \
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		Events describing an increase or positive percentage growth in value/price a share, stock, derivative or any tradable financial asset compared to a historical trend. We also includes groupings of securities as in Exchange Traded Funds of market indices (this includes when growth in a market index is discussed). Includes announcements, forecasts, speculation, expectation, reports, etc. on price increase.
+		Events describing an increase or positive percentage growth in value/price a share, stock, derivative or any tradable financial asset compared to a historical trend. We also include movements of market indices (this includes when growth in a market index is discussed). Includes announcements, forecasts, speculation, expectation, reports, etc. on price increase.
 	\end{minipage}
-	} & \annexe{example}                                                                         \\ \thline
-Security & The security in question. & \\
-Price & The current price of a single security up to which the historical price increased. Expressed as monetary value. & \\
-HistoricalPrice & The historical unit price of the security compared to which to current price is an increase. Expressed as monetary value. & \\
-IncreaseAmount & Relative or nominal price increase as monetary amount or percentage. & \\
+	} & \annexe{\exargpart{Netflix}'s \anntrg{stock rise} has left bears scratching their heads. \footnotesize{[nflx11 s22]} \newline\newline \normalsize{\annexe{\exargpart{The Dow} itself is \anntrg{up} \exargpart{more than 10\%} so far \exargfill{in 2017}. \footnotesize{[ge08 s19]}}}}                                                                      \\ \thline
+Security & The security in question. & \annexe{\exargpart{AbbVie} \anntrg{shares surge} 2\% on Q2 profit \footnotesize{[abbv08 s00]}} \\
+Price & The current price of a single security up to which the historical price increased. Expressed as monetary value. & \annexe{Shares of Amazon \anntrg{are up} 0.5\% to \exargpart{\$1157.87} this afternoon.~\footnotesize{[amzn13 s15]}
+}\\
+HistoricalPrice & The historical unit price of the security compared to which to current price is an increase. Expressed as monetary value. & \annexe{Its target price implies an \anntrg{upside} of 11.6\% from its current market price of \exargpart{\$38.3}.~\footnotesize{[nem04 s05]}} \\
+IncreaseAmount & Relative or nominal price increase as monetary amount or percentage. & \annexe{The \anntrg{stock} was still \anntrg{up} \exargpart{8.1\%} over the past two weeks.~\footnotesize{[amd03 s06]}}\\
 \specialrule{.1em}{.05em}{.05em}
 \end{tabularx}}
 
@@ -1233,7 +1238,7 @@ IncreaseAmount & Relative or nominal price increase as monetary amount or percen
 \specialrule{.1em}{.05em}{.05em}
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		Events describing a decrease or negative percentage decline in value/price a share, stock, derivative or any tradable financial asset compared to a historical trend. We also includes groupings of securities as in Exchange Traded Funds of market indices (This includes when decline in a market index is discussed). Includes announcements, forecasts, speculation, expectation, reports, etc. on price reduction.
+		Events describing a decrease or negative percentage decline in value/price a share, stock, derivative or any tradable financial asset compared to a historical trend. We also include movements of market indices (This includes when decline in a market index is discussed). Includes announcements, forecasts, speculation, expectation, reports, etc. on price reduction.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 Security & The security in question. & \\
@@ -1250,7 +1255,7 @@ DecreaseAmount & Relative or nominal price decrease as monetary amount or percen
 \specialrule{.1em}{.05em}{.05em} 
 \multicolumn{2}{|L{8.55cm}}{
 	\begin{minipage}{8.55cm}
-		Events describing stability or no significant percentage change in value/price a share, stock, derivative or any tradable financial asset compared to a historical trend. We also includes groupings of securities as in Exchange Traded Funds of market indices (This includes when decline in a market index is discussed). Includes announcements, forecasts, speculation, expectation, reports, etc. on price stability.
+		Events describing stability or no significant percentage change in value/price a share, stock, derivative or any tradable financial asset compared to a historical trend. We also include movements of market indices (This includes when decline in a market index is discussed). Includes announcements, forecasts, speculation, expectation, reports, etc. on price stability.
 	\end{minipage}
 	} & \annexe{example}                                                                         \\ \thline
 Security & The security in question. & \\
